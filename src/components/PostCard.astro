@@ -22,19 +22,21 @@
  * mixed-source covers stays uniform; `card_rotator`'s `overflow:hidden`
  * + `--radius: 1rem` clip the outer corners.
  */
-import type { CollectionEntry } from 'astro:content';
+import type { PostEntry } from '../types/posts';
+import { withBase } from '../config';
 import CoverImage from './CoverImage.astro';
 
 interface Props {
-  entry: CollectionEntry<'blogs'> | CollectionEntry<'tutorials'>;
+  entry: PostEntry;
 }
 
 const { entry } = Astro.props;
-const tags: string[] = (entry.data.tags as string[]) ?? [];
+const tags = Array.isArray(entry.data.tags) ? (entry.data.tags as string[]) : [];
 const title = entry.data.short_title ?? entry.data.title ?? entry.id;
 const description = entry.data.description ?? '';
-const href = `/${entry.collection}/${entry.id}/`;
+const href = withBase(`/${entry.collection}/${entry.id}/`);
 ---
+
 <div class="fancy_card horizontal mx-auto w-full" data-post-card>
   <div class="card_translator">
     <a class="card_rotator small_rot card_layer block" href={href} aria-label={title}>
@@ -51,22 +53,13 @@ const href = `/${entry.collection}/${entry.id}/`;
               />
             </figure>
           </header>
-          {/*
-            `min-h-[12rem]` keeps every card in a row the same vertical
-            size even when descriptions and titles wrap to a different
-            number of lines. 12rem covers the worst-case observed in the
-            home teaser grids (a 2-line title plus a 3-line description,
-            ~182px measured), so a single-line entry next to it doesn't
-            end up visibly shorter. Tailwind 3.2 doesn't ship the
-            `min-h-{n}` numeric scale, hence the arbitrary value.
-            `flex-grow` on the description still pushes short copy down
-            to fill the reserved space cleanly.
-          */}
           <div class="px-4 pb-4 flex flex-col flex-grow min-h-[13.25rem]">
             <div class="mb-3">
               <ul class="flex flex-wrap text-xs font-medium -m-1">
                 {tags.map((tag) => (
-                  <li class={`m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}`}>{tag}</li>
+                  <li class={`m-1 inline-flex text-center py-1 px-3 rounded-full tag-${tag}`}>
+                    {tag}
+                  </li>
                 ))}
               </ul>
             </div>

@@ -286,7 +286,7 @@ svg.ico {
     --space: 2%;
     --angle: 133deg;
     --imgsize: 35%;
-    background-image: url("https://cosmiccoding.com.au/static/img/textures/illusion.webp"),
+    background-image: url(var(--texture-illusion)),
       repeating-linear-gradient(
         0deg,
         #ff7773 calc(var(--space) * 1),
@@ -473,9 +473,9 @@ svg.ico {
     --h: 21;
     --s: 70%;
     --l: 50%;
-    background-image: url("https://cosmiccoding.com.au/static/img/textures/galaxy.webp"),
-      url("https://cosmiccoding.com.au/static/img/textures/galaxy.webp"),
-      url("https://cosmiccoding.com.au/static/img/textures/galaxy.webp"),
+    background-image: url(var(--texture-gallery)),
+      url(var(--texture-gallery)),
+      url(var(--texture-gallery)),
       repeating-linear-gradient(
         82deg,
         #da3832 calc(var(--space) * 1),

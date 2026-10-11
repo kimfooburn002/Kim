@@ -9,6 +9,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import TaggedList from '../../components/islands/TaggedList.svelte';
 import type { TaggedPost } from '../../components/islands/TaggedList.svelte';
 import { resolveCover } from '../../lib/covers';
+import { SITE_BASE, withBase } from '../../config';
+
+const BASE = SITE_BASE.replace(/\/$/, '');
 
 const entries = await getCollection('blogs');
 // Hugo's `RegularPages.ByWeight` falls back to `date` (descending) when
@@ -22,7 +25,7 @@ const posts: TaggedPost[] = await Promise.all(
     const large = await resolveCover(entry, 704, 396);
     return {
       name: entry.data.short_title ?? entry.data.title,
-      link: `/blogs/${entry.id}/`,
+      link: withBase(`/blogs/${entry.id}/`),
       weight: 0,
       date: entry.data.date.toISOString(),
       tags: [...entry.data.tags].sort().map((t) => t.toLowerCase()),
@@ -44,6 +47,6 @@ const posts: TaggedPost[] = await Promise.all(
     </div>
 
     <div id="toggle-input" class="max-w-7xl mx-auto"></div>
-    <TaggedList client:load posts={posts} />
+    <TaggedList client:load posts={posts} base={SITE_BASE} />
   </div>
 </BaseLayout>

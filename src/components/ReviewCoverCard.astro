@@ -16,6 +16,7 @@
  * `card_glare` paints the moving highlight.
  */
 import type { CollectionEntry } from 'astro:content';
+import { withBase } from '../config';
 import CoverImage from './CoverImage.astro';
 
 interface Props {
@@ -30,7 +31,7 @@ const title = entry.data.short_title ?? entry.data.name;
   <div class="card_translator">
     <a
       class="card_rotator small_rot card_layer block"
-      href={`/reviews/${entry.id}/`}
+      href={withBase(`/reviews/${entry.id}/`)}
       aria-label={title}
     >
       <div class="card_layer">

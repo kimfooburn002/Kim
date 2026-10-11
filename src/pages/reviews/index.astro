@@ -4,8 +4,9 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewsExplorer from '../../components/islands/ReviewsExplorer.svelte';
 import { resolveReviewCover } from '../../lib/covers';
 import type { Post, ReviewTier } from '../../lib/types';
+import { SITE_BASE, withBase } from '../../config';
 
-const BASE = '/Kim';
+const BASE = SITE_BASE.replace(/\/$/, '');
 
 const entries = await getCollection('reviews');
 const sorted = entries.sort((a, b) => a.data.weight - b.data.weight);
@@ -14,10 +15,11 @@ const posts: Post[] = await Promise.all(
   sorted.map(async (entry) => {
     const cover = await resolveReviewCover(entry);
     const sortedTags = [...entry.data.tags].sort().map((t) => t.toLowerCase());
+    const reviewPath = withBase(`/reviews/${entry.id}/`);
     return {
       name: entry.data.name,
-      link: `${BASE}/reviews/${entry.id}/`,
-      abslink: new URL(`${BASE}/reviews/${entry.id}/`, Astro.site!).toString(),
+      link: reviewPath,
+      abslink: new URL(reviewPath, Astro.site!).toString(),
       author: entry.data.auth,
       review: entry.data.review as ReviewTier,
       weight: entry.data.weight,

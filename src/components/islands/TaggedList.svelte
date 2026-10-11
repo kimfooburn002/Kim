@@ -20,8 +20,8 @@
     img_larger: string;
   }
 
-  type Props = { posts: TaggedPost[] };
-  let { posts }: Props = $props();
+  type Props = { posts: TaggedPost[]; base: string };
+  let { posts, base }: Props = $props();
 
   let tagActivations = $state<Record<string, boolean>>({});
 
@@ -59,6 +59,11 @@
       return true;
     });
   });
+
+  function prefixBase(link: string): string {
+    if (link.startsWith(base)) return link;
+    return base + link;
+  }
 </script>
 
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-6">
@@ -81,7 +86,7 @@
     {#each visiblePosts as post (post.link)}
       <div class="fancy_card horizontal mx-auto w-full" data-tagged-card>
         <div class="card_translator">
-          <a class="card_rotator small_rot card_layer block" href={post.link} aria-label={post.name}>
+          <a class="card_rotator small_rot card_layer block" href={prefixBase(post.link)} aria-label={post.name}>
             <div class="card_layer">
               <article class="flex flex-col h-full bg-gray-800">
                 <header class="mb-4">

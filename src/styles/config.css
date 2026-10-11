@@ -1,0 +1,18 @@
+/**
+ * CSS custom properties for site configuration.
+ * These are set once at build time and available in all CSS files.
+ * 
+ * To update: modify src/config.ts, then rebuild.
+ * The Vite plugin (scripts/css-config-plugin.mjs) injects these values.
+ */
+
+:root {
+  /* Domain and paths - set by build-time injection */
+  --site-domain: "https://kimfooburn001.github.io/Kim";
+  --site-base: "/Kim/";
+  --asset-base: "https://kimfooburn001.github.io/Kim/static";
+
+  /* Asset URLs - ready to use in url() */
+  --texture-gallery: "https://kimfooburn001.github.io/Kim/static/img/textures/galaxy.webp";
+  --texture-illusion: "https://kimfooburn001.github.io/Kim/static/img/textures/illusion.webp";
+}
