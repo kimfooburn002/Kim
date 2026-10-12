@@ -1,14 +1,14 @@
 # In development!
 
-# [Kim's Journal](https://kimfooburn001.github.io/Kim/)
+# [Puregarnet's Journal](https://kimfooburn001.github.io/Kim/)
 
-Source for [Kim's Journal]([https://kimfooburn001.github.io/Kim/])) — Kim's
+Source for [Puregarnet's Journal]([https://kimfooburn001.github.io/Kim/])) — Puregarnet's
 personal site. Books, reviews, blog posts.
 
 The site is a static build produced by **Astro v5** with **Svelte 5**
-islands for the interactive bits (reviews explorer, artists explorer, mobile
+islands for the interactive bits (reviews explorer, mobile
 menu). It deploys to GitHub Pages from `master`
-via `.github/workflows/gh-pages.yml`.
+via `.github/workflows/gh-pages.yml`. Original developer is https://github.com/Samreay/Samreay.
 
 It used to be a Hugo site. The migration is documented under [`plans/`](plans/).
 

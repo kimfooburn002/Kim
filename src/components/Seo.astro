@@ -8,16 +8,16 @@
  * back into <head>, but only the ones rendered before any real <body>
  * content.
  */
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
+// Remove the local const declarations above
+
 interface Props {
   title?: string;
   description?: string;
   image?: string;
   type?: 'website' | 'article';
 }
-
-const SITE_TITLE = 'Samuel Hinton';
-const SITE_DESCRIPTION =
-  "Samuel Hinton's latest books, blogs. Plus just his general thoughts on the world, which probably have little value.";
 
 const { title, description, image, type = 'website' } = Astro.props;
 const finalDescription = description ?? SITE_DESCRIPTION;

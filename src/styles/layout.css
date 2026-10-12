@@ -74,7 +74,7 @@ body {
     @apply text-7xl;
   }
   .subtitle {
-    @apply text-3xl font-thin max-w-2xl mx-auto;
+    @apply text-3xl font-thin max-w-2xl mx-auto px-4 sm:px-6 md:px-8 leading-relaxed;
   }
 }
 
@@ -327,14 +327,6 @@ pre.astro-code {
 [class*='width-'] {
   @apply mx-auto;
   max-width: 64rem;
-}
-.reduced-code {
-  @apply mx-auto;
-  max-width: 50rem;
-}
-.expanded-code {
-  @apply mx-auto;
-  max-width: none;
 }
 
 /* Language-less fences are notebook output text: tucked under the code block

@@ -8,6 +8,7 @@
 export const SITE_DOMAIN = "https://kimfooburn001.github.io/Kim";
 export const SITE_URL = SITE_DOMAIN + "/";
 export const SITE_BASE = "/Kim/";
+export const SITE_HOME_TITLE = "Kim... and musings on books, bakes and games.";
 
 export function withBase(path: string): string {
   const normalized = path.startsWith('/') ? path : `/${path}`;

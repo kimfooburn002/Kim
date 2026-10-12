@@ -15,10 +15,6 @@ install_precommit:
 precommit:
 	pre-commit run --all-files
 
-convert:
-	@echo "Converting notebooks"
-	uv run python builder/convert.py
-
 prod:
 	rm -rf dist && npm run build
 
@@ -27,10 +23,6 @@ blog:
 
 summary:
 	uv run builder/summary_generator.py
-
-cv:
-	cd resume && uv run rendercv render "Hinton_CV.yaml" \
-	  && cp rendercv_output/Samuel_Hinton_CV.pdf ../astro-public/static/resume/Samuel_Hinton_CV.pdf
 
 og:
 	npx tsx scripts/generate-og.ts

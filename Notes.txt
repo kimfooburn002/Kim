@@ -1,0 +1,55 @@
+How the Green Color is Selected
+The .logo class uses two utilities that both apply the same green gradient:
+
+kimfooburn001 / Kim / src / styles / styling.css
+v2
+@utility gradient {
+  background-image: linear-gradient(132deg, #34d399 5%, #0d9488 95%);
+}
+
+@utility text-gradient {
+  color: transparent;
+The green colors are hardcoded as hex codes:
+
+#34d399 — brighter/lighter green (5% to 95% of the gradient)
+#0d9488 — darker green (95% of the gradient)
+Both utilities create a 132-degree gradient that transitions from the lighter green to the darker green.
+
+How to Change the Logo Color
+You have two approaches:
+
+Option 1: Edit the @utility gradient and @utility text-gradient rules directly
+Replace the hex codes with new colors:
+
+CSS
+@utility gradient {
+  background-image: linear-gradient(132deg, #FF6B6B 5%, #C92A2A 95%);  /* red example */
+}
+
+@utility text-gradient {
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(132deg, #FF6B6B 5%, #C92A2A 95%);  /* red example */
+}
+Caveat: This affects all elements using @apply text-gradient or @apply gradient, including blog post titles (line 182), so it's a site-wide change.
+
+Option 2: Create a new .logo specific gradient (recommended)
+Keep the utilities unchanged and override .logo only:
+
+CSS
+.logo {
+  letter-spacing: 0em;
+  background-image: linear-gradient(132deg, #FF6B6B 5%, #C92A2A 95%) !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+This way, only the logo changes, and other elements stay green.
+
+Color suggestions for alternatives:
+
+Purple: #A855F7 → #7E22CE
+Orange: #FB923C → #EA580C
+Blue: #3B82F6 → #1E40AF
+Pink: #EC4899 → #BE185D
