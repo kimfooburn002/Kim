@@ -182,9 +182,9 @@
       @apply text-gradient gradient;
     }
   }
-
+ 
   /* Review pages: make H2/H3 align with the paragraph body */
-  .review-article h2,
+ /* .review-article h2,
   .review-article h3,
   .review-article h4 {
     max-width: 42rem;      /* matches Tailwind's max-w-2xl */
@@ -192,6 +192,28 @@
     margin-right: auto;    /* centers the heading container like the paragraphs */
     text-align: left !important; /* ensure it overrides theme centering */
     padding-top: 1.5rem;   /* keep similar spacing to existing heading rules */
+  }*/
+
+  /* review heading sizes (no @apply) */
+  .review-article h2,
+  .review-article h3 {
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left !important;
+    padding-top: 1.5rem;
+
+    /* exact sizes */
+    font-size: 1.625rem;   /* mobile default: 26px */
+    line-height: 1.4;
+  }
+
+  /* larger on sm+ screens */
+  @media (min-width: 640px) {
+    .review-article h2,
+    .review-article h3 {
+      font-size: 2rem;    /* sm+ default: 32px */
+    }
   }
 
   a:not(.no-under) {
