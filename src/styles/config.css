@@ -8,11 +8,11 @@
 
 :root {
   /* Domain and paths - set by build-time injection */
-  --site-domain: "https://kimley89.github.io/Kim";
+  --site-domain: "https://kimfooburn002.github.io/Kim";
   --site-base: "/Kim/";
-  --asset-base: "https://kimley89.github.io/Kim/static";
+  --asset-base: "https://kimfooburn002.github.io/Kim/static";
 
   /* Asset URLs - ready to use in url() */
-  --texture-gallery: "https://kimley89.github.io/Kim/static/img/textures/galaxy.webp";
-  --texture-illusion: "https://kimley89.github.io/Kim/static/img/textures/illusion.webp";
+  --texture-gallery: "https://kimfooburn002.github.io/Kim/static/img/textures/galaxy.webp";
+  --texture-illusion: "https://kimfooburn002.github.io/Kim/static/img/textures/illusion.webp";
 }
