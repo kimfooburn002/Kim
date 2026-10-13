@@ -538,7 +538,7 @@
   text-align: left;
   cursor: pointer;
 
-  /* Force it to behave like normal body text */
+  /* Force it to behave like normal body text */ 
   display: inline;
   width: auto;
   box-sizing: border-box;
