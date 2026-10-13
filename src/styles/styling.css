@@ -182,6 +182,18 @@
       @apply text-gradient gradient;
     }
   }
+
+  /* Review pages: make H2/H3 align with the paragraph body */
+  .review-article h2,
+  .review-article h3,
+  .review-article h4 {
+    max-width: 42rem;      /* matches Tailwind's max-w-2xl */
+    margin-left: auto;
+    margin-right: auto;    /* centers the heading container like the paragraphs */
+    text-align: left !important; /* ensure it overrides theme centering */
+    padding-top: 1.5rem;   /* keep similar spacing to existing heading rules */
+  }
+
   a:not(.no-under) {
     @apply under text-main-200;
     box-shadow: 0 10px 0 0 #ffa93800, inset 0 -0.125em #115e59;
