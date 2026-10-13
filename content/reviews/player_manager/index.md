@@ -37,7 +37,9 @@ Player Manager is a progression fantasy set in the modern world. It's perfect fo
 
 —-C1—-
 
-<span class="spoiler">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</span>
+<button class="spoiler" onclick="this.classList.toggle('is-revealed')">
+I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.
+</button>
 
 Oh, that’s true, that is what it looks like from the opposite side doesn’t it, cause he changes formation immediately that it feels like he set up layers what to do if this happens 😆 
 
