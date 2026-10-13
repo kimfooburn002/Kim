@@ -527,23 +527,37 @@
   @apply font-medium text-2xl text-main-500 bg-gray-800 text-center;
 }
 
-.spoiler { 
-  /* Reset default button styles so it looks like text */
-  background: #FFFFED;
-  color: #FFFFED;
+.spoiler {
+  /* Preserve accessibility */
+  background: transparent;
   border: none;
-  padding: 0 4px;
+  margin: 0;
+  padding: 0;
+  color: inherit;
   font: inherit;
+  text-align: left;
   cursor: pointer;
-  
-  /* Smooth transition when the class changes */
-  transition: background-color 0.5s, color 0.5s; 
-  
-  /* The Revealed State (replaces hover) */
-  &.is-revealed { 
-    background-color: transparent; 
-    @apply text-main-300; 
-  } 
+
+  /* Force it to behave like normal body text */
+  display: inline;
+  width: auto;
+  box-sizing: border-box;
+
+  /* Hidden spoiler state */
+  color: #ffffed;
+  background-color: #ffffed;
+  transition:
+    color 0.35s ease,
+    background-color 0.35s ease,
+    text-shadow 0.35s ease;
+
+  /* Optional: keep it from looking like a broken inline box */
+  vertical-align: baseline;
+}
+
+.spoiler.is-revealed {
+  background-color: transparent;
+  color: inherit;
 }
   
 /*
