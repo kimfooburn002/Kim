@@ -194,26 +194,35 @@
     padding-top: 1.5rem;   /* keep similar spacing to existing heading rules */
   }*/
 
-  /* review heading sizes (no @apply) */
+  /* review headings — decreasing sizes, aligned with paragraph column */
   .review-article h2,
-  .review-article h3 {
-    max-width: 42rem;
+  .review-article h3,
+  .review-article h4,
+  .review-article h5,
+  .review-article h6 {
+    max-width: 42rem;          /* same column width as paragraphs */
     margin-left: auto;
     margin-right: auto;
     text-align: left !important;
-    padding-top: 1.5rem;
-
-    /* exact sizes */
-    font-size: 1.625rem;   /* mobile default: 26px */
-    line-height: 1.4;
+    margin-top: 1rem;
+    margin-bottom: 0.75rem;
+    font-weight: 700;
   }
-
-  /* larger on sm+ screens */
+  
+  /* Mobile / default sizes (phones) */
+  .review-article h2 { font-size: 1.75rem; line-height: 1.25; } /* ~28px */
+  .review-article h3 { font-size: 1.375rem; line-height: 1.3; } /* ~22px */
+  .review-article h4 { font-size: 1.125rem; line-height: 1.4; } /* ~18px */
+  .review-article h5 { font-size: 1rem;     line-height: 1.45; } /* ~16px */
+  .review-article h6 { font-size: 0.9375rem; line-height: 1.45; } /* ~15px */
+  
+  /* Larger screens: bump everything up a bit */
   @media (min-width: 640px) {
-    .review-article h2,
-    .review-article h3 {
-      font-size: 2rem;    /* sm+ default: 32px */
-    }
+    .review-article h2 { font-size: 2rem;   line-height: 1.2; } /* 32px */
+    .review-article h3 { font-size: 1.5rem; line-height: 1.25; } /* 24px */
+    .review-article h4 { font-size: 1.25rem; line-height: 1.35; } /* 20px */
+    .review-article h5 { font-size: 1.125rem; line-height: 1.4; } /* 18px */
+    .review-article h6 { font-size: 1rem;     line-height: 1.45; } /* 16px */
   }
 
   a:not(.no-under) {
