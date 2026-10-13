@@ -528,13 +528,21 @@
 }
 
 .spoiler { 
-  background-color: #000000; /* Creates the solid black block */
-  color: #000000;            /* Hides the text by matching it to the background */
+  /* Reset default button styles so it looks like text */
+  background: #FFFFED;
+  color: #FFFFED;
+  border: none;
+  padding: 0 4px;
+  font: inherit;
+  cursor: pointer;
+  
+  /* Smooth transition when the class changes */
   transition: background-color 0.5s, color 0.5s; 
   
-  &:hover { 
-    background-color: transparent; /* Removes the black block on hover */
-    @apply text-main-300;          /* Smoothly reveals the text color */
+  /* The Revealed State (replaces hover) */
+  &.is-revealed { 
+    background-color: transparent; 
+    @apply text-main-300; 
   } 
 }
   
