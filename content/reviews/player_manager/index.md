@@ -35,7 +35,7 @@ Player Manager is a progression fantasy set in the modern world. It's perfect fo
 
 *Book 8 spoilers ahead! Decided to keep a record off Royal Road because once a book is stubbed, Idk what happens to the comments of those chapters 😅
 
-##C1
+## C1
 
 > <button class="spoiler" onclick="this.classList.toggle('is-revealed')">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</button>
 
