@@ -35,7 +35,7 @@ Player Manager is a progression fantasy set in the modern world. It's perfect fo
 
 *Book 8 spoilers ahead! Decided to keep a record off Royal Road because once a book is stubbed, Idk what happens to the comments of those chapters 😅
 
-### C1
+### Chapter 1
 
 > <button class="spoiler" onclick="this.classList.toggle('is-revealed')">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</button>
 
@@ -43,7 +43,7 @@ Oh, that’s true, that is what it looks like from the opposite side doesn’t i
 
 Anyway, so this is what you guys were saying about liking the summaries of previous books after book 7! Fun haha. It’s combining an outside pov with Max in a publication sort of thing! Such an amazing idea 👏🙌 I didn’t rmb which book the recaps supposedly get good so for the past couple of books, I was wondering if that was it 😂
 
-—-C2—-
+### Chapter 2
 
 Ugh, the moment I was excited to read book 8 and I’m hit with Max flirting with some woman again in the very first scene. Thought he mellowed out of it. Sigh.
 
@@ -51,11 +51,11 @@ Ugh, the moment I was excited to read book 8 and I’m hit with Max flirting wit
 
 I just mentioned about spending more time with the existing young people previously and here Max does it with James and co 😆
 
-—C5—
+### Chapter 5
 
 Overpowered GM! Goodness, she’s so witty, casually funny and cute haha
 
-—C7—
+### Chapter 7
 
 The new Maxterplan, sadly, it didn’t feel as wowza as the first one coming off a coma and still brand new to the team. Looks like we got new employees but no names or introductions which I wished we got, you know, to endear them to us.
 
@@ -63,13 +63,15 @@ And we are indeed getting more focus of the youth tournaments! But we haven’t 
 
 Not gonna lie, what I’ve read so far felt not that exciting to read. Well, except the Exit Trials, but that felt like too many characters. I am begining to wonder if we aren’t getting that lowering of guards for deeper connections between characters that we got a lot of earlier in the series because Max and Chester are comfortable now.
 
-There is no incentive to get to know each other deeper anymore now that Max had proved they can go places and they got the basics of each other down. I wonder if both they and I are getting too used to his tricks? So I wonder if we can still get more highs out of the story? Like that one where Henri dug and dug and dug to pull out that Max really cared about the kids or when Aff bravely asked personal questions to this bristly new manager because his mother/grandmother asked him to. The high I got from that was crazy haha The magical nervous anticipation of getting to know someone secretive and the satisfaction of getting through the walls 😌😌
+There is no incentive to get to know each other deeper anymore now that Max had proved they can go places and they got the basics of each other down. I wonder if both they and I are getting too used to his tricks? So I wonder if we can still get more highs out of the story? 
+
+Like that one where Henri dug and dug and dug to pull out that Max really cared about the kids or when Aff bravely asked personal questions to this bristly new manager because his mother/grandmother asked him to. The high I got from that was crazy haha The magical nervous anticipation of getting to know someone secretive and the satisfaction of getting through the walls 😌😌
 
 ——-
 
 Oof, broken arm. So ever since the guy was cold and then July 1, so hot, yeeeah that was sus. And now this? Seems like foul play yo. Maybe I’m meant to think this was and there is a twist later but for now, so sus.
 
-—-C8—-
+### Chapter 8
 
 I feel like the author is a great predictor? High level planner/outliner? Cause right after I complained about not having some genuine heart to hearts/real talk, we get one with Zach 😂 And find out why he became hot from cold at July 1 😂
 
@@ -81,15 +83,15 @@ And hmmm, what if Sam doesn’t to leave?
 
 ——-
 
-<span class="spoiler">When it came to quality, I was on a desert island. Pascal and Youngster were swimming towards me as fast as they could. Henri was on an air mattress holding a shiny metal sheet under his face. Sharknado was going super fast in a huge zigzag that brought him little closer. Zach was on a fast dinghy but had decided to replace the engine with sticks of dynamite that he was tossing into the water behind him to make himself go 'real fast'. Then loads of Exit Trials kids were in water wings splashing around having a lovely old time.
-
-Yeah, I was going to have to carry the team for a while.</span>
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">When it came to quality, I was on a desert island. Pascal and Youngster were swimming towards me as fast as they could. Henri was on an air mattress holding a shiny metal sheet under his face. Sharknado was going super fast in a huge zigzag that brought him little closer. Zach was on a fast dinghy but had decided to replace the engine with sticks of dynamite that he was tossing into the water behind him to make himself go 'real fast'. Then loads of Exit Trials kids were in water wings splashing around having a lovely old time.</button>
+> 
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Yeah, I was going to have to carry the team for a while.</button>
 
 Oh man, this passage is lovely, the imagery and the vibe it’s showing, like I can just imagine Max sitting there quietly, with one corner smiling in a mix of fondness and wryness or something haha All paternal, liking the vibes ☺️
 
 ——-
 
-Sam Topps' back was suddenly straight. He loved it when I talked like this.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Sam Topps' back was suddenly straight. He loved it when I talked like this.</button>
 
 Sam just makes me smile 😊 Seriously, he’s changed and grew so much, all in on the Max train. Will he still want to leave for a better offer?
 
@@ -97,25 +99,25 @@ Sam just makes me smile 😊 Seriously, he’s changed and grew so much, all in 
 
 Oooh, so that’s why Dean was so mad 😅 Hypocrite Max, dissing his own rules. I feel like the only way this is ending, is bad. 😅😅😅
 
-This had the potential to end very, very badly.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">This had the potential to end very, very badly.</button>
 
 So you know, then why do it Max? 😅
 
 ———
 
-Physio Dean, always in search of his Doctor Voice. The man from underground who bossed the pandemic and gave me the first aid that saved my life. Irreplaceable. I regarded him. He himself was a long-term castaway. His private island was slowly drifting closer to the mainland, but there was some way to go before he truly joined our archipelago.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Physio Dean, always in search of his Doctor Voice. The man from underground who bossed the pandemic and gave me the first aid that saved my life. Irreplaceable. I regarded him. He himself was a long-term castaway. His private island was slowly drifting closer to the mainland, but there was some way to go before he truly joined our archipelago.</button>
 
-…the lads spotted Dean taking care of me they pointed and chanted, "Deano! Deano!"
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">…the lads spotted Dean taking care of me they pointed and chanted, "Deano! Deano!"</button>
 
-His eyes flickered around. He loved being part of the group more than he hated me for being a massive hypocrite.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">His eyes flickered around. He loved being part of the group more than he hated me for being a massive hypocrite.</button>
 
 I am definitely smiling.
 
-—C9—-
+### Chapter 9
 
-So, hypocrite Max maybe? He keeps rooting for fan owned clubs but then he keeps insulting the fans about football in such derision lol Like he wants all the good without the natural bad that comes with it. Kinda wish someone will call him out on it.
+So, hypocrite Max, maybe? He keeps rooting for fan owned clubs but then he keeps insulting the fans about football in such derision lol Like he wants all the good without the natural bad that comes with it. Kinda wish someone will call him out on it.
 
-Pascal went hard but with an extra layer of intelligence - letting an opponent's aggression beat him, or doing taunty little moves to provoke a mistake. Where did he learn all that?
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Pascal went hard but with an extra layer of intelligence - letting an opponent's aggression beat him, or doing taunty little moves to provoke a mistake. Where did he learn all that?</button>
 
 Lol, yes Max, who else in his vincity that plays like this 😂
 
@@ -125,25 +127,25 @@ Oof the burn haha Pascal and Henri are out.
 
 ———
 
-Looking at the team sheet and realising I'd never write his name again
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Looking at the team sheet and realising I'd never write his name again...</button>
 
 Noooo, Sam’s really gone 🥺 I have tears in my eye ya’ll. He was a reliable safety net and now he’s gone 😫
 
 ——-
 
-Sandra gave me a strange grin. "You're upbeat considering we just got hammered."
-
-"Hammered?" I said, confused. "When?"
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Sandra gave me a strange grin. "You're upbeat considering we just got hammered."</button>
+> 
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">"Hammered?" I said, confused. "When?"</button>
 
 Yes, Max is back! Max and the youths are like, synergistic 🙌😆 The Max Best football attention on you and you alone is super heady 😆
 
-He pointed to my right hand. "What was that?"
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">He pointed to my right hand. "What was that?"</button>
 
-As I had said the word quest I had shaken an imaginary little stick. "Oh. I think I was being a shaman."
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">As I had said the word quest I had shaken an imaginary little stick. "Oh. I think I was being a shaman."</button>
 
 Max is back, Max is back! 😆
 
-—-C11—-
+### Chapter 11
 
 Oh no. It’s SILK! again 🫠 It’s an important piece of event that happened to multiple people but I don’t get it nooo. All the references, all the multiple tropes(it seems just these being present is inherently a good thing? But for me it doesn’t add anything to the play so I don’t get it 😩), the comments, the lines, the banter, the humour(?), it’s not landing for me so I’m just reading without understanding anything, why people are happy watching it or feel such glee or anything. I don’t get it ahhhh 🫠🫠
 
@@ -151,22 +153,22 @@ Oh no. It’s SILK! again 🫠 It’s an important piece of event that happened 
 
 This Silk 2 is way better!! It has a point that’s explained pretty soon after it started so I wasn’t on tetherhooks the entire time! Max is trying to tell Henri something that he kept avoiding! Through a play! So mint.
 
-M: [Rubbing his arm.] I want my friend back though.
-
-My heart 🥹🥹
-
-M: No. I want to resolve this right now like a man. Not just wait and hope for the best but directly tell my friend how I feel.
-
-The actors looked at me. The guards and the Brig looked at me. Henri... looked at me.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">M: [Rubbing his arm.] I want my friend back though.</button>
+> 
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">My heart 🥹🥹</button>
+> 
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">M: No. I want to resolve this right now like a man. Not just wait and hope for the best but directly tell my friend how I feel.</button>
+> 
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">The actors looked at me. The guards and the Brig looked at me. Henri... looked at me.</button>
 
 Omaigod yes 👏👍😩🤌
 
-Horny: I don't want to hear from Max the football manager. I want to hear from Max, my friend. Max, my friend, who set up this whole charade instead of talking to me face-to-face.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">Horny: I don't want to hear from Max the football manager. I want to hear from Max, my friend. Max, my friend, who set up this whole charade instead of talking to me face-to-face.</button>
 
 Ahhh, omaigod, this silk production charade is the best thing this book produced ahhh 🙌 The feels, the elaborate production, the addition of the guards and the prisoners, the tension of it all, the crazy fact that these actors and guards took over and are helping/interjecting/forcing Max to act/communicate with Henri, the fact that the prisoners watch Max and Chester and supports him, it’s so freaking good! The buzz guys, the excitement!
 
 Sun and moon, dang that is some good metaphors, Max and Ted. Good prose! Err, concepts? Explanation of relationship dynamics and it’s just so good!
 
-"You’re trying to stop me making grand romantic gestures by making a grand romantic gesture. You have spoken my language. All this time you have been snubbing me you have been preparing this wonderful play. I feel wooed. I feel seduced. I am the sun. Yes. I, Horny Lie-Ins, will be your sun." He nodded a few times.
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">"You’re trying to stop me making grand romantic gestures by making a grand romantic gesture. You have spoken my language. All this time you have been snubbing me you have been preparing this wonderful play. I feel wooed. I feel seduced. I am the sun. Yes. I, Horny Lie-Ins, will be your sun." He nodded a few times.</button>
 
 Guys, I love this, I adore this chapter, this is what I had been craving for like a drug addict 😩🤌
