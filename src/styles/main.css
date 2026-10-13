@@ -225,11 +225,10 @@
 @import './layout.css';
 @import './fancy.css';
 
-article h2,
-article h3,
-.prose h2,
-.prose h3,
-main h2,
-main h3 {
-  text-align: left;
+.review-article h2,
+.review-article h3,
+.review-article h4,
+.review-article h5,
+.review-article h6 {
+  text-align: left !important;
 }
