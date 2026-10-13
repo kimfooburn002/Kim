@@ -21,6 +21,8 @@ search_terms: "Soccer Supremo Max Best Football Manager Championship Manager"
 
 ## Blurb
 
+but I want each of the headers to have decreasing sizes from each othre like in markdown
+
 Could a seemingly average Premier League fan oversee a football club better than a top manager? Max is starting to think so.
 
 Max Best is not living his — ahem — best life. His job's a drag, his home's a shooting gallery, his hopes are nil, and lately, even his beloved game of football has devolved from a chaotic, ecstatic delight into a cold, calculating equation of stats, tech terms, and mindless lingo.
