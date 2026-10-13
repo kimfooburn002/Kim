@@ -141,7 +141,14 @@ const BUTTON_BG = ['S', 'A', 'B', 'C', 'D', 'F', 'π'] as const;
     <section class="content content-wide">
       <h2 class="text-2xl mb-4">Spoiler &amp; gradient text</h2>
       <p class="text-gradient text-3xl">Gradient title</p>
-      <p>This sentence has a <span class="spoiler">hidden spoiler</span> in it (hover to reveal).</p>
+      <p>
+        This sentence has a
+        <label class="spoiler-toggle">
+          <input type="checkbox" aria-label="Toggle spoiler">
+          <span class="spoiler-toggle__content">hidden spoiler</span>
+        </label>
+        in it.
+      </p>
     </section>
 
     <section class="content content-wide">
