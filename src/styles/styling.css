@@ -556,8 +556,8 @@
   vertical-align: baseline;
 
   /* Hidden state */
-  color: #f2f2e2;
-  background-color: #f2f2e2;
+  color: #63635c;
+  background-color: #63635c;
   transition:
     color 0.35s ease,
     background-color 0.35s ease;
