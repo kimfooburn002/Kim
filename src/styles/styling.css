@@ -204,7 +204,7 @@
   }
 
   p, ul, li, em, strong, a {
-    @apply text-xl sm:text-2xl leading-normal;
+    @apply text-[1.375rem] sm:text-[1.625rem] leading-normal;
   }
 
   blockquote p {
