@@ -37,9 +37,9 @@ Player Manager is a progression fantasy set in the modern world. It's perfect fo
 
 —-C1—-
 
-<button class="spoiler" onclick="this.classList.toggle('is-revealed')">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</button>
+> <button class="spoiler" onclick="this.classList.toggle('is-revealed')">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</button>
 
-Oh, that’s true, that is what it looks like from the opposite side doesn’t it, cause he changes formation immediately that it feels like he set up layers what to do if this happens 😆 
+> Oh, that’s true, that is what it looks like from the opposite side doesn’t it, cause he changes formation immediately that it feels like he set up layers what to do if this happens 😆 
 
 Anyway, so this is what you guys were saying about liking the summaries of previous books after book 7! Fun haha. It’s combining an outside pov with Max in a publication sort of thing! Such an amazing idea 👏🙌 I didn’t rmb which book the recaps supposedly get good so for the past couple of books, I was wondering if that was it 😂
 
