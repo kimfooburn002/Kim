@@ -224,3 +224,12 @@
 @import './styling.css';
 @import './layout.css';
 @import './fancy.css';
+
+article h2,
+article h3,
+.prose h2,
+.prose h3,
+main h2,
+main h3 {
+  text-align: left;
+}
