@@ -1,3 +1,58 @@
+.tag-review {
+  @apply font-medium text-2xl text-main-500 bg-gray-800 text-center;
+}
+
+/* Replace the old hover-only spoiler with a click-to-toggle version */
+.spoiler-toggle {
+  @apply inline-block relative cursor-pointer;
+
+  input[type="checkbox"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  .spoiler-toggle__content {
+    @apply relative inline-block;
+    color: inherit;
+  }
+
+  .spoiler-toggle__content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #000;
+    border-radius: 0.125rem;
+    transition: opacity 0.12s linear;
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 1;
+  }
+
+  input[type="checkbox"]:checked + .spoiler-toggle__content::before {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .spoiler-toggle__content,
+  .spoiler-toggle__content > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  input[type="checkbox"]:focus + .spoiler-toggle__content {
+    outline: 3px solid rgba(21, 156, 228, 0.15);
+    outline-offset: 3px;
+  }
+}
+
 :root {
   /* --grad-m: linear-gradient(
     45deg,
