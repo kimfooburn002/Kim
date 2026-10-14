@@ -368,7 +368,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-main-700' : 'bg-gray-700'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-main-800' : 'bg-gray-700'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -385,10 +385,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-main-700' : 'bg-gray-700'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-main-800' : 'bg-gray-700'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-gray-700' : 'bg-main-700'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-gray-700' : 'bg-main-800'}"
         >Recent</span
       >
     </label>
