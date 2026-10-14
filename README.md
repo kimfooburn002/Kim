@@ -2,6 +2,14 @@
 
 # [Puregarnet's Journal](https://kimfooburn001.github.io/Kim/)
 
+colours
+--text: #f6f0e5;
+--background: #2f3b2f;
+--primary: #5b6b54;
+--secondary: #c9b89e;
+--accent: #cd4756;
+
+
 Source for [Puregarnet's Journal]([https://kimfooburn001.github.io/Kim/])) — Puregarnet's
 personal site. Books, reviews, blog posts.
 
