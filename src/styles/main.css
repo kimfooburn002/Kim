@@ -145,17 +145,17 @@
   --color-purple-900: #262668;
 
   /* "main" — used by buttons, .newsletter, hover states. Identical to
-     v3's emerald palette. */
-  --color-main-50:  #ecfdf5;
-  --color-main-100: #d1fae5;
-  --color-main-200: #a7f3d0;
-  --color-main-300: #6ee7b7;
-  --color-main-400: #34d399;
-  --color-main-500: #10b981;
-  --color-main-600: #059669;
-  --color-main-700: #047857;
-  --color-main-800: #065f46;
-  --color-main-900: #064e3b;
+     v3's red palette. */
+  --color-red-50:  #fef2f2;
+  --color-red-100: #fee2e2;
+  --color-red-200: #fecaca;
+  --color-red-300: #fca5a5;
+  --color-red-400: #f87171;
+  --color-red-500: #ef4444; /* Standard Base Red */
+  --color-red-600: #dc2626;
+  --color-red-700: #b91c1c;
+  --color-red-800: #991b1b;
+  --color-red-900: #7f1d1d;
 }
 
 /* --- Custom utilities -------------------------------------------------
