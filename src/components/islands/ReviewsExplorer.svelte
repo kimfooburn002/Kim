@@ -483,7 +483,7 @@
     </button>
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-700 rounded-md cursor-pointer text-gray-100"
+      class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-800 rounded-md cursor-pointer text-gray-100"
       onclick={reset}>Reset</button
     >
   </div>
