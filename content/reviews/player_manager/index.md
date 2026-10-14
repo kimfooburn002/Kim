@@ -37,7 +37,7 @@ Player Manager is a progression fantasy set in the modern world. It's perfect fo
 
 *Book 8 spoilers ahead! Decided to keep a record off Royal Road because once a book is stubbed, Idk what happens to the comments of those chapters 😅
 
-### Chapter 1
+#### Chapter 1
 
 > <button class="spoiler" onclick="this.classList.toggle('is-revealed')">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</button>
 
@@ -45,7 +45,7 @@ Oh, that’s true, that is what it looks like from the opposite side doesn’t i
 
 Anyway, so this is what you guys were saying about liking the summaries of previous books after book 7! Fun haha. It’s combining an outside pov with Max in a publication sort of thing! Such an amazing idea 👏🙌 I didn’t rmb which book the recaps supposedly get good so for the past couple of books, I was wondering if that was it 😂
 
-### Chapter 2
+#### Chapter 2
 
 Ugh, the moment I was excited to read book 8 and I’m hit with Max flirting with some woman again in the very first scene. Thought he mellowed out of it. Sigh.
 
@@ -53,11 +53,11 @@ Ugh, the moment I was excited to read book 8 and I’m hit with Max flirting wit
 
 I just mentioned about spending more time with the existing young people previously and here Max does it with James and co 😆
 
-### Chapter 5
+#### Chapter 5
 
 Overpowered GM! Goodness, she’s so witty, casually funny and cute haha
 
-### Chapter 7
+#### Chapter 7
 
 The new Maxterplan, sadly, it didn’t feel as wowza as the first one coming off a coma and still brand new to the team. Looks like we got new employees but no names or introductions which I wished we got, you know, to endear them to us.
 
@@ -73,7 +73,7 @@ Like that one where Henri dug and dug and dug to pull out that Max really cared 
 
 Oof, broken arm. So ever since the guy was cold and then July 1, so hot, yeeeah that was sus. And now this? Seems like foul play yo. Maybe I’m meant to think this was and there is a twist later but for now, so sus.
 
-### Chapter 8
+#### Chapter 8
 
 I feel like the author is a great predictor? High level planner/outliner? Cause right after I complained about not having some genuine heart to hearts/real talk, we get one with Zach 😂 And find out why he became hot from cold at July 1 😂
 
@@ -115,7 +115,7 @@ So you know, then why do it Max? 😅
 
 I am definitely smiling.
 
-### Chapter 9
+#### Chapter 9
 
 So, hypocrite Max, maybe? He keeps rooting for fan owned clubs but then he keeps insulting the fans about football in such derision lol Like he wants all the good without the natural bad that comes with it. Kinda wish someone will call him out on it.
 
@@ -147,7 +147,7 @@ Yes, Max is back! Max and the youths are like, synergistic 🙌😆 The Max Best
 
 Max is back, Max is back! 😆
 
-### Chapter 11
+#### Chapter 11
 
 Oh no. It’s SILK! again 🫠 It’s an important piece of event that happened to multiple people but I don’t get it nooo. All the references, all the multiple tropes(it seems just these being present is inherently a good thing? But for me it doesn’t add anything to the play so I don’t get it 😩), the comments, the lines, the banter, the humour(?), it’s not landing for me so I’m just reading without understanding anything, why people are happy watching it or feel such glee or anything. I don’t get it ahhhh 🫠🫠
 
