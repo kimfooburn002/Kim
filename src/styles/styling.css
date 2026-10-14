@@ -206,7 +206,7 @@
   }
 
   p, ul, li, em, strong, a {
-    @apply text-[1.625rem] sm:text-[2rem] leading-tight;
+    @apply text-[1.625rem] sm:text-[2rem] leading-none;
   }
 
   blockquote p {
