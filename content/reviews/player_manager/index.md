@@ -37,7 +37,7 @@ Player Manager is a progression fantasy set in the modern world. It's perfect fo
 
 *Book 8 spoilers ahead! Decided to keep a record off Royal Road because once a book is stubbed, Idk what happens to the comments of those chapters 😅
 
-#### Chapter 1
+### Chapter 1
 
 > <button class="spoiler" onclick="this.classList.toggle('is-revealed')">I asked him what it was like managing against you and he said it was like being caught in a trap and when you got out there was a bigger, deeper trap.</button>
 
@@ -45,7 +45,7 @@ Oh, that’s true, that is what it looks like from the opposite side doesn’t i
 
 Anyway, so this is what you guys were saying about liking the summaries of previous books after book 7! Fun haha. It’s combining an outside pov with Max in a publication sort of thing! Such an amazing idea 👏🙌 I didn’t rmb which book the recaps supposedly get good so for the past couple of books, I was wondering if that was it 😂
 
-#### Chapter 2
+### Chapter 2
 
 Ugh, the moment I was excited to read book 8 and I’m hit with Max flirting with some woman again in the very first scene. Thought he mellowed out of it. Sigh.
 
@@ -53,11 +53,11 @@ Ugh, the moment I was excited to read book 8 and I’m hit with Max flirting wit
 
 I just mentioned about spending more time with the existing young people previously and here Max does it with James and co 😆
 
-#### Chapter 5
+### Chapter 5
 
 Overpowered GM! Goodness, she’s so witty, casually funny and cute haha
 
-#### Chapter 7
+### Chapter 7
 
 The new Maxterplan, sadly, it didn’t feel as wowza as the first one coming off a coma and still brand new to the team. Looks like we got new employees but no names or introductions which I wished we got, you know, to endear them to us.
 
