@@ -11,7 +11,10 @@
     posts: Post[];
     totalReviews: number;
   };
-
+  
+  // single source of truth for the layout options used by the template
+  const LAYOUT_OPTIONS: Layout[] = ['wide', 'cover', 'tier'];
+  
   let { posts, totalReviews }: Props = $props();
 
   const TIER_DESCRIPTIONS: Record<ReviewTier, string> = {
