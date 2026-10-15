@@ -4,7 +4,7 @@ html {
 }
 
 body {
-  @apply font-inter antialiased bg-cream-500 text-gray-200;
+  @apply font-inter antialiased bg-green-700 text-gray-200;
 
   scrollbar-width: thin;
 
