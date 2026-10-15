@@ -14,7 +14,7 @@ const blogs = (await getCollection('blogs'))
       <a class="under" href="/tutorials">Perhaps too many more here.</a>
     </p>
   </div>
-  <div class="max-w-sm mx-auto md:max-w-none mt-4">
+  <div class="max-w-sm mx-auto md:max-w-none mt-6">
     <div class="grid gap-12 grid-cols-vertical-cards items-start">
       {blogs.map((entry) => <PostCard entry={entry} />)}
     </div>
