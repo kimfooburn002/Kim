@@ -357,7 +357,7 @@
       {@const rounded = i === 0 ? 'rounded-l-md' : ''}
       <label
         for={`layout_${opt}`}
-        class="inline-flex items-center py-2 rounded-md cursor-pointer text-gray-100"
+        class="inline-flex items-center py-2 rounded-md cursor-pointer text-cream-800"
       >
         <input
           id={`layout_${opt}`}
@@ -368,7 +368,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-main-800' : 'bg-gray-700'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-accent-500' : 'bg-green-500'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -376,7 +376,7 @@
    
     <label
       for="sort-order"
-      class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-gray-100"
+      class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer text-cream-500"
     >
       <input
         id="sort-order"
@@ -385,10 +385,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-main-800' : 'bg-gray-700'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-accent-500' : 'bg-green-700'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-gray-700' : 'bg-main-800'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-accent-500' : 'bg-green-700'}"
         >Recent</span
       >
     </label>
@@ -398,7 +398,7 @@
       id="search-input"
       name="search"
       bind:value={searchTerm}
-      class="bg-gray-800 rounded-md text-gray-100 m-2"
+      class="bg-green-800 rounded-md text-brown-500 m-2"
       placeholder="Search..."
     />
     {#if readingList.size > 0}
