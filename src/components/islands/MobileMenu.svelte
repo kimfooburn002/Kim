@@ -62,7 +62,7 @@
 >
   <span class="sr-only">Menu</span>
   <svg
-    class="w-6 h-6 fill-current text-gray-300 hover:text-gray-200 transition duration-150 ease-in-out"
+    class="w-6 h-6 fill-current text-brown-500 hover:text-cream-500 transition duration-150 ease-in-out"
     viewBox="0 0 24 24"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -84,7 +84,7 @@
       <li>
         <a
           href={item.link}
-          class="flex text-gray-300 hover:text-gray-200 py-2"
+          class="flex text-brown-500 hover:text-cream-500 py-2"
           onclick={close}
         >{item.label}</a>
       </li>
