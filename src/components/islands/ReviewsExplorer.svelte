@@ -352,9 +352,10 @@
 
 <div id="toggle-input" class="max-w-7xl mx-auto">
   <div class="justify-center flex flex-wrap items-center">
-    {#each ['wide', 'cover', 'tier'] as opt, i (opt)}
+    {#each LAYOUT_OPTIONS as opt, i (opt)}
       {@const isActive = layout === opt}
-      {@const rounded = i === 0 ? 'rounded-l-md' : ''}
+      {@const last = LAYOUT_OPTIONS.length - 1}
+      {@const rounded = i === 0 ? 'rounded-l-md' : i === last ? 'rounded-r-md' : ''}
       <label
         for={`layout_${opt}`}
         class="inline-flex items-center py-2 rounded-md cursor-pointer text-cream-500"
