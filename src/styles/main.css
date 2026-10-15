@@ -144,6 +144,52 @@
   --color-purple-800: #38379C;
   --color-purple-900: #262668;
 
+  /* Custom site palettes */
+  --color-cream-50:  #fffdf9;
+  --color-cream-100: #fff9f1;
+  --color-cream-200: #fff2e3;
+  --color-cream-300: #f9eee4;
+  --color-cream-400: #f3eadc;
+  --color-cream-500: #f6f0e5; /* light cream */
+  --color-cream-600: #e6dbc9;
+  --color-cream-700: #d6c6ad;
+  --color-cream-800: #bfae8f;
+  --color-cream-900: #9f8f72;
+  
+  --color-green-50:  #eef3ec;
+  --color-green-100: #dfebe0;
+  --color-green-200: #c8dcc1;
+  --color-green-300: #a6bf98;
+  --color-green-400: #879974;
+  --color-green-500: #5b6b54; /* mid green */
+  --color-green-600: #4a5b46;
+  --color-green-700: #2f3b2f; /* dark green */
+  --color-green-800: #263428;
+  --color-green-900: #1b241b;
+  
+  --color-brown-50:  #fbf7f2;
+  --color-brown-100: #efe7db;
+  --color-brown-200: #e6d8c4;
+  --color-brown-300: #d8cbb0;
+  --color-brown-400: #cdbfa5;
+  --color-brown-500: #c9b89e; /* light brown */
+  --color-brown-600: #b7a688;
+  --color-brown-700: #9b8a6f;
+  --color-brown-800: #826c57;
+  --color-brown-900: #69523f;
+  
+  --color-accent-50:  #fff4f6;
+  --color-accent-100: #fedfe4;
+  --color-accent-200: #fdbbbf;
+  --color-accent-300: #f69a98;
+  --color-accent-400: #d75a61;
+  --color-accent-500: #cd4756; /* accent red */
+  --color-accent-600: #b63d4b;
+  --color-accent-700: #8f2e38;
+  --color-accent-800: #6f232a;
+  --color-accent-900: #4f181e;
+  
+
   /* "main" — used by buttons, .newsletter, hover states. Identical to
      v3's red palette. */
   --color-main-50:  #fef2f2;
