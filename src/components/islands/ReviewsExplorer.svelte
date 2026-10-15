@@ -385,10 +385,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-main-700' : 'bg-gray-700'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-accent-500' : 'bg-green-800'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-gray-700' : 'bg-main-700'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-800' : 'bg-accent-500'}"
         >Recent</span
       >
     </label>
