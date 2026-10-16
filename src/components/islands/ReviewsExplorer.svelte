@@ -500,7 +500,7 @@
   {#each allTags as tag (tag)}
     <button
       type="button"
-      class="tag tag-{tag} {activeClass(tag)}"
+      class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer"
       onclick={() => clickTag(tag)}
     >
       <span>{tag}</span>
