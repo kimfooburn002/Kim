@@ -144,7 +144,7 @@
       <div class="card_layer">
         <article class="review-summary review-{post.review}">
           <div class="bg2">
-            <div class="bg-inner flex flex-col md:flex-row w-full bg-gray-800">
+            <div class="bg-inner flex flex-col md:flex-row w-full bg-green-700">
             {#if onToggleBookmark}
                 <button
                     type="button"
