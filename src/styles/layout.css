@@ -130,13 +130,13 @@ body {
   }
   .tag {
     &.active-true {
-      @apply text-gray-100 bg-brown-500;
+      @apply text-green-900 bg-brown-500;
       background-image: none;
       /* background: none #18ad40; */
       /* background-color: #18ad40; */
     }
     &.active-false {
-      @apply text-gray-100 bg-accent-700;
+      @apply text-cream-500 bg-accent-700;
       background-image: none;
       /* background: none #991b1b; */
       /* background-color: #991b1b; */
