@@ -272,72 +272,38 @@
   }
 }
 
-.tag-python {
-  @apply bg-main-600 text-gray-100 font-medium;
-}
 .tag-snippet {
-  @apply bg-green-600 text-gray-100 font-medium;
-}
-.tag-statistics {
-  @apply bg-blue-600 text-gray-100 font-medium;
-}
-.tag-data-engineering {
-  @apply bg-orange-600 text-gray-100 font-medium;
-}
-.tag-plotting {
-  @apply bg-main-600 text-gray-100 font-medium;
-}
-.tag-environment {
-  @apply bg-gray-600 text-gray-100 font-medium;
-}
-.tag-bayesian {
-  @apply bg-purple-600 text-gray-100 font-medium;
-}
-.tag-outreach {
-  @apply bg-green-600 text-gray-100 font-medium;
-}
-.tag-project {
-  @apply bg-purple-600 text-gray-100 font-medium;
-}
-.tag-creative {
-  @apply bg-blue-500 text-gray-100 font-medium;
-}
-.tag-travel {
-  @apply bg-red-500 text-gray-100 font-medium;
-}
-.tag-writing {
-  background-color: #edb404;
-  @apply text-gray-800 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-time-loops {
-  @apply bg-green-700 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-finished {
-  @apply bg-blue-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-manhua {
-  @apply bg-red-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-in-progress {
-  @apply bg-main-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-magic-school {
-  @apply bg-gray-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-slice-of-life {
-  @apply bg-purple-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-litrpg {
-  @apply bg-green-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-cultivation {
-  @apply bg-purple-600 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-hard-magic {
-  @apply bg-blue-500 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-companion {
-  @apply bg-emerald-500 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-lgbt {
   @apply text-gray-800 font-medium;
@@ -352,75 +318,75 @@
   );
 }
 .tag-audio {
-  @apply bg-orange-700 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-female-lead {
-  background-color: #edb404;
-  @apply text-gray-800 font-medium;
+  /* background-color: #edb404; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-kingdom-building {
-  background-color: oklch(0.393 0.095 152.535);
-  @apply text-gray-100 font-medium;
+  /* background-color: oklch(0.393 0.095 152.535); */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-fanfic {
-  background-color: #f472b6;
-  @apply text-gray-800 font-medium;
+  /* background-color: #f472b6; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-crafting {
-  background-color: #ad0a95;
-  @apply text-gray-100 font-medium;
+  /* background-color: #ad0a95; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-sci-fi {
-  background-color: #361c9c;
-  @apply text-gray-100 font-medium;
+  /* background-color: #361c9c; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-cyberpunk {
-  background-color: #8a1f8e;
-  @apply text-gray-100 font-medium;
+  /* background-color: #8a1f8e; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-pf-adjacent {
-  background-color: #0a0a0a;
-  @apply text-gray-100 font-medium;
+  /* background-color: #0a0a0a; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-system-apocalypse {
-  background-color: #961515;
-  @apply text-gray-100 font-medium;
+  /* background-color: #961515; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-superhero {
-  background-color: #f472b6;
-  @apply text-gray-800 font-medium;
+  /* background-color: #f472b6; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 
 }
 .tag-wholesome {
-  background-color: #469605;
-  @apply text-gray-100 font-medium;
+  /* background-color: #469605; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-isekai {
-  background-color: #b88227;
-  @apply text-gray-100 font-medium;
+  /* background-color: #b88227; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-dungeon-core {
-  background-color: #c04e07;
-  @apply text-gray-100 font-medium;
+  /* background-color: #c04e07; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-amazon {
-  background-color: #c04e07;
-  @apply text-gray-100 font-medium;
+  /* background-color: #c04e07; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-royal_road {
-  background-color: #2563eb;
-  @apply text-gray-100 font-medium;
+  /* background-color: #2563eb; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-audible {
-  @apply bg-orange-700 text-gray-100 font-medium;
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-vrmmo {
-  background-color: #1a9183;
-  @apply text-gray-100 font-medium;
+  /* background-color: #1a9183; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 .tag-parody {
-  background-color: #911a67;
-  @apply text-gray-100 font-medium;
+  /* background-color: #911a67; */
+  @apply bg-accent-600 text-cream-500 font-medium;
 }
 /* Turn white images to dark mode */
 .img-invert {
