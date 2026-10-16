@@ -130,7 +130,7 @@ body {
   }
   .tag {
     &.active-true {
-      @apply text-green-900 bg-cream-600;
+      @apply text-accent-900 bg-cream-600;
       background-image: none;
       /* background: none #18ad40; */
       /* background-color: #18ad40; */
