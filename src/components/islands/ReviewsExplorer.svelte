@@ -435,7 +435,7 @@
       </button>
       <button
         type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-green-800 hover:bg-accent-600 rounded-md cursor-pointer text-cream-100"
+        class="inline-flex items-center m-2 px-4 py-2 bg-green-800 hover:bg-accent-700 rounded-md cursor-pointer text-cream-100"
         onclick={clearReadingList}
         title="Remove all books from your reading list"
       >
