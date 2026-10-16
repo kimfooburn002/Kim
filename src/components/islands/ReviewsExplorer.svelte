@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-400 text-cream-100' : 'bg-green-800 text-cream-500'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-400 text-cream-100' : 'bg-green-700 text-cream-500'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -389,10 +389,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-400 text-cream-100' : 'bg-green-800 text-cream-500'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-400 text-cream-100' : 'bg-green-700 text-cream-500'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-800 text-cream-500' : 'bg-green-400 text-cream-100s'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-700 text-cream-500' : 'bg-green-400 text-cream-100s'}"
         >Recent</span
       >
     </label>
@@ -402,7 +402,7 @@
       id="search-input"
       name="search"
       bind:value={searchTerm}
-      class="bg-green-800 rounded-md text-cream-500 m-2"
+      class="bg-green-700 rounded-md text-cream-500 m-2"
       placeholder="Search..."
     />
     {#if readingList.size > 0}
@@ -411,7 +411,7 @@
         class={`inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer ${
           showReadingList
             ? 'bg-green-400 text-cream-100 hover:bg-cream-600 hover:text-green-800'
-            : 'bg-green-800 text-cream-500 hover:bg-cream-600 hover:text-green-800'
+            : 'bg-green-700 text-cream-500 hover:bg-cream-600 hover:text-green-800'
         }`}
         onclick={() => (showReadingList = !showReadingList)}
         title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
@@ -435,7 +435,7 @@
       </button>
       <button
         type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-green-800 hover:bg-accent-700 rounded-md cursor-pointer text-cream-100"
+        class="inline-flex items-center m-2 px-4 py-2 bg-green-700 hover:bg-accent-700 rounded-md cursor-pointer text-cream-100"
         onclick={clearReadingList}
         title="Remove all books from your reading list"
       >
@@ -444,7 +444,7 @@
     {/if}
     <button
       type="button"
-      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-800 hover:bg-green-400 disabled:hover:bg-green-800 rounded-md cursor-pointer disabled:cursor-default text-cream-100 disabled:opacity-50"
+      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-700 hover:bg-green-400 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-cream-100 disabled:opacity-50"
       onclick={screenshot}
       disabled={capturing || visiblePosts.length === 0}
       title="Screenshot"
@@ -490,7 +490,7 @@
     </button>
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-green-800 text-cream-500 hover:bg-accent-700 rounded-md cursor-pointer text-cream-100"
+      class="inline-flex items-center m-2 px-4 py-2 bg-green-700 text-cream-500 hover:bg-accent-700 rounded-md cursor-pointer text-cream-100"
       onclick={reset}>Reset</button
     >
   </div>
@@ -532,7 +532,7 @@
            overflow:hidden makes this row the sticky element's scroll
            container, which never scrolls, so the label would never stick. -->
       <section
-        class="tier-row flex rounded-md overflow-clip bg-gray-800/50"
+        class="tier-row flex rounded-md overflow-clip bg-green-800/50"
         aria-label="Tier {group.tier}"
       >
         <div
@@ -549,7 +549,7 @@
                the line to the cell bottom instead of centering. -->
           <div class="sticky top-4 bottom-4 flex flex-col items-center gap-1 p-2 text-center">
             <span class="text-3xl sm:text-5xl font-bold text-gray-100">{group.tier}</span>
-            <span class="sr-only sm:not-sr-only text-sm leading-tight text-gray-100/80">
+            <span class="sr-only sm:not-sr-only text-sm leading-tight text-cream-100/80">
               {TIER_DESCRIPTIONS[group.tier]}
             </span>
           </div>
