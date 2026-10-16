@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-500 text-cream-100' : 'bg-green-800 text-cream-500'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-400 text-cream-100' : 'bg-green-800 text-cream-500'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -389,10 +389,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-500 text-cream-100' : 'bg-green-800 text-cream-500'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-400 text-cream-100' : 'bg-green-800 text-cream-500'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-800 text-cream-500' : 'bg-green-500 text-cream-100s'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-800 text-cream-500' : 'bg-green-400 text-cream-100s'}"
         >Recent</span
       >
     </label>
@@ -444,7 +444,7 @@
     {/if}
     <button
       type="button"
-      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-800 hover:bg-accent-700 disabled:hover:bg-green-800 rounded-md cursor-pointer disabled:cursor-default text-cream-100 disabled:opacity-50"
+      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-800 hover:bg-green-400 disabled:hover:bg-green-800 rounded-md cursor-pointer disabled:cursor-default text-cream-100 disabled:opacity-50"
       onclick={screenshot}
       disabled={capturing || visiblePosts.length === 0}
       title="Screenshot"
