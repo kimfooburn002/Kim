@@ -103,7 +103,7 @@
    `@apply gradient` etc. now resolves cleanly. */
 
 @utility gradient {
-  background-image: linear-gradient(132deg, #f17583 5%, #b91c1c 95%);
+  background-image: linear-gradient(132deg, #d6c6ad 5%, #8f2e38 95%);
 }
 
 @utility text-gradient {
@@ -111,7 +111,7 @@
   background-clip: text;
   -webkit-background-clip: text;
   /*background-image: linear-gradient(132deg, #34d399 5%, #0d9488 95%);*/
-  background-image: linear-gradient(132deg, #e6dbc9 5%, #6f232a 95%);
+  background-image: linear-gradient(132deg, #d6c6ad 5%, #8f2e38 95%);
 }
 
 .logo {
