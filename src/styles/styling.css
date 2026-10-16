@@ -437,7 +437,7 @@
 }
 
 .tag-review {
-  @apply font-medium text-2xl text-main-500 bg-gray-800 text-center;
+  @apply font-medium text-2xl text-cream-500 bg-green-800 text-center;
 }
 
 .spoiler {
