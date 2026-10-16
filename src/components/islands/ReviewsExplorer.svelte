@@ -389,10 +389,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-accent-500 text-cream-500' : 'bg-green-800 text-gray-300'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-500 text-cream-500' : 'bg-green-800 text-gray-300'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-800 text-gray-300' : 'bg-accent-500 text-cream-500'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-800 text-gray-300' : 'bg-green-500 text-cream-500s'}"
         >Recent</span
       >
     </label>
@@ -402,7 +402,7 @@
       id="search-input"
       name="search"
       bind:value={searchTerm}
-      class="bg-green-800 rounded-md text-brown-500 m-2"
+      class="bg-green-800 rounded-md text-cream-500 m-2"
       placeholder="Search..."
     />
     {#if readingList.size > 0}
@@ -487,7 +487,7 @@
     </button>
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-gray-700 hover:bg-main-800 rounded-md cursor-pointer text-gray-100"
+      class="inline-flex items-center m-2 px-4 py-2 bg-green-800 text-green-300 hover:bg-accent-600 rounded-md cursor-pointer text-cream-500"
       onclick={reset}>Reset</button
     >
   </div>
