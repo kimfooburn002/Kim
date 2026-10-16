@@ -410,7 +410,7 @@
         type="button"
         class={`inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer ${
           showReadingList
-            ? 'bg-green-300 text-cream-100 hover:bg-cream-600 hover:text-green-800'
+            ? 'bg-green-400 text-cream-100 hover:bg-cream-600 hover:text-green-800'
             : 'bg-green-800 text-cream-500 hover:bg-cream-600 hover:text-green-800'
         }`}
         onclick={() => (showReadingList = !showReadingList)}
