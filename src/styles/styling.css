@@ -211,7 +211,7 @@
   }
 
   blockquote p {
-    @apply my-0 py-4 px-8 italic border-l-4 border-green-600 text-brown-700;
+    @apply my-0 py-4 px-8 italic border-l-4 border-green-500 text-cream-600;
   }
 }
 
