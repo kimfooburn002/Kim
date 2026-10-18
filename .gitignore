@@ -49,6 +49,9 @@ tmp_*
 # Astro
 dist/
 .astro/
+
+#ui history
+/screenshots/
 node_modules/.astro/
 
 # Skills are authored in skills/ and symlinked into these dirs by `make install_skills`.
