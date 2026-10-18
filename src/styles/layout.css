@@ -108,7 +108,7 @@ body {
 /* Reviews / artists explorer preamble. In the Hugo template this `<div
    id="preamble">` was nested inside the `.section-header` wrapper and
    inherited its `max-w-3xl mx-auto text-center` constraint plus the
-   `text-xl text-brown-500` paragraph styling. The Svelte port renders the
+   `text-xl text-green-300` paragraph styling. The Svelte port renders the
    preamble outside of `.section-header`, so we restate the constraint here. */
 #preamble {
   @apply max-w-3xl mx-auto text-center pb-4;
