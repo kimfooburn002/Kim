@@ -211,7 +211,7 @@
   }
 
   blockquote p {
-    @apply my-0 py-4 px-8 italic border-l-4 border-green-500 text-cream-600;
+    @apply my-0 py-4 px-8 italic border-l-4 border-green-400 text-green-400;
   }
 }
 
@@ -313,7 +313,7 @@
 .tag-audible,
 .tag-vrmmo,
 .tag-parody {
-  @apply bg-brown-500 text-green-800 font-medium;
+  @apply bg-cream-700 text-green-800 font-medium;
 }
   
 /* Turn white images to dark mode */
@@ -437,7 +437,7 @@
 }
 
 .tag-review {
-  @apply font-medium text-2xl text-cream-500 bg-green-800 text-center;
+  @apply font-medium text-2xl text-green-300 bg-green-800 text-center;
 }
 
 .spoiler {
