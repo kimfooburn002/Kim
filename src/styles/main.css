@@ -150,10 +150,10 @@
   --color-cream-200: #fff2e3;
   --color-cream-300: #f9eee4;
   --color-cream-400: #f3eadc;
-  --color-cream-500: #f6f0e5; /* light cream */
+  --color-cream-500: #f6f0e5; /* light cream */ /* font too bright */
   --color-cream-600: #e6dbc9;/* font maybe */
-  --color-cream-700: #d6c6ad;
-  --color-cream-800: #bfae8f;
+  --color-cream-700: #d6c6ad;/* font too orangey */
+  --color-cream-800: #bfae8f;/* font too dark */
   --color-cream-900: #9f8f72;
   
   --color-green-50:  #eef3ec;
