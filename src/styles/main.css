@@ -150,33 +150,22 @@
   --color-cream-200: #fff2e3;
   --color-cream-300: #f9eee4;
   --color-cream-400: #f3eadc;
-  --color-cream-500: #f6f0e5; /* light cream */ /* font too bright */
-  --color-cream-600: #e6dbc9;/* font maybe */
-  --color-cream-700: #d6c6ad;/* font too orangey */
-  --color-cream-800: #bfae8f;/* font too dark */
+  --color-cream-500: #f6f0e5; /* light cream */ 
+  --color-cream-600: #e6dbc9; /* tag list bg */ 
+  --color-cream-700: #d6c6ad; /* font too coloured */
+  --color-cream-800: #bfae8f; /* font too dark */
   --color-cream-900: #9f8f72;
   
-  --color-green-50:  #eef3ec;
-  --color-green-100: #dfebe0;
+  --color-green-50:  #eef3ec; /* selected link/button font */
+  --color-green-100: #dfebe0; /* font maybe */
   --color-green-200: #c8dcc1;
-  --color-green-300: #a6bf98;
-  --color-green-400: #879974;
-  --color-green-500: #5b6b54; /* mid green */
+  --color-green-300: #a6bf98; /* main font choice */
+  --color-green-400: #96ac86; /* font darker than font choice above. Blockquote */ /* selected bg button */
+  --color-green-500: #5b6b54; /* mid green */ 
   --color-green-600: #4a5b46;
-  --color-green-700: #2f3b2f; /* dark green */
-  --color-green-800: #263428;
-  --color-green-900: #1b241b;
-  
-  --color-brown-50:  #fbf7f2;
-  --color-brown-100: #efe7db;
-  --color-brown-200: #e6d8c4;
-  --color-brown-300: #d8cbb0;
-  --color-brown-400: #cdbfa5;
-  --color-brown-500: #c9b89e; /* light brown */
-  --color-brown-600: #b7a688;
-  --color-brown-700: #9b8a6f;
-  --color-brown-800: #826c57;
-  --color-brown-900: #69523f;
+  --color-green-700: #2f3b2f; /* dark green */ /* lighter bg against main bg*/
+  --color-green-800: #263428; 
+  --color-green-900: #1b241b; /* main bg */
   
   --color-accent-50:  #fff4f6;
   --color-accent-100: #fedfe4;
@@ -185,9 +174,9 @@
   --color-accent-400: #d75a61;
   --color-accent-500: #cd4756; /* accent red */
   --color-accent-600: #b63d4b;
-  --color-accent-700: #8f2e38;
+  --color-accent-700: #8f2e38; /* tag list excluded bg */
   --color-accent-800: #6f232a;
-  --color-accent-900: #4f181e;
+  --color-accent-900: #4f181e; /* tag list font */
   
 
   /* "main" — used by buttons, .newsletter, hover states. Identical to
