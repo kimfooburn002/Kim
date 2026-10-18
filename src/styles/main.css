@@ -164,7 +164,7 @@
   --color-green-500: #5b6b54; /* mid green */ 
   --color-green-600: #4a5b46;
   --color-green-700: #2f3b2f; /* dark green */ /* lighter bg against main bg*/
-  --color-green-800: #263428; 
+  --color-green-800: #263428; /* default tag font */
   --color-green-900: #1b241b; /* main bg */
   
   --color-accent-50:  #fff4f6;
