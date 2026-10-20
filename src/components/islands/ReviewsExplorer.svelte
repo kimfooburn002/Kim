@@ -410,8 +410,8 @@
         type="button"
         class={`inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer ${
           showReadingList
-            ? 'bg-green-400 text-green-50 hover:bg-cream-600 hover:text-green-800'
-            : 'bg-green-700 text-green-400 hover:bg-cream-600 hover:text-green-800'
+            ? 'bg-green-500 text-green-50 hover:bg-green-700 text-green-300'
+            : 'bg-green-700 text-green-500 hover:bg-green-500 text-green-50'
         }`}
         onclick={() => (showReadingList = !showReadingList)}
         title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
@@ -431,7 +431,7 @@
         >
           <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
         </svg>
-        Reading List ({readingList.size})
+        Show Reading List ({readingList.size})
       </button>
       <button
         type="button"
