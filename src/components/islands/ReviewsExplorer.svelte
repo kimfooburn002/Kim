@@ -441,6 +441,11 @@
       >
         Clear Reading List
       </button>
+    <button
+      type="button"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
+      onclick={reset}>Reset</button
+    >
     {/if}
     <button
       type="button"
@@ -487,12 +492,7 @@
           <circle cx="12" cy="13" r="4" />
         </svg>
       {/if}
-    </button>
-    <button
-      type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
-      onclick={reset}>Reset</button
-    >
+    </button>    
   </div>
 </div>
 
