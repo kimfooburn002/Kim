@@ -182,7 +182,14 @@ body {
   h4,
   h5,
   h6 {
-    @apply max-w-6xl mx-auto text-left pt-6;
+    /* @apply max-w-6xl mx-auto text-center pt-6; */
+    @apply max-w-6xl mx-auto pt-6;
+
+    max-width: 42rem;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left !important;
+    /* padding-top: 1.5rem; */
   }
   h1 {
     @apply mt-12;
