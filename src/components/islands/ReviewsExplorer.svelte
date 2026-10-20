@@ -411,7 +411,7 @@
         class={`inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer ${          
           showReadingList
             ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
+            : 'bg-green-700 text-green-300 hover:bg-green-500 hover:text-green-50'
         }`}
         onclick={() => (showReadingList = !showReadingList)}
         title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
@@ -435,7 +435,7 @@
       </button>
       <button
         type="button"
-        class="inline-flex items-center m-1 px-3 py-1 bg-accent-700 text-cream-200 rounded"
+        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 text-cream-200 cursor-pointer rounded"
         onclick={clearReadingList}
         title="Remove all books from your reading list"
       >
@@ -490,7 +490,7 @@
     </button>
     <button
       type="button"
-      class="inline-flex items-center m-1 px-3 py-1 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
       onclick={reset}>Reset</button
     >
   </div>
