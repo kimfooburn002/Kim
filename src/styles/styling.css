@@ -119,6 +119,10 @@
   letter-spacing: 0em;
 }
 
+.about .name .font-thin {
+  @apply text-green-100;
+}
+
 @utility under {
   transition-duration: 0.2s;
   transition-property: box-shadow, color, background;
