@@ -548,8 +548,8 @@
                one (e.g. 40vh) shoves the label of short rows that sit above
                the line to the cell bottom instead of centering. -->
           <div class="sticky top-4 bottom-4 flex flex-col items-center gap-1 p-2 text-center">
-            <span class="text-3xl sm:text-5xl font-bold text-gray-100">{group.tier}</span>
-            <span class="sr-only sm:not-sr-only text-sm leading-tight text-cream-100/80">
+            <span class="text-3xl sm:text-5xl font-bold text-green-50">{group.tier}</span>
+            <span class="sr-only sm:not-sr-only text-sm leading-tight text-green-50/80">
               {TIER_DESCRIPTIONS[group.tier]}
             </span>
           </div>
