@@ -38,7 +38,6 @@ body {
 .blog-post h3 {
   @apply text-green-100;
 }
-
 .content {
   @apply mx-auto pt-10 md:pt-20 md:pb-16 px-4 md:px-8;
 
@@ -70,14 +69,6 @@ body {
 
     &.blog {
       @apply max-w-5xl mt-12 md:pb-4;
-    }
-
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-      @apply text-green-100;
     }
 
     h1,
