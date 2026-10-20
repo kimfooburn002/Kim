@@ -21,6 +21,18 @@ body {
   }
 }
 
+.blog-post h1,
+.blog-post h2,
+.blog-post h3,
+.content .section-header h1,
+.content .section-header h2,
+.content .section-header h3,
+#preamble h1,
+#preamble h2,
+#preamble h3{
+  @apply text-green-100;
+}
+
 .container.grid {
   max-width: none;
 }
