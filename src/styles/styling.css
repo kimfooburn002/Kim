@@ -193,7 +193,12 @@
   .review-article h3,
   .review-article h4,
   .review-article h5,
-  .review-article h6{
+  .review-article h6,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6{
     max-width: 42rem;      /* matches Tailwind's max-w-2xl */
     margin-left: auto;
     margin-right: auto;    /* centers the heading container like the paragraphs */
