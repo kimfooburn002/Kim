@@ -153,7 +153,7 @@
                     class="bookmark-btn absolute top-2 right-2 z-50 p-1 rounded-full transition-all
                         {isBookmarked
                             ? `${bookmarkActiveColor} opacity-100`
-                            : `text-gray-400 opacity-20 ${bookmarkHoverClass} hover:opacity-100`}"
+                            : `text-green-300 opacity-20 ${bookmarkHoverClass} hover:opacity-100`}"
                     onclick={toggleBookmark}
                 >
                     <svg
@@ -223,7 +223,7 @@
                       <span class="leader">{post.name}</span>
                     </p>
                   </div>
-                  <p class="text-lg text-gray-400 px-3">{post.sentence}</p>
+                  <p class="text-lg text-green-300 px-3">{post.sentence}</p>
                   <div>
                     <div class="mb-3">
                       <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
