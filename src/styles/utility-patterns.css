@@ -48,7 +48,7 @@ h4 {
 .form-select,
 .form-checkbox,
 .form-radio {
-    @apply bg-transparent border border-gray-700 focus:border-gray-500;
+    @apply bg-transparent border border-green-700 focus:border-green-500;
 }
 
 .form-input,
@@ -68,7 +68,7 @@ h4 {
 
 .form-input,
 .form-textarea {
-    @apply placeholder-gray-500;
+    @apply placeholder-green-500;
 }
 
 .form-select {
