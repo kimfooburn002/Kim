@@ -21,16 +21,14 @@ body {
   }
 }
 
-/* .blog-post h2,
+.blog-post h2,
 .blog-post h3
-/* .content .section-header h2, */
-/* .content .section-header h3, */
 /* #preamble h1, */
 /* #preamble h2, */
 /* #preamble h3 */
 {
   @apply text-green-100;
-} */
+}
 
 .container.grid {
   max-width: none;
@@ -62,7 +60,7 @@ body {
     @apply max-w-3xl mx-auto text-center pb-4;
 
     &.blog {
-      @apply max-w-5xl mt-12 md:pb-4 text-green-100;
+      @apply max-w-5xl mt-12 md:pb-4;
     }
     h1,
     h2 {
