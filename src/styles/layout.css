@@ -109,10 +109,10 @@ body {
 }
 
 /* v3 emitted `--tw-bg-opacity` for every `bg-*` utility, so overriding it
-   here fade the bg-gray-900 to 90 % opacity. v4 stopped emitting that
+   here fade the bg-green-900 to 90 % opacity. v4 stopped emitting that
    variable; the same effect comes from the slash-modifier syntax. */
 .newsletter-inner {
-  @apply p-8 bg-gray-900/90;
+  @apply p-8 bg-green-900/90;
   border-radius: var(--radius);
 }
 
@@ -225,7 +225,7 @@ body {
     @apply max-w-2xl mx-auto my-6 list-decimal pl-8;
   }
   .badge-leader p em {
-    @apply text-gray-500;
+    @apply text-green-300;
   }
   figure:not([data-review-card] figure) {
     @apply mx-auto my-12 max-w-4xl;
@@ -352,7 +352,7 @@ pre.astro-code {
 /* Language-less fences are notebook output text: tucked under the code block
    that produced them, and muted. */
 pre.astro-code[data-language='plaintext'] {
-  @apply mt-0 text-gray-400;
+  @apply mt-0 text-green-400;
 }
 
 .carbon-code {
@@ -373,7 +373,7 @@ pre.astro-code[data-language='plaintext'] {
   padding: 0.15rem;
 
   .badge-inner {
-    @apply rounded-lg h-full w-full bg-gray-900 p-8;
+    @apply rounded-lg h-full w-full bg-green-900 p-8;
 
     figure {
       @apply rounded-full gradient m-0;
@@ -405,17 +405,17 @@ pre.astro-code[data-language='plaintext'] {
 
 /* Table styling */
 .table-auto {
-  @apply divide-y divide-gray-700;
+  @apply divide-y divide-green-700;
   margin: 0 auto;
   thead {
-    @apply bg-gray-800;
+    @apply bg-green-800;
 
     th {
       @apply px-6 py-3 text-left text-green-300 tracking-wider;
     }
   }
   tbody {
-    @apply divide-y divide-gray-700;
+    @apply divide-y divide-green-700;
 
     td {
       @apply px-6 py-2 whitespace-nowrap;
@@ -428,7 +428,7 @@ pre.astro-code[data-language='plaintext'] {
 }
 
 .sticky-sharebar {
-  @apply fixed md:bottom-20 bottom-2 right-2 xl:right-20 lg:right-4 rounded-full bg-gray-800 p-2;
+  @apply fixed md:bottom-20 bottom-2 right-2 xl:right-20 lg:right-4 rounded-full bg-green-800 p-2;
 
   .share-link {
     @apply h-12 w-12 text-2xl rounded-full text-center inline-block md:block;
@@ -439,7 +439,7 @@ pre.astro-code[data-language='plaintext'] {
 
 
     &:not(.hideshadow) {
-      @apply bg-gray-700 transition md:mt-2 ml-2 md:ml-0;
+      @apply bg-green-700 transition md:mt-2 ml-2 md:ml-0;
 
       &:hover {
         filter: saturate(1.0) brightness(1.5);
