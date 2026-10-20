@@ -437,7 +437,7 @@
     
         <button
           type="button"
-          class="inline-flex items-center px-4 py-2 bg-accent-700 text-cream-200 cursor-pointer rounded-r-md"
+          class="inline-flex items-center px-4 py-2 bg-accent-700 text-cream-200 hover:bg-accent-600 cursor-pointer rounded-r-md"
           onclick={clearReadingList}
           title="Remove all books from your reading list"
         >
@@ -447,18 +447,13 @@
     
       <button
         type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
+        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-500 rounded-sm cursor-pointer text-cream-200"
         onclick={reset}
       >
         Reset
       </button>
     {/if}
-    <button
-      type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
-      onclick={reset}>Reset</button
-    >
-    {/if}
+
     <button
       type="button"
       class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-50 disabled:opacity-50"
