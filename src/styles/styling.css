@@ -272,7 +272,7 @@
     @apply text-2xl;
   }
   .leader {
-    @apply font-bold;
+    @apply font-bold text-green-100;
   }
 }
 
