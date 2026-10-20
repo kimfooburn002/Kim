@@ -22,7 +22,8 @@ body {
 }
 
 .blog-post h2,
-.blog-post h3
+.blog-post h3,
+.content .section-header h2
 /* #preamble h1, */
 /* #preamble h2, */
 /* #preamble h3 */
@@ -64,7 +65,7 @@ body {
     }
     h1,
     h2 {
-      @apply text-center mb-4 text-green-100;
+      @apply text-center mb-4;
     }
 
     p {
