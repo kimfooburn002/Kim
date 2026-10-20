@@ -463,7 +463,7 @@
   /* Hidden state */
   /* color: #484842;
   background-color: #484842; */
-  @apply bg-green-700 text-green-700;
+  @apply bg-green-600 text-green-600;
   transition:
     color 0.35s ease,
     background-color 0.35s ease;
