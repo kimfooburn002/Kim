@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-400 text-green-50' : 'bg-green-700 text-green-400'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 text-green-50'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -389,10 +389,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400'}"
+      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 text-green-50'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-700 text-green-400' : 'bg-green-400 text-green-50'}"
+      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-700 text-green-400 hover:bg-green-500 text-green-50' : 'bg-green-500 text-green-50'}"
         >Recent</span
       >
     </label>
@@ -411,7 +411,7 @@
         class={`inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer ${          
           showReadingList
             ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-500'
+            : 'bg-green-700 text-green-400 hover:bg-green-500 text-green-50'
         }`}
         onclick={() => (showReadingList = !showReadingList)}
         title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
@@ -435,7 +435,7 @@
       </button>
       <button
         type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 text-cream-100"
+        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 text-cream-200 rounded"
         onclick={clearReadingList}
         title="Remove all books from your reading list"
       >
@@ -444,7 +444,7 @@
     {/if}
     <button
       type="button"
-      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-100 disabled:opacity-50"
+      class="inline-flex items-center gap-2 m-2 px-4 py-2 bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-50 disabled:opacity-50"
       onclick={screenshot}
       disabled={capturing || visiblePosts.length === 0}
       title="Screenshot"
@@ -490,7 +490,7 @@
     </button>
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-green-700 text-cream-500 hover:bg-accent-700 rounded-md cursor-pointer text-cream-100"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
       onclick={reset}>Reset</button
     >
   </div>
