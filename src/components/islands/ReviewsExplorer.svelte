@@ -402,7 +402,7 @@
       id="search-input"
       name="search"
       bind:value={searchTerm}
-      class="bg-green-700 rounded-md text-green-400 m-2"
+      class="bg-green-700 rounded-md text-green-400 m-2 focus:text-green-100"
       placeholder="Search..."
     />
     {#if readingList.size > 0}
