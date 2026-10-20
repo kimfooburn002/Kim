@@ -74,7 +74,7 @@ body {
     @apply text-7xl;
   }
   .subtitle {
-    @apply text-2xl font-thin max-w-2xl mx-auto px-4 sm:px-6 md:px-8 leading-relaxed;
+    @apply text-2xl font-thin max-w-2xl mx-auto px-4 sm:px-6 md:px-8 leading-relaxed text-green-100;
   }
 }
 
