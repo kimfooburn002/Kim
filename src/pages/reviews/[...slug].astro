@@ -2,7 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CoverImage from '../../components/CoverImage.astro';
-import NewsletterForm from '../../components/NewsletterForm.astro';
+//import NewsletterForm from '../../components/NewsletterForm.astro';
 import ReviewCoverCard from '../../components/ReviewCoverCard.astro';
 import { getSimilarReviews } from '../../lib/content';
 import { withBase } from '../../config';
@@ -110,7 +110,7 @@ const reviewMarkdown =
         </div>
       </div>
     )}
-    <div class="mt-20"><NewsletterForm /></div>
+    <!-- <div class="mt-20"><NewsletterForm /></div> -->
   </div>
   <script is:inline define:vars={{ reviewMarkdown }}>
     document.addEventListener('keypress', (event) => {
