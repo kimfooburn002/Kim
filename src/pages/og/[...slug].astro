@@ -25,12 +25,12 @@ const allTags = [...entry.data.tags, ...linkTags];
   <meta name="robots" content="noindex, nofollow" />
   <title>OG: {entry.data.name}</title>
 </head>
-<body class="bg-gray-900 m-0 p-0 overflow-hidden" style="width: 1200px; height: 630px;">
+<body class="bg-green-900 m-0 p-0 overflow-hidden" style="width: 1200px; height: 630px;">
   <div class="og-card-wrapper">
     <div class="og-card-container">
       <article class={`review-summary review-${r} w-full rounded-xl`}>
         <div class="bg2 rounded-xl">
-          <div class="bg-inner flex flex-row bg-gray-800 rounded-xl overflow-hidden">
+          <div class="bg-inner flex flex-row bg-green-800 rounded-xl overflow-hidden">
             <CoverImage
               entry={entry}
               width={375}
@@ -42,7 +42,7 @@ const allTags = [...entry.data.tags, ...linkTags];
               <div class="rating">
                 <p class={`rating-${r} mt-0 mb-4 og-title`}>{entry.data.name}</p>
               </div>
-              <p class="og-sentence text-gray-400">{entry.data.sentence}</p>
+              <p class="og-sentence text-green-400">{entry.data.sentence}</p>
               <div>
                 <ul class="flex flex-wrap font-medium -m-1 justify-center og-tags">
                   {allTags.map((tag) => (
