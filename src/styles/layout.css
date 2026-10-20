@@ -23,7 +23,6 @@ body {
 
 .blog-post h2,
 .blog-post h3,
-.content .section-header h1
 /* #preamble h1, */
 /* #preamble h2, */
 /* #preamble h3 */
@@ -35,7 +34,64 @@ body {
   max-width: none;
 }
 
+.blog-post h2,
+.blog-post h3 {
+  @apply text-green-100;
+}
+
 .content {
+  @apply mx-auto pt-10 md:pt-20 md:pb-16 px-4 md:px-8;
+
+  &.content-standard {
+    @apply max-w-6xl;
+  }
+  &.content-wide {
+    @apply max-w-7xl;
+  }
+  &.content-wider {
+    max-width: 90rem;
+  }
+  &.content-shrink {
+    @apply max-w-4xl;
+  }
+  &.content-small {
+    @apply max-w-2xl;
+  }
+  &.content-full {
+    @apply max-w-full;
+  }
+
+  .section-header {
+    @apply max-w-3xl mx-auto text-center pb-4;
+
+    h1 {
+      @apply text-green-100;
+    }
+
+    &.blog {
+      @apply max-w-5xl mt-12 md:pb-4;
+    }
+
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-green-100;
+    }
+
+    h1,
+    h2 {
+      @apply text-center mb-4;
+    }
+
+    p {
+      @apply text-xl text-green-300;
+    }
+  }
+}
+
+/* .content {
   @apply mx-auto pt-10 md:pt-20 md:pb-16 px-4 md:px-8;
 
   &.content-standard {
@@ -72,7 +128,7 @@ body {
       @apply text-xl text-green-300;
     }
   }
-}
+} */
 
 .aspect-book {
   padding-bottom: 160%;
