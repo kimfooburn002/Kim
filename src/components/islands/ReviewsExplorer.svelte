@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 text-green-50'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -435,7 +435,7 @@
       </button>
       <button
         type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 text-cream-200 rounded"
+        class="inline-flex items-center m-1 px-3 py-1 bg-accent-700 text-cream-200 rounded"
         onclick={clearReadingList}
         title="Remove all books from your reading list"
       >
@@ -490,7 +490,7 @@
     </button>
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
+      class="inline-flex items-center m-1 px-3 py-1 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
       onclick={reset}>Reset</button
     >
   </div>
