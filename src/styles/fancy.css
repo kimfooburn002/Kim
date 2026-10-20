@@ -134,8 +134,7 @@ svg.ico {
 
   &.horizontal {
     --radius: 1rem;
-    /* max-width: 600px;  */
-    max-width: 760px; 
+    max-width: 600px; 
   }
 
   * {
