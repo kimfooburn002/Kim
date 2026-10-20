@@ -406,41 +406,53 @@
       placeholder="Search..."
     />
     {#if readingList.size > 0}
-      <button
-        type="button"
-        class={`inline-flex items-center gap-1 m-2 px-4 py-2 rounded-md cursor-pointer ${          
-          showReadingList
-            ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-300 hover:bg-green-500 hover:text-green-50'
-        }`}
-        onclick={() => (showReadingList = !showReadingList)}
-        title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 26"
-          width="16"
-          height="16"
-          fill={showReadingList ? 'currentColor' : 'none'}
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          aria-hidden="true"
-          class="inline-block"
+      <div class="inline-flex items-center m-2 overflow-hidden rounded-md">
+        <button
+          type="button"
+          class={`inline-flex items-center gap-1 px-4 py-2 cursor-pointer ${          
+            showReadingList
+              ? 'bg-green-500 text-green-50'
+              : 'bg-green-700 text-green-300 hover:bg-green-500 hover:text-green-50'
+          } rounded-l-md`}
+          onclick={() => (showReadingList = !showReadingList)}
+          title={showReadingList ? 'Show all reviews' : 'Show reading list only'}
         >
-          <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
-        </svg>
-        Show Reading List ({readingList.size})
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 26"
+            width="16"
+            height="16"
+            fill={showReadingList ? 'currentColor' : 'none'}
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+            class="inline-block"
+          >
+            <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
+          </svg>
+          Show Reading List ({readingList.size})
+        </button>
+    
+        <button
+          type="button"
+          class="inline-flex items-center px-4 py-2 bg-accent-700 text-cream-200 cursor-pointer rounded-r-md"
+          onclick={clearReadingList}
+          title="Remove all books from your reading list"
+        >
+          Clear Reading List
+        </button>
+      </div>
+    
       <button
         type="button"
-        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 text-cream-200 cursor-pointer rounded"
-        onclick={clearReadingList}
-        title="Remove all books from your reading list"
+        class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
+        onclick={reset}
       >
-        Clear Reading List
+        Reset
       </button>
+    {/if}
     <button
       type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 rounded-sm cursor-pointer text-cream-200"
