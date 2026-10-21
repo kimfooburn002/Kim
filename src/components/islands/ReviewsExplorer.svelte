@@ -455,7 +455,7 @@
 
     <button
       type="button"
-      class="inline-flex items-center gap-2 m-2 px-4 py-2 h-10 sm:h-10 bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-50 disabled:opacity-50"
+      class="inline-flex items-center gap-2 m-2 px-4 py-2 h-9 sm:h-9 bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-50 disabled:opacity-50"
       onclick={screenshot}
       disabled={capturing || visiblePosts.length === 0}
       title="Screenshot"
