@@ -61,7 +61,8 @@ body {
   .section-header {
     @apply max-w-3xl mx-auto text-center pb-4;
 
-    h1:not(.title) {
+    h1:not(.title), 
+    h4{
       @apply text-green-100;
     }
 
