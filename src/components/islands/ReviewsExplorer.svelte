@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-800 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-800 hover:text-green-50'}"
+        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-600 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-600 hover:text-green-50'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
