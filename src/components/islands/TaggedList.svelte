@@ -117,7 +117,7 @@
                     </ul>
                   </div>
                   <h4 class="mb-2">{post.name}</h4>
-                  <p class="text-lg text-cream-600 flex-grow">{post.description}</p>
+                  <p class="text-lg text-green-300 flex-grow">{post.description}</p>
                 </div>
               </article>
             </div>
