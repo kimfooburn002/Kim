@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 {rounded} {isActive ? 'bg-green-600 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-600 hover:text-green-50'}"
+        <span class="px-4 py-2 text-xl sm:text-base {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -389,10 +389,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
+      <span class="px-4 py-2 rounded-l-md text-xl sm:text-base {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md {byRank ? 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50' : 'bg-green-500 text-green-50'}"
+      <span class="px-4 py-2 rounded-r-md text-xl sm:text-base {byRank ? 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50' : 'bg-green-500 text-green-50'}"
         >Recent</span
       >
     </label>
@@ -447,7 +447,7 @@
     {/if}
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-600 rounded-sm cursor-pointer text-cream-200"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-600 rounded-sm cursor-pointer text-cream-200 text-xl sm:text-base""
       onclick={reset}
     >
       Reset
@@ -506,7 +506,7 @@
   {#each allTags as tag (tag)}
     <button
       type="button"
-      class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer"
+      class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer text-xl sm:text-base"
       onclick={() => clickTag(tag)}
     >
       <span>{tag}</span>
