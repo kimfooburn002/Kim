@@ -108,7 +108,7 @@
                 </header>
                 <div class="px-4 pb-4 flex flex-col flex-grow min-h-[13.25rem]">
                   <div class="mb-3">
-                    <ul class="flex flex-wrap text-base sm:text-sm font-medium -m-1 justify-center">
+                    <ul class="flex flex-wrap font-medium -m-1 justify-center">
                       {#each post.tags as tag (tag)}
                         <li class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{tag}">
                           {tag}
