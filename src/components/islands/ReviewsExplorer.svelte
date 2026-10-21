@@ -447,7 +447,7 @@
     {/if}
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-600 rounded-sm cursor-pointer text-cream-200 text-xl sm:text-base""
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-600 rounded-sm cursor-pointer text-cream-200 text-xl sm:text-base"
       onclick={reset}
     >
       Reset
