@@ -432,7 +432,7 @@
           >
             <path d="M5 2a2 2 0 0 0-2 2v20l9-4 9 4V4a2 2 0 0 0-2-2H5z" />
           </svg>
-          Show Reading List ({readingList.size})
+          Show TBR List ({readingList.size})
         </button>
     
         <button
@@ -441,7 +441,7 @@
           onclick={clearReadingList}
           title="Remove all books from your reading list"
         >
-          Clear Reading List
+          Clear TBR List
         </button>
       </div>
     {/if}
