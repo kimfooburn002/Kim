@@ -226,7 +226,7 @@
                   <p class="text-lg text-green-300 px-3">{post.sentence}</p>
                   <div>
                     <div class="mb-3">
-                      <ul class="flex flex-wrap text-xs font-medium -m-1 justify-center">
+                      <ul class="flex flex-wrap text-sm sm:text-xs font-medium -m-1 justify-center">
                         {#each post.tags as tag (tag)}
                           <li
                             class="m-1 inline-flex text-center py-1 px-3 rounded-full tag-{tag}"
