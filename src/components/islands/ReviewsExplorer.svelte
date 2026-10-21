@@ -372,7 +372,7 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 text-xl sm:text-base {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
+        <span class="px-4 py-2 text-lg sm:text-base {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
           >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
         >
       </label>
@@ -389,10 +389,10 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md text-xl sm:text-base {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
+      <span class="px-4 py-2 rounded-l-md text-lg sm:text-base {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
         >Rank</span
       >
-      <span class="px-4 py-2 rounded-r-md text-xl sm:text-base {byRank ? 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50' : 'bg-green-500 text-green-50'}"
+      <span class="px-4 py-2 rounded-r-md text-lg sm:text-base {byRank ? 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50' : 'bg-green-500 text-green-50'}"
         >Recent</span
       >
     </label>
@@ -409,7 +409,7 @@
       <div class="inline-flex items-center m-2 overflow-hidden rounded-md">
         <button
           type="button"
-          class={`inline-flex items-center gap-1 px-4 py-2 cursor-pointer ${          
+          class={`inline-flex items-center gap-1 px-4 py-2 cursor-pointer text-lg sm:text-base${          
             showReadingList
               ? 'bg-green-500 text-green-50'
               : 'bg-green-700 text-green-300 hover:bg-green-500 hover:text-green-50'
@@ -437,7 +437,7 @@
     
         <button
           type="button"
-          class="inline-flex items-center px-4 py-2 bg-accent-700 text-cream-200 hover:bg-accent-600 cursor-pointer rounded-r-md"
+          class="inline-flex items-center px-4 py-2 bg-accent-700 text-cream-200 hover:bg-accent-600 cursor-pointer rounded-r-md text-lg sm:text-base"
           onclick={clearReadingList}
           title="Remove all books from your reading list"
         >
@@ -447,7 +447,7 @@
     {/if}
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-600 rounded-sm cursor-pointer text-cream-200 text-xl sm:text-base"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700 hover:bg-accent-600 rounded-sm cursor-pointer text-cream-200 text-lg sm:text-base"
       onclick={reset}
     >
       Reset
