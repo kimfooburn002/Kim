@@ -12,7 +12,7 @@ h3 {
 }
 
 h4 {
-    @apply text-2xl font-bold leading-snug;
+    @apply text-2xl font-bold leading-snug text-green-100;
 }
 
 /* `@screen md { ... }` was Tailwind v3 SCSS sugar; v4 has no equivalent.
