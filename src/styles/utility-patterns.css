@@ -41,6 +41,11 @@ h4 {
     @apply px-4 py-2;
 }
 
+@utility btn-xs {
+    @apply font-medium inline-flex items-center justify-center border border-transparent rounded-xs leading-snug transition duration-150 ease-in-out;
+    @apply px-3 py-1;
+}
+
 /* Forms */
 .form-input,
 .form-textarea,
