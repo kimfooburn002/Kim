@@ -23,6 +23,9 @@ body {
 
 .blog-post h2,
 .blog-post h3,
+.blog-post h4,
+.blog-post h5,
+.blog-post h6
 /* #preamble h1, */
 /* #preamble h2, */
 /* #preamble h3 */
@@ -32,11 +35,6 @@ body {
 
 .container.grid {
   max-width: none;
-}
-
-.blog-post h2,
-.blog-post h3 {
-  @apply text-green-100;
 }
 .content {
   @apply mx-auto pt-10 md:pt-20 md:pb-16 px-4 md:px-8;
