@@ -506,7 +506,7 @@
   {#each allTags as tag (tag)}
     <button
       type="button"
-      class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer text-lg sm:text-base"
+      class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer text-base sm:text-base"
       onclick={() => clickTag(tag)}
     >
       <span>{tag}</span>
