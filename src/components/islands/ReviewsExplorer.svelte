@@ -502,7 +502,7 @@
   </div>
 </div>
 
-<div id="tags" class="tag-list max-w-7xl mx-auto mt-6 mb-6">
+<div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
   {#each allTags as tag (tag)}
     <button
       type="button"
