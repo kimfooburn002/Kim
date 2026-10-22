@@ -7,7 +7,7 @@ date: 2021-09-08
 auth: nobody13
 categories: [reviews]
 review: S
-weight: 5
+weight: 100001
 links:
     amazon: https://www.amazon.com/dp/B09M2R6QLF
     royal_road: https://www.royalroad.com/fiction/21220/mother-of-learning
