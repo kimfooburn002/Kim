@@ -39,12 +39,11 @@
    --grad-s: linear-gradient(
     45deg,
     #FFFDF9,
-    #CD4756,
+    #FFF9F1,
+    #FEDFE4,
+    #FFF4F6,
     #EEF3EC,
-    #A6BF98,
-    #FFF2E3,
-    #B63D4B,
-    #F69A98
+    #DFEBE0    
   );
   --grad-a: linear-gradient(
     45deg,
