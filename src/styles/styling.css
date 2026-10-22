@@ -47,14 +47,12 @@
   );
   --grad-a: linear-gradient(
     45deg,
-    #bf953f,
-    #fcf6ba,
-    #b38728,
-    #fbf5b7,
-    #aa771c,
-    #bf953f,
-    #fcf6ba,
-    #b38728
+    #FFF9F1,
+    #FFF2E3,
+    #FEDFE4,
+    #FDBBBF,
+    #DFEBE0,
+    #C8DCC1
   );
   --grad-b: linear-gradient(
     45deg,
