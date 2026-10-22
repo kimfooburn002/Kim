@@ -56,7 +56,7 @@
   --color-π-800: #9a3412;
   --color-π-900: #7c2d12;
 
-  --color-S-50:  #eef2ff;
+  /* --color-S-50:  #eef2ff;
   --color-S-100: #e0e7ff;
   --color-S-200: #c7d2fe;
   --color-S-300: #a5b4fc;
@@ -65,10 +65,10 @@
   --color-S-600: #4f46e5;
   --color-S-700: #4338ca;
   --color-S-800: #3730a3;
-  --color-S-900: #312e81;
+  --color-S-900: #312e81; */
 
   /* New */
-  /* --color-S-50:  #4F181E;
+  --color-S-50:  #4F181E;
   --color-S-100: #FFF2E3;
   --color-S-200: #4A5B46;
   --color-S-300: #8B9F7C;
@@ -77,7 +77,7 @@
   --color-S-600: #CD4756;
   --color-S-700: #FFFDF9;
   --color-S-800: #8B9F7C;
-  --color-S-900: #8F2E38; */
+  --color-S-900: #8F2E38;
 
   --color-A-50:  #fefce8;
   --color-A-100: #fef9c3;
