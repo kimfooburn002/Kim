@@ -13,7 +13,7 @@
   };
   
   // single source of truth for the layout options used by the template
-  const LAYOUT_OPTIONS: Layout[] = ['wide', 'cover', 'tier'];
+  const LAYOUT_OPTIONS: Layout[] = ['tier', 'cover', 'wide'];
   
   let { posts, totalReviews }: Props = $props();
 
