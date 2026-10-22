@@ -4,7 +4,7 @@ description: "A Football Manager obsessive gets the game's scouting interface fo
 date: 2026-07-13
 auth: Ted Steel
 categories: [book-reviews]
-review: C
+review: A
 weight: 33
 name: "Player Manager"
 links:
