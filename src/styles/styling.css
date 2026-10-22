@@ -26,7 +26,7 @@
     rgba(217, 64, 64, 1) 85%,
     rgba(131, 58, 180, 1) 100%
   );
-  --grad-s: linear-gradient(
+  /* --grad-s: linear-gradient(
     45deg,
     #6ee3e7,
     #3b82f6,
@@ -35,6 +35,16 @@
     #6ee7b7,
     #1c91ff,
     #5fd1f9
+  ); */
+   --grad-s: linear-gradient(
+    45deg,
+    #C8DCC1,
+    #5B6B54,
+    #263428,
+    #FFF2E3,
+    #8F2E38,
+    #CD4756,
+    #4F181E
   );
   --grad-a: linear-gradient(
     45deg,
