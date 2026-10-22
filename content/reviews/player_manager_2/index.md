@@ -4,7 +4,7 @@ description: "2"
 date: 2026-07-13
 auth: Ted Steel
 categories: [book-reviews]
-review: C
+review: B
 weight: 33
 name: "Player Manager Book 2"
 links:
