@@ -19,7 +19,7 @@
   /* --- Fonts -------------------------------------------------------- */
   --font-inter: "Inter", "Inter Fallback", system-ui, -apple-system, "Roboto", sans-serif;
   --font-architects-daughter: "Architects Daughter", sans-serif;
-
+ 
   /* --- Font-size scale (overrides v4 defaults to match v3 values) ---
      v4 ships --text-7xl/8xl/9xl; we leave those untouched so
      @apply md:text-7xl in styling.css still resolves. */
