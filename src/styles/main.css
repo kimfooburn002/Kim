@@ -179,10 +179,10 @@
   /* --color-green-800: #263428;*/ /* default tag font */
   /* --color-green-900: #1b241b;*/ /* main bg */ 
 
-  --color-green-50:  #dfebe0; /* selected link/button font */
-  --color-green-100: #c8dcc1; 
-  --color-green-200: #a6bf98; /* selected font button  */
-  --color-green-300: #8b9f7c; /* main font choice */
+  --color-green-50:  #eef3ec; /* selected link/button font */
+  --color-green-100: #dfebe0; 
+  --color-green-200: #c8dcc1; /* selected font button  */
+  --color-green-300: #a6bf98; /* main font choice */
   --color-green-400: #5b6b54; /* Ori #96ac86. font darker than font choice above. Blockquote */ /* selected bg button */
   --color-green-500: #4a5b46; /* mid green */ 
   --color-green-600: #2f3b2f;
