@@ -99,18 +99,8 @@
     rgba(99, 99, 99, 1) 61%,
     rgba(213, 211, 77, 1) 70%,
     rgba(162, 171, 88, 1) 100%
-  ); */
-   --grad-d: linear-gradient(
-    45deg,
-    #4A5B46,
-    #263428,
-    #2F3B2F,
-    #1B241B,
-    #263428,
-    #2F3B2F,
-    #1B241B
-  );
-  --grad-f: linear-gradient(
+  ); */  
+  --grad-d: linear-gradient(
     45deg,
     #6F232A,
     #4F181E,
@@ -119,6 +109,16 @@
     #4F181E,
     #6F232A,
     #4F181E
+  );
+  --grad-f: linear-gradient(
+    45deg,
+    #4A5B46,
+    #263428,
+    #2F3B2F,
+    #1B241B,
+    #263428,
+    #2F3B2F,
+    #1B241B
   );
 }
 
