@@ -34,11 +34,12 @@
   const TIER_LABEL_STYLES: Record<ReviewTier, { grad: string; scrim: number }> = {
     'π': { grad: 'var(--grad-m)', scrim: 0.5 },
     S: { grad: 'var(--grad-s)', scrim: 0.5 },
-    A: { grad: 'var(--grad-a)', scrim: 0.6 },
-    B: { grad: 'var(--grad-b)', scrim: 0.62 },
-    C: { grad: 'var(--grad-c)', scrim: 0.6 },
-    D: { grad: 'var(--grad-d)', scrim: 0.2 },
-    F: { grad: 'var(--grad-f)', scrim: 0.55 },
+    A: { grad: 'var(--grad-a)', scrim: 0.5 },
+    B: { grad: 'var(--grad-b)', scrim: 0.5 },
+    C: { grad: 'var(--grad-c)', scrim: 0.5 },
+    D: { grad: 'var(--grad-d)', scrim: 0.5 },
+    E: { grad: 'var(--grad-e)', scrim: 0.5 },
+    F: { grad: 'var(--grad-f)', scrim: 0.5 },
   };
 
   const LINK_TAG_MAP: Record<string, string> = {
