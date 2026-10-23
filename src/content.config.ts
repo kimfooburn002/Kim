@@ -1,7 +1,7 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
-const REVIEW_TIER = z.enum(['π', 'S', 'A', 'B', 'C', 'D', 'F']);
+const REVIEW_TIER = z.enum(['π', 'S', 'A', 'B', 'C', 'D', 'E', 'F']);
 
 const reviews = defineCollection({
   loader: glob({ pattern: '*/index.md', base: './content/reviews' }),
