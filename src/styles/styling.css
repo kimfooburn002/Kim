@@ -81,15 +81,15 @@
     #ffdeca,
     #ca7345
   );
-  --grad-d: linear-gradient(
+  /* --grad-d: linear-gradient(
     45deg,
     rgb(145, 42, 42),
     rgb(105, 19, 19),
     rgb(145, 42, 42),
     rgb(66, 7, 7),
     rgb(145, 42, 42)
-  );
-  --grad-f: linear-gradient(
+  ); */
+  /* --grad-f: linear-gradient(
     45deg,
     rgba(162, 171, 88, 1) 0%,
     rgba(180, 198, 32, 1) 16%,
@@ -99,6 +99,26 @@
     rgba(99, 99, 99, 1) 61%,
     rgba(213, 211, 77, 1) 70%,
     rgba(162, 171, 88, 1) 100%
+  ); */
+   --grad-d: linear-gradient(
+    45deg,
+    #4A5B46,
+    #263428,
+    #2F3B2F,
+    #1B241B,
+    #263428,
+    #2F3B2F,
+    #1B241B
+  );
+  --grad-f: linear-gradient(
+    45deg,
+    #6F232A,
+    #4F181E,
+    #8F2E38,
+    #6F232A,
+    #4F181E,
+    #6F232A,
+    #4F181E
   );
 }
 
