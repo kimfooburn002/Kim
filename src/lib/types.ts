@@ -4,7 +4,7 @@
  * so they consume plain JSON-serialized payloads, not `CollectionEntry<>`s.
  */
 
-export type ReviewTier = 'π' | 'S' | 'A' | 'B' | 'C' | 'D' | 'F';
+export type ReviewTier = 'π' | 'S' | 'A' | 'B' | 'C' | 'D' | 'E' | 'F';
 
 export interface Post {
   name: string;
