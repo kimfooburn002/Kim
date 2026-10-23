@@ -4,7 +4,7 @@ description: "5"
 date: 2026-07-13
 auth: Ted Steel
 categories: [book-reviews]
-review: F
+review: E
 weight: 600001
 name: "Player Manager Book 5"
 links:
