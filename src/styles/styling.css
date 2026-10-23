@@ -337,6 +337,12 @@
     -webkit-background-clip: text;
     color: rgba(255, 120, 120, 0.7);
   }
+  .rating-E {
+    background: var(--grad-e);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(255, 120, 120, 0.7);
+  }
   .rating-F {
     background: var(--grad-f);
     background-clip: text;
@@ -443,6 +449,7 @@
 .review-B,
 .review-C,
 .review-D,
+.review-E,
 .review-F {
   position: relative;
 
@@ -466,6 +473,7 @@
   .review-B .bg2,
   .review-C .bg2,
   .review-D .bg2,
+  .review-E .bg2,
   .review-F .bg2 {
       padding: 4px;
   }
@@ -503,13 +511,20 @@
 .review-C {
   .bg2 {
     background: var(--grad-c);
-    animation: slide 40s linear infinite;
+    animation: slide 30s linear infinite;
   }
 }
 
 .review-D {
   .bg2 {
     background: var(--grad-d);
+    animation: slide 40s linear infinite;
+  }
+}
+
+.review-E {
+  .bg2 {
+    background: var(--grad-e);
     animation: slide 50s linear infinite;
   }
 }
