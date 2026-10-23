@@ -113,15 +113,16 @@
   );
   --grad-b: linear-gradient(
     45deg,
-    #9ed4c9,
-    #234343,
-    #3b6868,
-    #589d95,
-    #d1f0ea,
-    #9ed4c9,
-    #234343,
-    #3b6868,
-    #589d95
+    #ffcf70,
+    #ffbb33,
+    #d98f00,
+    #a36500,
+    #663f00,
+    #ffcf70,
+    #ffbb33,
+    #d98f00,
+    #a36500,
+    #663f00
   );
   --grad-c: linear-gradient(
     45deg,   
@@ -146,18 +147,18 @@
     #bcad9f,
     #8f7a5d,
     #6d5b4a
-  );
+  );  
   --grad-e: linear-gradient(
     45deg,
-    #c9a0e6,
-    #8c52a1,
-    #654cbd,
-    #4a2e7a,
-    #edd6ff,
-    #c9a0e6,
-    #8c52a1,
-    #654cbd,
-    #4a2e7a
+    #9ed4c9,
+    #234343,
+    #3b6868,
+    #589d95,
+    #d1f0ea,
+    #9ed4c9,
+    #234343,
+    #3b6868,
+    #589d95
   );
   --grad-f: linear-gradient(
     45deg,
