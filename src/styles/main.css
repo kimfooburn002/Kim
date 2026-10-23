@@ -123,6 +123,17 @@
   --color-D-800: #9f1239;
   --color-D-900: #881337;
 
+  --color-E-50:  #fff1f2;
+  --color-E-100: #ffe4e6;
+  --color-E-200: #fecdd3;
+  --color-E-300: #fda4af;
+  --color-E-400: #fb7185;
+  --color-E-500: #f43f5e;
+  --color-E-600: #e11d48;
+  --color-E-700: #be123c;
+  --color-E-800: #9f1239;
+  --color-E-900: #881337;
+
   --color-F-50:  #ecfdf5;
   --color-F-100: #d1fae5;
   --color-F-200: #a7f3d0;
@@ -247,8 +258,8 @@
 @source inline("img-{smaller,small,reduced,poster,large,full,tiny,shrink}");
 @source inline("list-none");
 @source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
-@source inline("{hover:,focus:,}bg-{S,A,B,C,D,F}-{500,600,700,800,900}");
-@source inline("{hover:,}text-{S,A,B,C,D,F}-{300,400}");
+@source inline("{hover:,focus:,}bg-{S,A,B,C,D,E,F}-{500,600,700,800,900}");
+@source inline("{hover:,}text-{S,A,B,C,D,E,F}-{300,400}");
 @source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
