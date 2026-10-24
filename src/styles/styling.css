@@ -136,33 +136,27 @@
   );
   --grad-d: linear-gradient(
     45deg,
-    #d6c6ad,
     #bcad9f,
     #8f7a5d,
     #6d5b4a,
-    #d6c6ad,
     #bcad9f,
     #8f7a5d,
     #6d5b4a
   );  
   --grad-e: linear-gradient(
     45deg,
-    #9ed4c9,
     #234343,
     #3b6868,
     #589d95,
-    #9ed4c9,
     #234343,
     #3b6868,
     #589d95
   );
   --grad-f: linear-gradient(
     45deg,
-    #c9d8c0,
     #a6bf98,
     #93b082,
     #5b6b54,
-    #c9d8c0,
     #a6bf98,
     #93b082,
     #5b6b54
