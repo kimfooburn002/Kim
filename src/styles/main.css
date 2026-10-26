@@ -257,13 +257,13 @@
 @source inline("img-{smaller,small,reduced,poster,large,full,tiny,shrink}");
 @source inline("list-none");
 @source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
-@source inline("{hover:,focus:,}bg-{S,A,B,C,D,E,F}-{500,600,700,800,900}");
-@source inline("{hover:,}text-{S,A,B,C,D,E,F}-{300,400}");
+@source inline("{hover:,focus:,}bg-{S,A,B,C,D,E,F,G}-{500,600,700,800,900}");
+@source inline("{hover:,}text-{S,A,B,C,D,E,F,G}-{300,400}");
 @source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
    explicitly via `@source inline()` — the non-ASCII `π` is rejected by
-   v4's class-name generator (other tier palettes `S A B C D F` work
+   v4's class-name generator (other tier palettes `S A B C D F G` work
    fine). The colour variables `--color-π-*` *do* emit, so we just hand-
    write the equivalent utility rules below. Rendered output is identical
    to what v4 would have produced for the other tiers. */
