@@ -19,12 +19,13 @@
 
   const TIER_DESCRIPTIONS: Record<ReviewTier, string> = {
     'π': 'I wrote this. Opinion is biased.',
-    S: 'Love to pieces',
-    A: 'Amazing, I follow chapter updates',
-    B: 'Very nice, I read when new books drop',
-    C: 'Good read but lower in TBR',
-    D: "Didn't grip me",
-    F: 'Dropped these',
+    S: 'Adore. Ravenous for new chapters, scratches almost every itch!',
+    A: 'Amazing! Usually have one or two things that's didn't land perfectly.',
+    B: 'Enjoyed, decent to pass the time.',
+    C: 'Kinda meh. Future works might be better with experience.',
+    D: 'Tried but not for me.',
+    F: 'Expectations was not matched/mismatched so dropped with some resentment.',
+    G: 'On My Radar',
   };
 
   // Labels reuse the card glow gradients (--grad-* in styling.css, applied
@@ -40,6 +41,7 @@
     D: { grad: 'var(--grad-d)', scrim: 0.5 },
     E: { grad: 'var(--grad-e)', scrim: 0.5 },
     F: { grad: 'var(--grad-f)', scrim: 0.5 },
+    G: { grad: 'var(--grad-f)', scrim: 0.5 },
   };
 
   const LINK_TAG_MAP: Record<string, string> = {
