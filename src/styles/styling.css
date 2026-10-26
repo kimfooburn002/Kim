@@ -312,25 +312,25 @@
     background: var(--grad-d);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(63, 138, 46, 0.7);
+    color: rgba(148, 213, 133, 0.7);
   }
   .rating-E {
     background: var(--grad-e);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(39, 77, 63, 0.7);
+    color: rgba(93, 166, 137, 0.7);
   }
   .rating-F {
     background: var(--grad-f);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(36, 73, 135, 0.7);
+    color: rgba(92, 173, 255, 0.7);
   }
   .rating-G {
     background: var(--grad-g);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(83, 72, 132, 0.7);
+    color: rgba(158, 150, 197, 0.7);
   }
 }
 
