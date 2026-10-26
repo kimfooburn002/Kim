@@ -183,17 +183,17 @@
   );
   --grad-f: linear-gradient(
     45deg,
-    #1B6DC5,
-    #1f8fff,    
+    #0066cc,
+    #3a8ce4,
     #5cadff,
-    #ADD6FF,
+    #add6ff,
     #5cadff,
-    #1f8fff,
-    #1B6DC5,
-    #ADD6FF,
+    #3a8ce4,
+    #0066cc,
+    #add6ff,
     #5cadff,
-    #1f8fff,
-    #1B6DC5,
+    #3a8ce4,
+    #0066cc,
     #244987
   );
 }
