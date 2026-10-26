@@ -311,7 +311,7 @@
     background: var(--grad-d);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(148, 213, 133, 0.4);
+    color: rgba(136, 194, 74, 0.4);
   }
   .rating-E {
     background: var(--grad-e);
