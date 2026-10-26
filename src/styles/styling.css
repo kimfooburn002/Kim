@@ -95,17 +95,17 @@
   );
   --grad-d: linear-gradient(
     45deg,
-    #578a2d,
+    #638a2d,
     #88c24a,
-    #9fd685,
+    #a9d685,
     #cbe6b3,
-    #9fd685,
+    #a9d685,
     #88c24a,
-    #578a2d,    
+    #638a2d,        
     #cbe6b3,
-    #9fd685,
+    #a9d685,
     #88c24a,
-    #578a2d,
+    #638a2d,
     #32541e
   );
   --grad-e: linear-gradient(
