@@ -145,6 +145,17 @@
   --color-F-800: #065f46;
   --color-F-900: #064e3b;
 
+  --color-G-50:  #ecfdf5;
+  --color-G-100: #d1fae5;
+  --color-G-200: #a7f3d0;
+  --color-G-300: #6ee7b7;
+  --color-G-400: #34d399;
+  --color-G-500: #10b981;
+  --color-G-600: #059669;
+  --color-G-700: #047857;
+  --color-G-800: #065f46;
+  --color-G-900: #064e3b;
+
   /* --- Overrides for built-in palettes ------------------------------ */
   --color-gray-100: #EBF1F5;
   --color-gray-200: #D9E3EA;
