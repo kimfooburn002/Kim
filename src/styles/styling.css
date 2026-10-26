@@ -168,21 +168,6 @@
   );
   --grad-e: linear-gradient(
     45deg,
-    #3c6969,
-    #599e8c,
-    #9dd4c9,
-    #d1f0e6,
-    #9dd4c9,
-    #599e8c,
-    #3c6969,
-    #d1f0e6,
-    #9dd4c9,
-    #599e8c,
-    #3c6969,
-    #22423e
-  );
-  --grad-f: linear-gradient(
-    45deg,
     #457a73,
     #5da689,
     #9dd4bf,
@@ -195,6 +180,30 @@
     #5da689,
     #457a73,
     #274d3f
+  );
+  --grad-f: linear-gradient(
+    45deg,
+    #0066cc,
+    #3a8ce4,    
+    #5cadff,
+    #add6ff,
+    #5cadff,
+    #3a8ce4,
+    #0066cc,   
+    #add6ff,
+    #5cadff,
+    #3a8ce4,
+    #0066cc,
+    #244987
+  );
+  --grad-g: linear-gradient(
+    45deg,
+ 
+    #62559b,
+    #72549d,
+    #80519a,
+    #744280,
+    #613668
   );
 }
 
@@ -370,6 +379,12 @@
     -webkit-background-clip: text;
     color: rgba(169, 255, 129, 0.7);
   }
+  .rating-G {
+    background: var(--grad-g);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: rgba(169, 255, 129, 0.7);
+  }
 }
 
 .rating {
@@ -471,7 +486,8 @@
 .review-C,
 .review-D,
 .review-E,
-.review-F {
+.review-F,
+.review-G{
   position: relative;
 
   .bg2 {
@@ -495,7 +511,8 @@
   .review-C .bg2,
   .review-D .bg2,
   .review-E .bg2,
-  .review-F .bg2 {
+  .review-F .bg2,
+  .review-G .bg2{
       padding: 4px;
   }
 }
@@ -553,6 +570,13 @@
 .review-F {
   .bg2 {
     background: var(--grad-f);
+    animation: slide 50s linear infinite;
+  }
+}
+  
+.review-G {
+  .bg2 {
+    background: var(--grad-g);
     animation: slide 50s linear infinite;
   }
 }
