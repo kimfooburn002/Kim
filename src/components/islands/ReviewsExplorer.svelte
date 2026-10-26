@@ -50,7 +50,7 @@
     audible: 'audio',
   };
 
-  // Augment posts with derived tags (extra link-derived tags + 'finished').
+  // Augment posts with derived tags (extra link-derived tags + 'completed').
   const augmentedPosts = $derived.by(() => {
     return posts.map((post) => {
       const extras: string[] = [];
@@ -58,11 +58,11 @@
         const t = LINK_TAG_MAP[link.name];
         if (t) extras.push(t);
       }
-      const finished =
-        !post.tags.includes('in-progress') && !post.tags.includes('finished')
-          ? ['finished']
+      const completed =
+        !post.tags.includes('in-progress') && !post.tags.includes('completed')
+          ? ['completed']
           : [];
-      return { ...post, tags: [...post.tags, ...extras, ...finished] };
+      return { ...post, tags: [...post.tags, ...extras, ...completed] };
     });
   });
 
