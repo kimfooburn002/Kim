@@ -90,16 +90,16 @@
   --color-A-800: #7b1f23;
   --color-A-900: #5e1d24;
 
-  --color-B-50:  #f8fafc;
-  --color-B-100: #f1f5f9;
-  --color-B-200: #e2e8f0;
-  --color-B-300: #cbd5e1;
-  --color-B-400: #94a3b8;
-  --color-B-500: #64748b;
-  --color-B-600: #475569;
-  --color-B-700: #334155;
-  --color-B-800: #1e293b;
-  --color-B-900: #0f172a;
+  --color-B-50:  #ffe2d6;
+  --color-B-100: #ffc6ad;
+  --color-B-200: #ffa985;
+  --color-B-300: #ff8d5c;
+  --color-B-400: #ff6624;
+  --color-B-500: #ff4d00;
+  --color-B-600: #d13f00;
+  --color-B-700: #a33100;
+  --color-B-800: #7b2500;
+  --color-B-900: #521800;
 
   --color-C-50:  #fff7ed;
   --color-C-100: #ffedd5;
@@ -188,18 +188,7 @@
   --color-cream-600: #e6dbc9; /* tag list selected bg */ 
   --color-cream-700: #d6c6ad; /* font too coloured */
   --color-cream-800: #bfae8f; /* font too dark */
-  --color-cream-900: #9f8f72;
-  
-  /* --color-green-50:  #eef3ec;*/ /* selected link/button font */
-  /* --color-green-100: #dfebe0;*/ 
-  /* --color-green-200: #c8dcc1;*/ /* selected font button  */
-  /* --color-green-300: #a6bf98;*/ /* main font choice */
-  /* --color-green-400: #8b9f7c;*/ /* Ori #96ac86. font darker than font choice above. Blockquote */ /* selected bg button */
-  /* --color-green-500: #5b6b54;*/ /* mid green */ 
-  /* --color-green-600: #4a5b46;*/
-  /* --color-green-700: #2f3b2f;*/ /* dark green */ /* lighter bg against main bg*/
-  /* --color-green-800: #263428;*/ /* default tag font */
-  /* --color-green-900: #1b241b;*/ /* main bg */ 
+  --color-cream-900: #9f8f72;  
 
   --color-green-50:  #eef3ec; /* selected link/button font */
   --color-green-100: #dfebe0; 
@@ -221,8 +210,7 @@
   --color-accent-600: #b63d4b;
   --color-accent-700: #8f2e38; /* tag list excluded bg */
   --color-accent-800: #6f232a;
-  --color-accent-900: #4f181e; /* tag list font */
-  
+  --color-accent-900: #4f181e; /* tag list font */  
 
   /* "main" — used by buttons, .newsletter, hover states. Identical to
      v3's red palette. */
