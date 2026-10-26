@@ -8,9 +8,7 @@ import { SITE_BASE, withBase } from '../../config';
 
 const BASE = SITE_BASE.replace(/\/$/, '');
 
-const entries = (await getCollection('reviews')).filter((entry) =>
-  entry.data.tags?.includes('series')
-);
+const entries = await getCollection('reviews');
 const sorted = entries.sort((a, b) => a.data.weight - b.data.weight);
 
 const posts: Post[] = await Promise.all(
