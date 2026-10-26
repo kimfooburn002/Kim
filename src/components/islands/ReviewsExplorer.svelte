@@ -20,7 +20,7 @@
   const TIER_DESCRIPTIONS: Record<ReviewTier, string> = {
     'π': 'I wrote this. Opinion is biased.',
     S: 'Adore. Ravenous for new chapters, scratches almost every itch!',
-    A: 'Amazing! Usually have one or two things that didn't land perfectly.',
+    A: 'Amazing! Usually have one or two things that did not land perfectly.',
     B: 'Enjoyed, decent to pass the time.',
     C: 'Kinda meh. Future works might be better with experience.',
     D: 'Tried but not for me.',
