@@ -152,19 +152,20 @@
   );
   --grad-d: linear-gradient(
     45deg,
-    #6c9058,
-    #7c9a59,    
-    #a0cf85,
-    #cbffad,
-    #a0cf85,
-    #7c9a59,
-    #6c9058,
-    #cbffad,
-    #a0cf85,
-    #7c9a59,
-    #6c9058,
-    #54684b
-  );  
+    #28531e,
+    #3f8a2e,
+    #5fc149,    
+    #94d585,
+    #bce5b3,
+    #94d585,
+    #5fc149,
+    #3f8a2e,
+    #bce5b3,
+    #94d585,
+    #5fc149,
+    #3f8a2e,
+    #28531e
+  );
   --grad-e: linear-gradient(
     45deg,
     #3b6868,    
@@ -182,19 +183,18 @@
   );
   --grad-f: linear-gradient(
     45deg,
-    #28531e,
-    #3f8a2e,
-    #5fc149,    
-    #94d585,
-    #bce5b3,
-    #94d585,
-    #5fc149,
-    #3f8a2e,
-    #bce5b3,
-    #94d585,
-    #5fc149,
-    #3f8a2e,
-    #28531e
+    #0066cc,
+    #1f8fff,    
+    #5cadff,
+    #99ccff,
+    #5cadff,
+    #1f8fff,
+    #0066cc,
+    #99ccff,
+    #5cadff,
+    #1f8fff,
+    #0066cc,
+    #1746a2
   );
 }
 
