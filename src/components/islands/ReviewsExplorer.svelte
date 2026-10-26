@@ -128,12 +128,6 @@
         // ignore parse errors
       }
     }
-
-    // Default the landing view to the "series" tag, while still allowing the
-    // user to toggle it off to see non-series books.
-    if (Object.keys(out.activations).length === 0) {
-      out.activations.series = true;
-    }
     return out;
   }
   const initial = readInitialState();
