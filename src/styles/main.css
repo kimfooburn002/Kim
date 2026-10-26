@@ -134,27 +134,27 @@
   --color-E-800: #224438;
   --color-E-900: #152921;
 
-  --color-F-50:  #ecfdf5;
-  --color-F-100: #d1fae5;
-  --color-F-200: #a7f3d0;
-  --color-F-300: #6ee7b7;
-  --color-F-400: #34d399;
-  --color-F-500: #10b981;
-  --color-F-600: #059669;
-  --color-F-700: #047857;
-  --color-F-800: #065f46;
-  --color-F-900: #064e3b;
+  --color-F-50:  #d6ebff;
+  --color-F-100: #add6ff;
+  --color-F-200: #8dc0f6;
+  --color-F-300: #5da1e9;
+  --color-F-400: #3a8fe4;
+  --color-F-500: #0a85ff;
+  --color-F-600: #0e60be;
+  --color-F-700: #214582;
+  --color-F-800: #152b51;
+  --color-F-900: #0d1930;
 
-  --color-G-50:  #ecfdf5;
-  --color-G-100: #d1fae5;
-  --color-G-200: #a7f3d0;
-  --color-G-300: #6ee7b7;
-  --color-G-400: #34d399;
-  --color-G-500: #10b981;
-  --color-G-600: #059669;
-  --color-G-700: #047857;
-  --color-G-800: #065f46;
-  --color-G-900: #064e3b;
+  --color-G-50:  #f3f2f8;
+  --color-G-100: #dbd7ea;
+  --color-G-200: #b6b0d4;
+  --color-G-300: #9e96c5;
+  --color-G-400: #857bb7;
+  --color-G-500: #5e538d;
+  --color-G-600: #4b4176;
+  --color-G-700: #3a335c;
+  --color-G-800: #292442;
+  --color-G-900: #191528;
 
   /* --- Overrides for built-in palettes ------------------------------ */
   --color-gray-100: #EBF1F5;
