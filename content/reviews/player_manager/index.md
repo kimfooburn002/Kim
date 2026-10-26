@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/pd/Player-Manager-A-Sports-Progression-Fantasy-Audiobook/B0CC33WJ5F
     royal_road: https://www.royalroad.com/fiction/58187/player-manager-a-sports-progression-fantasy
 aliases: [/book-reviews/player_manager]
-tags: [in-progress, litrpg]
+tags: [completed, series, litrpg]
 sentence: "A progression fantasy set in the modern world, perfect for fans of Football Manager, the FIFA games, and last-minute disallowed goals."
 search_terms: "Soccer Supremo Max Best Football Manager Championship Manager"
 ---
