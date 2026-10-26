@@ -168,18 +168,18 @@
   );
   --grad-e: linear-gradient(
     45deg,
-    #3b6868,    
-    #589d95,
-    #9ed4c9,
-    #d1f0ea,
-    #9ed4c9,
-    #589d95,
-    #3b6868,
-    #d1f0ea,
-    #9ed4c9,
-    #589d95,
-    #3b6868,
-    #234343
+    #3c6969,
+    #599e8c,
+    #9dd4c9,
+    #d1f0e6,
+    #9dd4c9,
+    #599e8c,
+    #3c6969,
+    #d1f0e6,
+    #9dd4c9,
+    #599e8c,
+    #3c6969,
+    #22423e
   );
   --grad-f: linear-gradient(
     45deg,
