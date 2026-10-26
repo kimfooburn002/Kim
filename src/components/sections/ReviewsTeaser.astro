@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import ReviewCoverCard from '../ReviewCoverCard.astro';
 
 const reviews = (await getCollection('reviews'))
+  .filter((entry) => entry.data.tags?.includes('series'))
   .sort((a, b) => +b.data.date - +a.data.date)
   .slice(0, 5);
 ---
