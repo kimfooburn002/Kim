@@ -5,7 +5,7 @@ date: 2026-07-13
 auth: Ted Steel
 categories: [book-reviews]
 review: C
-weight: 400001
+weight: 300001
 name: "Player Manager Book 3"
 links:
     amazon: https://www.amazon.com/Player-Manager-Sports-Progression-Fantasy-ebook/dp/B0CCJYPD2Z
