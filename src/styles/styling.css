@@ -293,7 +293,7 @@
     background: var(--grad-a);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.4);
   }
   .rating-B {
     background: var(--grad-b);
@@ -323,13 +323,13 @@
     background: var(--grad-f);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(92, 173, 255, 0.4);
+    color: rgba(92, 173, 255, 0.5);
   }
   .rating-G {
     background: var(--grad-g);
     background-clip: text;
     -webkit-background-clip: text;
-    color: rgba(158, 150, 197, 0.4);
+    color: rgba(158, 150, 197, 0.6);
   }
 }
 
