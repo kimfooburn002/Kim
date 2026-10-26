@@ -24,7 +24,7 @@
     B: 'Enjoyed, decent to pass the time.',
     C: 'Kinda meh. Future works might be better with experience.',
     D: 'Tried but not for me.',
-    F: 'Expectations was not matched/mismatched so dropped with some resentment.',
+    F: 'Expectations was not matched so dropped with some resentment.',
     G: 'On My Radar',
   };
 
@@ -41,7 +41,7 @@
     D: { grad: 'var(--grad-d)', scrim: 0.5 },
     E: { grad: 'var(--grad-e)', scrim: 0.5 },
     F: { grad: 'var(--grad-f)', scrim: 0.5 },
-    G: { grad: 'var(--grad-f)', scrim: 0.5 },
+    G: { grad: 'var(--grad-g)', scrim: 0.5 },
   };
 
   const LINK_TAG_MAP: Record<string, string> = {
