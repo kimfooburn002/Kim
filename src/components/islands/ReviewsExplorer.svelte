@@ -13,19 +13,19 @@
   };
   
   // single source of truth for the layout options used by the template
-  const LAYOUT_OPTIONS: Layout[] = ['tier', 'cover', 'wide'];
+  const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
   
   let { posts, totalReviews }: Props = $props();
 
   const TIER_DESCRIPTIONS: Record<ReviewTier, string> = {
     'π': 'I wrote this. Opinion is biased',
-    S: 'Adore. Ravenous for new chapters, scratches almost every itch!',
+    S: 'Adore. Caused severe book hangover, scratched almost every itch!',
     A: 'Amazing! Usually have one or two things that did not land perfectly',
     B: 'Enjoyed, decent to pass the time :)',
     C: 'Kinda meh. Future works might be better with experience',
-    D: 'Tried a bit but not for me',
-    E: 'Was great, but halfway it got so bad',
-    F: 'Expectations was not matched so dropped with some resentment',
+    D: 'Tried but not for me',
+    E: 'Was great, but halfway through, it got questionable',
+    F: 'Expectations was not met so dropped with some resentment',
     G: 'On My Radar',
   };
 
