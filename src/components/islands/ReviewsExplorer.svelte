@@ -200,8 +200,8 @@
   }
 
   function reset() {
-    //tagActivations = {};
-    tagActivations = { series: true };
+    tagActivations = {};
+    //tagActivations = { series: true };
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
