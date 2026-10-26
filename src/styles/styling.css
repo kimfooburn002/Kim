@@ -358,10 +358,13 @@
   );
 }
 .tag-snippet,
+.tag-series,
 .tag-time-loops,
 .tag-finished,
-.tag-manhua,
 .tag-in-progress,
+.tag-manhua,
+.tag-manhwa,
+.tag-manga, 
 .tag-magic-school,
 .tag-slice-of-life,
 .tag-litrpg,
