@@ -600,8 +600,6 @@
         >
           {SOURCE_LABELS[tag]}
         </button>
-          {SOURCE_LABELS[tag]}
-        </button>
       {/each}
     </div>
 
