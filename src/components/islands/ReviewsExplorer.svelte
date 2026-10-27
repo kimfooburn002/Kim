@@ -586,7 +586,7 @@
           class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
             sourceActivations[tag]
               ? 'bg-cream-600 text-cream-50'
-              : 'bg-cream-800 text-cream-300 hover:bg-cream-600 hover:text-cream-50'
+              : 'bg-cream-800 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
           } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
           onclick={() => {
             sourceActivations = {
@@ -606,7 +606,7 @@
         class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
           completionFilter === 'completed'
             ? 'bg-cream-600 text-cream-50'
-            : 'bg-cream-800 text-cream-300 hover:bg-cream-600 hover:text-cream-50'
+            : 'bg-cream-800 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
         } rounded-l-md`}
         onclick={() =>
           (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
@@ -618,7 +618,7 @@
         class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
           completionFilter === 'in-progress'
             ? 'bg-cream-600 text-cream-50'
-            : 'bg-cream-800 text-cream-300 hover:bg-cream-600 hover:text-cream-50'
+            : 'bg-cream-800 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
         } rounded-r-md`}
           onclick={() =>
             (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
