@@ -186,19 +186,15 @@ body {
   }
   .tag {
     &.active-true {
-      @apply text-accent-900 bg-cream-600;
+      @apply text-accent-900 bg-cream-50;
       background-image: none;
-      /* background: none #18ad40; */
-      /* background-color: #18ad40; */
     }
     &.active-false {
       @apply text-cream-100 bg-accent-700;
       background-image: none;
-      /* background: none #991b1b; */
-      /* background-color: #991b1b; */
     }
     &.active-undefined {
-      opacity: 0.2;
+      opacity: 0.3;
     }
   }
   &.review {
