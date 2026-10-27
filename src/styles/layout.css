@@ -202,7 +202,7 @@ body {
 
   .source-chip {
     &.active-true {
-      @apply text-accent-900 bg-accent-300;
+      @apply text-accent-900 bg-accent-200;
     }
     &.active-false,
     &.active-undefined {
@@ -212,7 +212,7 @@ body {
 
   .completion-chip {
     &.active-true {
-      @apply text-green-900 bg-green-300;
+      @apply text-green-900 bg-green-200;
     }
     &.active-false,
     &.active-undefined {
@@ -222,7 +222,7 @@ body {
 
   .book-chip {
     &.active-true {
-      @apply text-cream-900 bg-cream-300;
+      @apply text-cream-900 bg-cream-200;
     }
     &.active-false,
     &.active-undefined {
