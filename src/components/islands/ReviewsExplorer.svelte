@@ -584,8 +584,6 @@
         <button
           type="button"
           class={`px-4 py-2 text-base sm:text-sm cursor-pointer
-            focus:outline-none focus-visible:outline-none
-            focus:ring-0 focus-visible:ring-0
             ${sourceActivations[tag]
               ? 'bg-green-500 text-green-50'
               : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'}
