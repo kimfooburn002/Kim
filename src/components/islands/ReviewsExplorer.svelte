@@ -605,8 +605,8 @@
         type="button"
         class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
           completionFilter === 'completed'
-            ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
+            ? 'bg-cream-600 text-cream-50'
+            : 'bg-cream-800 text-cream-300 hover:bg-cream-600 hover:text-cream-50'
         } rounded-l-md`}
         onclick={() =>
           (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
@@ -617,8 +617,8 @@
         type="button"
         class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
           completionFilter === 'in-progress'
-            ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
+            ? 'bg-cream-600 text-cream-50'
+            : 'bg-cream-800 text-cream-300 hover:bg-cream-600 hover:text-cream-50'
         } rounded-r-md`}
           onclick={() =>
             (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
