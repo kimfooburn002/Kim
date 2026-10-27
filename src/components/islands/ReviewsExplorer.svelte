@@ -194,7 +194,7 @@
   let completionFilter = $state<CompletionFilter>(initial.completionFilter);
   let sourceActivations = $state<Record<SourceTag, boolean>>({
     amazon: false,
-    audio: false,
+    audiobook: false,
     'royal-road': false,
   });
 
@@ -428,15 +428,19 @@
     return () => window.removeEventListener('keypress', handler);
   });
 
-   function sourceChipState(tag: SourceTag): 'true' | 'false' | 'undefined' {
-    if (sourceActivations[tag]) return 'true';
-    return Object.values(sourceActivations).some(Boolean) ? 'undefined' : 'false';
+   type ChipState = 'true' | 'false' | 'undefined';
+
+  function chipState(active: boolean, anySelected: boolean): ChipState {
+    if (active) return 'true';
+    return anySelected ? 'undefined' : 'false';
   }
 
-  function completionChipState(value: CompletionFilter): 'true' | 'false' | 'undefined' {
-    if (completionFilter === value) return 'true';
-    if (completionFilter === 'all') return 'false';
-    return 'undefined';
+  function sourceChipState(tag: SourceTag): ChipState {
+    return chipState(sourceActivations[tag], Object.values(sourceActivations).some(Boolean));
+  }
+
+  function completionChipState(value: CompletionFilter): ChipState {
+    return chipState(completionFilter === value, completionFilter !== 'all');
   }
 </script>
 
