@@ -201,11 +201,11 @@
   --color-green-800: #1b241b; /* default tag font */
   --color-green-900: #121712;/* main bg */ 
   
-  --color-accent-50:  #fff4f6;
-  --color-accent-100: #fedfe4;
-  --color-accent-200: #fdbbbf;
-  --color-accent-300: #f69a98;
-  --color-accent-400: #d75a61;
+  --color-accent-50:  #fbeff1;
+  --color-accent-100: #f2cfd3;
+  --color-accent-200: #e9afb6;
+  --color-accent-300: #e08f98;
+  --color-accent-400: #db6b71;
   --color-accent-500: #cd4756; /* accent red */
   --color-accent-600: #b63d4b;
   --color-accent-700: #8f2e38; /* tag list excluded bg */
