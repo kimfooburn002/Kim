@@ -204,7 +204,14 @@ body {
       @apply text-accent-900 bg-cream-100;
       background-image: none;
     }
+
     &.source-chip.active-false {
+      @apply text-cream-100 bg-accent-700;
+      background-image: none;
+    }
+
+    &.source-chip.active-undefined {
+      opacity: 0.45;
       @apply text-cream-100 bg-accent-700;
       background-image: none;
     }
@@ -213,11 +220,19 @@ body {
       @apply text-green-900 bg-green-100;
       background-image: none;
     }
+
     &.completion-chip.active-false {
       @apply text-green-100 bg-green-700;
       background-image: none;
     }
+
+    &.completion-chip.active-undefined {
+      opacity: 0.45;
+      @apply text-green-100 bg-green-700;
+      background-image: none;
+    }
   }
+}
 
   &.review {
     button {
