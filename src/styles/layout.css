@@ -222,7 +222,7 @@ body {
 
   .book-chip {
     &.active-true {
-      @apply text-cream-900 bg-cream-100;
+      @apply text-cream-900 bg-cream-200;
     }
     &.active-false,
     &.active-undefined {
