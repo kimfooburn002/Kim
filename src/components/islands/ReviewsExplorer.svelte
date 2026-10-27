@@ -592,14 +592,12 @@
   </div>
 </div>
 
-<div class="justify-center flex flex-wrap items-center gap-2">
+<div class="flex flex-wrap justify-center gap-2">
   {#each SOURCE_TAGS as tag}
     <button
       type="button"
-      class={`rounded-full px-4 py-2 text-base sm:text-sm cursor-pointer transition-colors ${
-        sourceActivations[tag]
-          ? 'bg-cream-600 text-cream-50'
-          : 'bg-cream-800/80 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
+      class={`chip source-chip ${
+        sourceActivations[tag] ? 'active-true' : 'active-false'
       }`}
       onclick={() => {
         sourceActivations = {
@@ -613,13 +611,11 @@
   {/each}
 </div>
 
-<div class="justify-center flex flex-wrap items-center gap-2 mt-2">
+<div class="mt-2 flex flex-wrap justify-center gap-2">
   <button
     type="button"
-    class={`rounded-full px-4 py-2 text-base sm:text-sm cursor-pointer transition-colors ${
-      completionFilter === 'completed'
-        ? 'bg-cream-600 text-cream-50'
-        : 'bg-cream-800/80 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
+    class={`chip completion-chip ${
+      completionFilter === 'completed' ? 'active-true' : 'active-false'
     }`}
     onclick={() =>
       (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
@@ -629,10 +625,8 @@
 
   <button
     type="button"
-    class={`rounded-full px-4 py-2 text-base sm:text-sm cursor-pointer transition-colors ${
-      completionFilter === 'in-progress'
-        ? 'bg-cream-600 text-cream-50'
-        : 'bg-cream-800/80 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
+    class={`chip completion-chip ${
+      completionFilter === 'in-progress' ? 'active-true' : 'active-false'
     }`}
     onclick={() =>
       (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
