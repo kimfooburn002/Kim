@@ -2,11 +2,18 @@
 @import "./fancy.css";
 @import "./fonts.css";
 @import "./font-fallback.css";
-
 @import "tailwindcss";
 
 /* Form base styles (.form-input, .form-checkbox, etc.) used by our CSS. */
 @plugin "@tailwindcss/forms";
+
+@import './utility-patterns.css';
+@import './range-slider.css';
+@import './toggle-switch.css';
+@import './theme.css';
+@import './styling.css';
+@import './layout.css';
+@import './fancy.css';
 
 @theme {
   /* --- Custom screens (extends defaults) ----------------------------- */
@@ -410,11 +417,3 @@
 .focus\:bg-π-900:focus { background-color: var(--color-π-900); }
 .text-π-400 { color: var(--color-π-400); }
 .hover\:text-π-400:hover { color: var(--color-π-400); }
-
-@import './utility-patterns.css';
-@import './range-slider.css';
-@import './toggle-switch.css';
-@import './theme.css';
-@import './styling.css';
-@import './layout.css';
-@import './fancy.css';
