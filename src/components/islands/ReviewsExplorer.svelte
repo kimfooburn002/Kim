@@ -534,34 +534,35 @@
       {/if}
     </button>    
   </div>
-</div>
 
-<div class="inline-flex items-center m-2 overflow-hidden rounded-md">
-  <button
-    type="button"
-    class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
-      completionFilter === 'completed'
-        ? 'bg-green-500 text-green-50'
-        : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
-    } rounded-l-md`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
-  >
-    Completed
-  </button>
-
-  <button
-    type="button"
-    class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
-      completionFilter === 'in-progress'
-        ? 'bg-green-500 text-green-50'
-        : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
-    } rounded-r-md`}
-      onclick={() =>
-        (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
-  >
-    In-progress
-  </button>
+  <div class="justify-center flex flex-wrap items-center">
+    <div class="inline-flex items-center m-2 overflow-hidden rounded-md">
+      <button
+        type="button"
+        class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
+          completionFilter === 'completed'
+            ? 'bg-green-500 text-green-50'
+            : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
+        } rounded-l-md`}
+        onclick={() =>
+          (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+      >
+        Completed
+      </button>    
+      <button
+        type="button"
+        class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
+          completionFilter === 'in-progress'
+            ? 'bg-green-500 text-green-50'
+            : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
+        } rounded-r-md`}
+          onclick={() =>
+            (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
+      >
+        In-progress
+      </button>
+    </div>
+  </div>
 </div>
 
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
