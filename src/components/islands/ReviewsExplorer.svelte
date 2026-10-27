@@ -427,6 +427,17 @@
     window.addEventListener('keypress', handler);
     return () => window.removeEventListener('keypress', handler);
   });
+
+   function sourceChipState(tag: SourceTag): 'true' | 'false' | 'undefined' {
+    if (sourceActivations[tag]) return 'true';
+    return Object.values(sourceActivations).some(Boolean) ? 'undefined' : 'false';
+  }
+
+  function completionChipState(value: CompletionFilter): 'true' | 'false' | 'undefined' {
+    if (completionFilter === value) return 'true';
+    if (completionFilter === 'all') return 'false';
+    return 'undefined';
+  }
 </script>
 
 <div id="preamble">
@@ -604,14 +615,9 @@
   {/each}
 
   {#each SOURCE_TAGS as tag}
-    {@const anySourceSelected = Object.values(sourceActivations).some(Boolean)}
     <button
       type="button"
-      class="filter-chip source-chip {sourceActivations[tag]
-        ? 'active-true'
-        : anySourceSelected
-          ? 'active-undefined'
-          : 'active-false'} hover:cursor-pointer text-base sm:text-sm"
+      class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
       onclick={() => {
         sourceActivations = {
           ...sourceActivations,
@@ -625,11 +631,7 @@
 
   <button
     type="button"
-    class="filter-chip completion-chip {completionFilter === 'completed'
-      ? 'active-true'
-      : completionFilter === 'in-progress'
-        ? 'active-undefined'
-        : 'active-false'} hover:cursor-pointer text-base sm:text-sm"
+    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
     onclick={() =>
       (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
   >
@@ -638,11 +640,7 @@
 
   <button
     type="button"
-    class="filter-chip completion-chip {completionFilter === 'in-progress'
-      ? 'active-true'
-      : completionFilter === 'completed'
-        ? 'active-undefined'
-        : 'active-false'} hover:cursor-pointer text-base sm:text-sm"
+    class={`filter-chip completion-chip ${completionChipState('in-progress')} hover:cursor-pointer text-base sm:text-sm`}
     onclick={() =>
       (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
   >
