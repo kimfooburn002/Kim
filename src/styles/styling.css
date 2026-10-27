@@ -366,6 +366,10 @@
 .tag-in-progress{
   @apply bg-cream-600 text-cream-50 font-medium;
 }  
+.tag-series,
+.tag-book{
+  @apply bg-cream-600 text-cream-50 font-medium;
+}    
 .tag-snippet,
 .tag-series,
 .tag-time-loops,
