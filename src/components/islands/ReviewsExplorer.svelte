@@ -215,11 +215,12 @@
     if (!byRank) params.set('o', '0');
     if (layout !== defaultLayout) params.set('l', layout);
     if (completionFilter !== 'all') params.set('status', completionFilter);
-
+    if (bookFilter !== 'all') params.set('book', bookFilter);
+  
     const activeSources = Object.entries(sourceActivations)
       .filter(([, active]) => active)
       .map(([tag]) => tag);
-
+  
     if (activeSources.length) params.set('source', activeSources.join('_'));
     const include: string[] = [];
     const exclude: string[] = [];
@@ -234,8 +235,7 @@
     const args = params.toString();
     const newUrl = `${location.origin}${location.pathname}${args ? '?' + args : ''}`;
     history.pushState({ path: newUrl }, '', newUrl);
-
-    // Also persist reading list to localStorage
+  
     if (typeof localStorage !== 'undefined') {
       try {
         localStorage.setItem('reading-list', JSON.stringify(rlSlugs));
@@ -334,6 +334,12 @@
           return false;
         }
         if (completionFilter === 'in-progress' && !post.tags.includes('in-progress')) {
+          return false;
+        }
+        if (bookFilter === 'book' && !post.tags.includes('book')) {
+          return false;
+        }
+        if (bookFilter === 'series' && !post.tags.includes('series')) {
           return false;
         }
         const activeSources = Object.entries(sourceActivations)
@@ -634,53 +640,54 @@
   {/each}
 
   {#each SOURCE_TAGS as tag}
+    <button
+      type="button"
+      class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => {
+        sourceActivations = {
+          ...sourceActivations,
+          [tag]: !sourceActivations[tag],
+        };
+      }}
+    >
+      <span>{SOURCE_LABELS[tag]}</span>
+    </button>
+  {/each}
+
   <button
     type="button"
-    class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => {
-      sourceActivations = {
-        ...sourceActivations,
-        [tag]: !sourceActivations[tag],
-      };
-    }}
+    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
   >
-    <span>{SOURCE_LABELS[tag]}</span>
+    <span>Completed</span>
   </button>
-{/each}
-
-<button
-  type="button"
-  class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
-  onclick={() =>
-    (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
->
-  <span>Completed</span>
-</button>
-
-<button
-  type="button"
-  class={`filter-chip completion-chip ${completionChipState('in-progress')} hover:cursor-pointer text-base sm:text-sm`}
-  onclick={() =>
-    (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
->
-  <span>In-progress</span>
-</button>
-
-<button
-  type="button"
-  class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
-  onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
->
-  <span>Book</span>
-</button>
-
-<button
-  type="button"
-  class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
-  onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
->
-  <span>Series</span>
-</button>
+  
+  <button
+    type="button"
+    class={`filter-chip completion-chip ${completionChipState('in-progress')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
+  >
+    <span>In-progress</span>
+  </button>
+  
+  <button
+    type="button"
+    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
+  >
+    <span>Book</span>
+  </button>
+  
+  <button
+    type="button"
+    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
+  >
+    <span>Series</span>
+  </button>
+</div>
 
 {#snippet cards(posts: Post[])}
   {#each posts as post (post.link)}
