@@ -179,47 +179,57 @@ body {
 
   button {
     @apply flex items-center font-medium py-2 px-4 m-2 rounded-full transition duration-200;
+
     span {
       @apply transition-colors duration-150 ease-in-out;
     }
   }
 
-  .tag,
-  .filter-chip {
+  .tag {
     &.active-true {
       @apply text-accent-900 bg-cream-100;
       background-image: none;
     }
-
     &.active-false {
       @apply text-cream-100 bg-accent-700;
       background-image: none;
     }
-
     &.active-undefined {
-      opacity: 0.45;
+      opacity: 0.5;
     }
   }
 
-  .source-chip {
-    &.active-true {
+  .filter-chip {
+    &.source-chip.active-true {
       @apply text-accent-900 bg-cream-100;
+      background-image: none;
     }
 
-    &.active-false,
-    &.active-undefined {
+    &.source-chip.active-false {
       @apply text-cream-100 bg-accent-700;
+      background-image: none;
     }
-  }
 
-  .completion-chip {
-    &.active-true {
+    &.source-chip.active-undefined {
+      opacity: 0.45;
+      @apply text-cream-100 bg-accent-700;
+      background-image: none;
+    }
+
+    &.completion-chip.active-true {
       @apply text-green-900 bg-green-100;
+      background-image: none;
     }
 
-    &.active-false,
-    &.active-undefined {
+    &.completion-chip.active-false {
       @apply text-green-100 bg-green-700;
+      background-image: none;
+    }
+
+    &.completion-chip.active-undefined {
+      opacity: 0.45;
+      @apply text-green-100 bg-green-700;
+      background-image: none;
     }
   }
 }
