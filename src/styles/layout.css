@@ -232,8 +232,6 @@ body {
       background-image: none;
     }
   }
-}
-
   &.review {
     button {
       @apply block relative rounded-lg px-0 py-0 mx-0 my-0;
