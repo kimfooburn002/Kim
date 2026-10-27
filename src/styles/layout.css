@@ -194,7 +194,7 @@ body {
       background-image: none;
     }
     &.active-undefined {
-      opacity: 0.3;
+      opacity: 0.5;
     }
   }
   &.review {
