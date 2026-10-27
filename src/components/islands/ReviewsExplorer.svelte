@@ -95,16 +95,19 @@
   /*const allTags = $derived(
     Array.from(new Set(augmentedPosts.flatMap((p) => p.tags))).sort()
   );*/
+  const SPECIAL_TAGS = [
+    ...STATUS_TAGS,
+    ...SOURCE_TAGS,
+    'book',
+    'series',
+  ] as const;
+  
   const allTags = $derived(
     Array.from(
       new Set(
         augmentedPosts
           .flatMap((p) => p.tags)
-          .filter(
-            (tag) =>
-              !STATUS_TAGS.includes(tag as (typeof STATUS_TAGS)[number]) &&
-              !SOURCE_TAGS.includes(tag as (typeof SOURCE_TAGS)[number])
-          )
+          .filter((tag) => !SPECIAL_TAGS.includes(tag as (typeof SPECIAL_TAGS)[number]))
       )
     ).sort()
   );
