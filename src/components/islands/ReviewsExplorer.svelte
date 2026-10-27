@@ -579,14 +579,24 @@
   </div>
 
   <div class="justify-center flex flex-wrap items-center">
-        <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
+    <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
       {#each SOURCE_TAGS as tag}
+        {@const label =
+          tag === 'royal-road'
+            ? 'Royal Road'
+            : tag === 'audio'
+              ? 'Audio'
+              : 'Amazon'}
         <button
           type="button"
-          class={`px-4 py-2 text-base sm:text-sm cursor-pointer
-            ${sourceActivations[tag]
-              ? 'bg-green-500 text-green-50'
-              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'}
+          class={`appearance-none border-0 cursor-pointer px-4 py-2 text-base sm:text-sm
+            focus:outline-none focus-visible:outline-none
+            focus:ring-0 focus-visible:ring-0
+            ${
+              sourceActivations[tag]
+                ? 'bg-green-500 text-green-50'
+                : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
+            }
             ${tag === 'amazon' ? 'rounded-l-md' : ''}
             ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
           onclick={() => {
@@ -596,7 +606,7 @@
             };
           }}
         >
-          {SOURCE_LABELS[tag]}
+          {label}
         </button>
       {/each}
     </div>
