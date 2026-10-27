@@ -51,6 +51,7 @@
   const LINK_TAG_MAP: Record<string, string> = {
     amazon: 'amazon',
     audible: 'audio',
+    royal_road: 'royal-road',
   };
 
   // Augment posts with derived tags (extra link-derived tags + 'completed').
