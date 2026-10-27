@@ -185,51 +185,42 @@ body {
     }
   }
 
-  .tag {
+  .tag,
+  .filter-chip {
     &.active-true {
       @apply text-accent-900 bg-cream-100;
       background-image: none;
     }
+
     &.active-false {
       @apply text-cream-100 bg-accent-700;
       background-image: none;
     }
+
     &.active-undefined {
-      opacity: 0.5;
+      opacity: 0.45;
     }
   }
 
-  .filter-chip {
-    &.source-chip.active-true {
+  .source-chip {
+    &.active-true {
       @apply text-accent-900 bg-cream-100;
-      background-image: none;
     }
 
-    &.source-chip.active-false {
+    &.active-false,
+    &.active-undefined {
       @apply text-cream-100 bg-accent-700;
-      background-image: none;
     }
+  }
 
-    &.source-chip.active-undefined {
-      opacity: 0.45;
-      @apply text-cream-100 bg-accent-700;
-      background-image: none;
-    }
-
-    &.completion-chip.active-true {
+  .completion-chip {
+    &.active-true {
       @apply text-green-900 bg-green-100;
-      background-image: none;
     }
 
-    &.completion-chip.active-false {
+    &.active-false,
+    &.active-undefined {
       @apply text-green-100 bg-green-700;
-      background-image: none;
-    }
-
-    &.completion-chip.active-undefined {
-      opacity: 0.45;
-      @apply text-green-100 bg-green-700;
-      background-image: none;
     }
   }
 }
