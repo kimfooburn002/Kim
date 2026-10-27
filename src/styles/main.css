@@ -2,18 +2,11 @@
 @import "./fancy.css";
 @import "./fonts.css";
 @import "./font-fallback.css";
+
 @import "tailwindcss";
 
 /* Form base styles (.form-input, .form-checkbox, etc.) used by our CSS. */
 @plugin "@tailwindcss/forms";
-
-@import './utility-patterns.css';
-@import './range-slider.css';
-@import './toggle-switch.css';
-@import './theme.css';
-@import './styling.css';
-@import './layout.css';
-@import './fancy.css';
 
 @theme {
   /* --- Custom screens (extends defaults) ----------------------------- */
@@ -186,16 +179,16 @@
   --color-purple-900: #2b2343;
 
   /* Custom site palettes */
-  --color-cream-50:  #ffffff;
-  --color-cream-100: #f6f0e5;
-  --color-cream-200: #efe5d1;
-  --color-cream-300: #e5d3b3;
-  --color-cream-400: #dbc295;
-  --color-cream-500: #c69f58; /* light cream f6f0e5*/ 
-  --color-cream-600: #a78139; /* tag list selected bg e6dbc9*/ 
-  --color-cream-700: #7a5e2a; /* font too coloured */
-  --color-cream-800: #5b451f; /* font too dark */
-  --color-cream-900: #3c2e15;  
+  --color-cream-50:  #fffdf9;
+  --color-cream-100: #fff9f1;
+  --color-cream-200: #fff2e3;
+  --color-cream-300: #f9eee4;
+  --color-cream-400: #f3eadc;
+  --color-cream-500: #f6f0e5; /* light cream */ 
+  --color-cream-600: #e6dbc9; /* tag list selected bg */ 
+  --color-cream-700: #d6c6ad; /* font too coloured */
+  --color-cream-800: #bfae8f; /* font too dark */
+  --color-cream-900: #9f8f72;  
 
   --color-green-50:  #eef3ec; /* selected link/button font */
   --color-green-100: #dfebe0; 
@@ -260,139 +253,13 @@
 /* --- Safelist replacement ---------------------------------------------
    v3's `safelist` (regex + variants) becomes `@source inline()` calls
    in v4. Brace expansion enumerates every required class. ----------- */
- 
-@source inline(
-  "img-smaller",
-  "img-small",
-  "img-reduced",
-  "img-poster",
-  "img-large",
-  "img-full",
-  "img-tiny",
-  "img-shrink",
-  "list-none",
-  "grid-cols-cover-cards",
-  "grid-cols-cover-cards-mobile",
-  "grid-cols-cover-cards-tier",
-  "grid-cols-cover-cards-large",
-  "grid-cols-cover-cards-mobile-large",
-  "hover:bg-S-500",
-  "hover:bg-S-600",
-  "hover:bg-S-700",
-  "hover:bg-S-800",
-  "hover:bg-S-900",
-  "focus:bg-S-500",
-  "focus:bg-S-600",
-  "focus:bg-S-700",
-  "focus:bg-S-800",
-  "focus:bg-S-900",
-  "hover:bg-A-500",
-  "hover:bg-A-600",
-  "hover:bg-A-700",
-  "hover:bg-A-800",
-  "hover:bg-A-900",
-  "focus:bg-A-500",
-  "focus:bg-A-600",
-  "focus:bg-A-700",
-  "focus:bg-A-800",
-  "focus:bg-A-900",
-  "hover:bg-B-500",
-  "hover:bg-B-600",
-  "hover:bg-B-700",
-  "hover:bg-B-800",
-  "hover:bg-B-900",
-  "focus:bg-B-500",
-  "focus:bg-B-600",
-  "focus:bg-B-700",
-  "focus:bg-B-800",
-  "focus:bg-B-900",
-  "hover:bg-C-500",
-  "hover:bg-C-600",
-  "hover:bg-C-700",
-  "hover:bg-C-800",
-  "hover:bg-C-900",
-  "focus:bg-C-500",
-  "focus:bg-C-600",
-  "focus:bg-C-700",
-  "focus:bg-C-800",
-  "focus:bg-C-900",
-  "hover:bg-D-500",
-  "hover:bg-D-600",
-  "hover:bg-D-700",
-  "hover:bg-D-800",
-  "hover:bg-D-900",
-  "focus:bg-D-500",
-  "focus:bg-D-600",
-  "focus:bg-D-700",
-  "focus:bg-D-800",
-  "focus:bg-D-900",
-  "hover:bg-E-500",
-  "hover:bg-E-600",
-  "hover:bg-E-700",
-  "hover:bg-E-800",
-  "hover:bg-E-900",
-  "focus:bg-E-500",
-  "focus:bg-E-600",
-  "focus:bg-E-700",
-  "focus:bg-E-800",
-  "focus:bg-E-900",
-  "hover:bg-F-500",
-  "hover:bg-F-600",
-  "hover:bg-F-700",
-  "hover:bg-F-800",
-  "hover:bg-F-900",
-  "focus:bg-F-500",
-  "focus:bg-F-600",
-  "focus:bg-F-700",
-  "focus:bg-F-800",
-  "focus:bg-F-900",
-  "hover:bg-G-500",
-  "hover:bg-G-600",
-  "hover:bg-G-700",
-  "hover:bg-G-800",
-  "hover:bg-G-900",
-  "focus:bg-G-500",
-  "focus:bg-G-600",
-  "focus:bg-G-700",
-  "focus:bg-G-800",
-  "focus:bg-G-900",
-  "hover:text-S-300",
-  "hover:text-S-400",
-  "hover:text-A-300",
-  "hover:text-A-400",
-  "hover:text-B-300",
-  "hover:text-B-400",
-  "hover:text-C-300",
-  "hover:text-C-400",
-  "hover:text-D-300",
-  "hover:text-D-400",
-  "hover:text-E-300",
-  "hover:text-E-400",
-  "hover:text-F-300",
-  "hover:text-F-400",
-  "hover:text-G-300",
-  "hover:text-G-400",
-  "xs:grid-cols-cover-cards",
-  "xs:grid-cols-cover-cards-mobile",
-  "xs:grid-cols-cover-cards-tier",
-  "xs:grid-cols-cover-cards-large",
-  "xs:grid-cols-cover-cards-mobile-large",
-  "sm:grid-cols-cover-cards",
-  "sm:grid-cols-cover-cards-mobile",
-  "sm:grid-cols-cover-cards-tier",
-  "sm:grid-cols-cover-cards-large",
-  "sm:grid-cols-cover-cards-mobile-large",
-  "md:grid-cols-cover-cards",
-  "md:grid-cols-cover-cards-mobile",
-  "md:grid-cols-cover-cards-tier",
-  "md:grid-cols-cover-cards-large",
-  "md:grid-cols-cover-cards-mobile-large",
-  "lg:grid-cols-cover-cards",
-  "lg:grid-cols-cover-cards-mobile",
-  "lg:grid-cols-cover-cards-tier",
-  "lg:grid-cols-cover-cards-large",
-  "lg:grid-cols-cover-cards-mobile-large"
-);
+
+@source inline("img-{smaller,small,reduced,poster,large,full,tiny,shrink}");
+@source inline("list-none");
+@source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
+@source inline("{hover:,focus:,}bg-{S,A,B,C,D,E,F,G}-{500,600,700,800,900}");
+@source inline("{hover:,}text-{S,A,B,C,D,E,F,G}-{300,400}");
+@source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
    explicitly via `@source inline()` — the non-ASCII `π` is rejected by
@@ -417,3 +284,11 @@
 .focus\:bg-π-900:focus { background-color: var(--color-π-900); }
 .text-π-400 { color: var(--color-π-400); }
 .hover\:text-π-400:hover { color: var(--color-π-400); }
+
+@import './utility-patterns.css';
+@import './range-slider.css';
+@import './toggle-switch.css';
+@import './theme.css';
+@import './styling.css';
+@import './layout.css';
+@import './fancy.css';
