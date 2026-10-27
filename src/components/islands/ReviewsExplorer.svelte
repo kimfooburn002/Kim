@@ -592,49 +592,6 @@
   </div>
 </div>
 
-<div class="flex flex-wrap justify-center gap-2">
-  {#each SOURCE_TAGS as tag}
-    <button
-      type="button"
-      class={`chip source-chip ${
-        sourceActivations[tag] ? 'active-true' : 'active-false'
-      }`}
-      onclick={() => {
-        sourceActivations = {
-          ...sourceActivations,
-          [tag]: !sourceActivations[tag],
-        };
-      }}
-    >
-      {SOURCE_LABELS[tag]}
-    </button>
-  {/each}
-</div>
-
-<div class="mt-2 flex flex-wrap justify-center gap-2">
-  <button
-    type="button"
-    class={`chip completion-chip ${
-      completionFilter === 'completed' ? 'active-true' : 'active-false'
-    }`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
-  >
-    Completed
-  </button>
-
-  <button
-    type="button"
-    class={`chip completion-chip ${
-      completionFilter === 'in-progress' ? 'active-true' : 'active-false'
-    }`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
-  >
-    In-progress
-  </button>
-</div>
-
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
   {#each allTags as tag (tag)}
     <button
@@ -645,6 +602,39 @@
       <span>{tag}</span>
     </button>
   {/each}
+
+  {#each SOURCE_TAGS as tag}
+    <button
+      type="button"
+      class="filter-chip source-chip {sourceActivations[tag] ? 'active-true' : 'active-false'} hover:cursor-pointer text-base sm:text-sm"
+      onclick={() => {
+        sourceActivations = {
+          ...sourceActivations,
+          [tag]: !sourceActivations[tag],
+        };
+      }}
+    >
+      <span>{SOURCE_LABELS[tag]}</span>
+    </button>
+  {/each}
+
+  <button
+    type="button"
+    class="filter-chip completion-chip {completionFilter === 'completed' ? 'active-true' : 'active-false'} hover:cursor-pointer text-base sm:text-sm"
+    onclick={() =>
+      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+  >
+    <span>Completed</span>
+  </button>
+
+  <button
+    type="button"
+    class="filter-chip completion-chip {completionFilter === 'in-progress' ? 'active-true' : 'active-false'} hover:cursor-pointer text-base sm:text-sm"
+    onclick={() =>
+      (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
+  >
+    <span>In-progress</span>
+  </button>
 </div>
 
 {#snippet cards(posts: Post[])}
