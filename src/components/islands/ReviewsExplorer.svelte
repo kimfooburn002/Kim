@@ -428,17 +428,17 @@
     return () => window.removeEventListener('keypress', handler);
   });
 
-  type ChipState = 'true' | 'false' | 'undefined';
+  type ChipState = 'active-true' | 'active-false' | 'active-undefined';
 
   function chipState(active: boolean, anySelected: boolean): ChipState {
-    if (active) return 'true';
-    return anySelected ? 'undefined' : 'false';
+    if (active) return 'active-true';
+    return anySelected ? 'active-undefined' : 'active-false';
   }
-
-  function sourceChipState(tag: SourceTag): ChipState {
+  
+    function sourceChipState(tag: SourceTag): ChipState {
     return chipState(sourceActivations[tag], Object.values(sourceActivations).some(Boolean));
   }
-
+  
   function completionChipState(value: CompletionFilter): ChipState {
     return chipState(completionFilter === value, completionFilter !== 'all');
   }
