@@ -15,11 +15,11 @@
   type CompletionFilter = 'all' | 'completed' | 'in-progress';
   const STATUS_TAGS = ['completed', 'in-progress'] as const;
 
-  const SOURCE_TAGS = ['amazon', 'audio', 'royal-road'] as const;
+  const SOURCE_TAGS = ['amazon', 'audiobook', 'royal-road'] as const;
   type SourceTag = (typeof SOURCE_TAGS)[number];
   const SOURCE_LABELS: Record<SourceTag, string> = {
     amazon: 'Amazon',
-    audio: 'Audio',
+    audiobook: 'Audiobook',
     'royal-road': 'Royal Road',
   };
   
@@ -58,7 +58,7 @@
 
   const LINK_TAG_MAP: Record<string, string> = {
     amazon: 'amazon',
-    audible: 'audio',
+    audible: 'audiobook',
     royal_road: 'royal-road',
   };
 
@@ -261,7 +261,7 @@
     completionFilter = 'all';
     sourceActivations = {
       amazon: false,
-      audio: false,
+      audiobook: false,
       'royal-road': false,
     };
   }
