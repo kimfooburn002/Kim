@@ -14,6 +14,14 @@
 
   type CompletionFilter = 'all' | 'completed' | 'in-progress';
   const STATUS_TAGS = ['completed', 'in-progress'] as const;
+
+  type SourceFilter = 'amazon' | 'audio' | 'royal-road';
+  const SOURCE_TAGS = ['amazon', 'audio', 'royal-road'] as const;
+  const SOURCE_LABELS: Record<SourceFilter, string> = {
+    amazon: 'Amazon',
+    audio: 'Audio',
+    'royal-road': 'Royal Road',
+  };
   
   // single source of truth for the layout options used by the template
   const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
@@ -78,7 +86,11 @@
       new Set(
         augmentedPosts
           .flatMap((p) => p.tags)
-          .filter((tag) => !STATUS_TAGS.includes(tag as (typeof STATUS_TAGS)[number]))
+          .filter(
+            (tag) =>
+              !STATUS_TAGS.includes(tag as (typeof STATUS_TAGS)[number]) &&
+              !SOURCE_TAGS.includes(tag as (typeof SOURCE_TAGS)[number])
+          )
       )
     ).sort()
   );
@@ -104,6 +116,7 @@
     readingList: SvelteSet<string>;
     showReadingList: boolean;
     completionFilter: CompletionFilter;
+    sourceFilter: SourceFilter;
   } {
     const out = {
       layout: defaultLayout,
@@ -113,6 +126,7 @@
       readingList: new SvelteSet<string>(),
       showReadingList: false,
       completionFilter: 'all' as CompletionFilter,
+      sourceFilter: 'all' as SourceFilter,
     };
     if (typeof window === 'undefined') return out;
     const params = new URLSearchParams(window.location.search);
@@ -122,6 +136,12 @@
       const status = params.get('status');
       if (status === 'completed' || status === 'in-progress') {
         out.completionFilter = status;
+      }
+    }
+    if (params.has('source')) {
+      const source = params.get('source');
+      if (source === 'amazon' || source === 'audio' || source === 'royal-road') {
+        out.sourceFilter = source;
       }
     }
     if (params.has('include')) {
@@ -160,6 +180,7 @@
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
   let completionFilter = $state<CompletionFilter>(initial.completionFilter);
+  let sourceFilter = $state<SourceFilter>(initial.sourceFilter);
 
   // Sync state → URL whenever any of these change.
   $effect(() => {
@@ -168,6 +189,7 @@
     if (!byRank) params.set('o', '0');
     if (layout !== defaultLayout) params.set('l', layout);
     if (completionFilter !== 'all') params.set('status', completionFilter);
+    if (sourceFilter !== 'all') params.set('source', sourceFilter);
     const include: string[] = [];
     const exclude: string[] = [];
     for (const [k, v] of Object.entries(tagActivations)) {
@@ -224,12 +246,12 @@
 
   function reset() {
     tagActivations = {};
-    //tagActivations = { series: true };
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
     showReadingList = false;
     completionFilter = 'all';
+    sourceFilter = 'all';
   }
 
   // Screenshot export: capture the whole card list (not just the viewport)
@@ -276,6 +298,9 @@
           return false;
         }
         if (completionFilter === 'in-progress' && !post.tags.includes('in-progress')) {
+          return false;
+        }
+        if (sourceFilter !== 'all' && !post.tags.includes(sourceFilter)) {
           return false;
         }
         for (const [tag, active] of Object.entries(tagActivations)) {
@@ -537,6 +562,22 @@
   </div>
 
   <div class="justify-center flex flex-wrap items-center">
+    <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
+      {#each SOURCE_TAGS as tag}
+        <button
+          type="button"
+          class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
+            sourceFilter === tag
+              ? 'bg-green-500 text-green-50'
+              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
+          } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
+          onclick={() => (sourceFilter = sourceFilter === tag ? 'all' : tag)}
+        >
+          {SOURCE_LABELS[tag]}
+        </button>
+      {/each}
+    </div>
+
     <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
       <button
         type="button"
