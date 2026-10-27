@@ -536,13 +536,13 @@
   </div>
 
   <div class="justify-center flex flex-wrap items-center">
-    <div class="inline-flex items-center m-2 overflow-hidden rounded-lg">
+    <div class="inline-flex items-center m-2 overflow-hidden rounded-xl">
       <button
         type="button"
         class={`px-3 py-1 text-lg sm:text-base cursor-pointer ${
           completionFilter === 'completed'
             ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-300 hover:bg-green-500 hover:text-green-50'
+            : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
         } rounded-l-md`}
         onclick={() =>
           (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
@@ -554,7 +554,7 @@
         class={`px-3 py-1 text-lg sm:text-base cursor-pointer ${
           completionFilter === 'in-progress'
             ? 'bg-green-500 text-green-50'
-            : 'bg-green-700 text-green-300 hover:bg-green-500 hover:text-green-50'
+            : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
         } rounded-r-md`}
           onclick={() =>
             (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
