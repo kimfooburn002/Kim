@@ -63,6 +63,12 @@
   };
 
   // Augment posts with derived tags (extra link-derived tags + 'completed').
+  function withDefaultBookTag(post: Post) {
+    return !post.tags.includes('book') && !post.tags.includes('series')
+      ? ['book']
+      : [];
+  }
+  
   const augmentedPosts = $derived.by(() => {
     return posts.map((post) => {
       const extras: string[] = [];
@@ -70,11 +76,18 @@
         const t = LINK_TAG_MAP[link.name];
         if (t) extras.push(t);
       }
+  
+      const defaultBookTag = withDefaultBookTag(post);
+  
       const completed =
         !post.tags.includes('in-progress') && !post.tags.includes('completed')
           ? ['completed']
           : [];
-      return { ...post, tags: [...post.tags, ...extras, ...completed] };
+  
+      return {
+        ...post,
+        tags: [...post.tags, ...extras, ...defaultBookTag, ...completed],
+      };
     });
   });
 
