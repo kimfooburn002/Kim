@@ -186,7 +186,7 @@ body {
   }
   .tag {
     &.active-true {
-      @apply text-accent-900 bg-cream-50;
+      @apply text-accent-900 bg-cream-100;
       background-image: none;
     }
     &.active-false {
