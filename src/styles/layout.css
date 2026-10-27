@@ -202,11 +202,11 @@ body {
 
   .source-chip {
     &.active-true {
-      @apply text-accent-900 bg-cream-100;
+      @apply text-accent-900 bg-accent-100;
     }
     &.active-false,
     &.active-undefined {
-      @apply text-cream-100 bg-accent-700;
+      @apply text-accent-100 bg-accent-700;
     }
   }
 
