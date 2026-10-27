@@ -179,16 +179,16 @@
   --color-purple-900: #2b2343;
 
   /* Custom site palettes */
-  --color-cream-50:  #fffdf9;
-  --color-cream-100: #fff9f1;
-  --color-cream-200: #fff2e3;
-  --color-cream-300: #f9eee4;
-  --color-cream-400: #f3eadc;
-  --color-cream-500: #f6f0e5; /* light cream */ 
-  --color-cream-600: #e6dbc9; /* tag list selected bg */ 
-  --color-cream-700: #d6c6ad; /* font too coloured */
-  --color-cream-800: #bfae8f; /* font too dark */
-  --color-cream-900: #9f8f72;  
+  --color-cream-50:  #ffffff;
+  --color-cream-100: #f6f0e5;
+  --color-cream-200: #efe5d1;
+  --color-cream-300: #e5d3b3;
+  --color-cream-400: #dbc295;
+  --color-cream-500: #c69f58; /* light cream f6f0e5*/ 
+  --color-cream-600: #a78139; /* tag list selected bg e6dbc9*/ 
+  --color-cream-700: #7a5e2a; /* font too coloured */
+  --color-cream-800: #5b451f; /* font too dark */
+  --color-cream-900: #3c2e15;  
 
   --color-green-50:  #eef3ec; /* selected link/button font */
   --color-green-100: #dfebe0; 
