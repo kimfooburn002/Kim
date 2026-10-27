@@ -593,54 +593,55 @@
 </div>
 
 <div class="justify-center flex flex-wrap items-center">
-    <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
-      {#each SOURCE_TAGS as tag}
-        <button
-          type="button"
-          class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
-            sourceActivations[tag]
-              ? 'bg-cream-600 text-cream-50'
-              : 'bg-cream-800 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
-          } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
-          onclick={() => {
-            sourceActivations = {
-              ...sourceActivations,
-              [tag]: !sourceActivations[tag],
-            };
-          }}
-        >
-          {SOURCE_LABELS[tag]}
-        </button>
-      {/each}
-    </div>  
-
-    <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
+  <div class="inline-flex items-center m-2 overflow-hidden rounded-full border border-cream-700/60 bg-cream-900/40">
+    {#each SOURCE_TAGS as tag}
       <button
         type="button"
-        class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
-          completionFilter === 'completed'
+        class={`px-4 py-2 text-base sm:text-sm cursor-pointer transition-colors ${
+          sourceActivations[tag]
             ? 'bg-cream-600 text-cream-50'
-            : 'bg-cream-800 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
-        } rounded-l-md`}
-        onclick={() =>
-          (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+            : 'bg-transparent text-cream-200 hover:bg-cream-600 hover:text-cream-50'
+        } ${tag === 'amazon' ? 'rounded-l-full' : ''} ${tag === 'royal-road' ? 'rounded-r-full' : ''}`}
+        onclick={() => {
+          sourceActivations = {
+            ...sourceActivations,
+            [tag]: !sourceActivations[tag],
+          };
+        }}
       >
-        Completed
-      </button>    
-      <button
-        type="button"
-        class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
-          completionFilter === 'in-progress'
-            ? 'bg-cream-600 text-cream-50'
-            : 'bg-cream-800 text-cream-200 hover:bg-cream-600 hover:text-cream-50'
-        } rounded-r-md`}
-          onclick={() =>
-            (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
-      >
-        In-progress
+        {SOURCE_LABELS[tag]}
       </button>
-    </div>
+    {/each}
   </div>
+
+  <div class="inline-flex items-center m-2 overflow-hidden rounded-full border border-cream-700/60 bg-cream-900/40">
+    <button
+      type="button"
+      class={`px-4 py-2 text-base sm:text-sm cursor-pointer transition-colors ${
+        completionFilter === 'completed'
+          ? 'bg-cream-600 text-cream-50'
+          : 'bg-transparent text-cream-200 hover:bg-cream-600 hover:text-cream-50'
+      } rounded-l-full`}
+      onclick={() =>
+        (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+    >
+      Completed
+    </button>
+
+    <button
+      type="button"
+      class={`px-4 py-2 text-base sm:text-sm cursor-pointer transition-colors ${
+        completionFilter === 'in-progress'
+          ? 'bg-cream-600 text-cream-50'
+          : 'bg-transparent text-cream-200 hover:bg-cream-600 hover:text-cream-50'
+      } rounded-r-full`}
+      onclick={() =>
+        (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
+    >
+      In-progress
+    </button>
+  </div>
+</div>
 
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
   {#each allTags as tag (tag)}
