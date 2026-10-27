@@ -253,13 +253,13 @@
 /* --- Safelist replacement ---------------------------------------------
    v3's `safelist` (regex + variants) becomes `@source inline()` calls
    in v4. Brace expansion enumerates every required class. ----------- */
-
+/* 
 @source inline("img-{smaller,small,reduced,poster,large,full,tiny,shrink}");
 @source inline("list-none");
 @source inline("grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
 @source inline("{hover:,focus:,}bg-{S,A,B,C,D,E,F,G}-{500,600,700,800,900}");
 @source inline("{hover:,}text-{S,A,B,C,D,E,F,G}-{300,400}");
-@source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");
+@source inline("{xs:,sm:,md:,lg:,}grid-cols-cover-cards{,-mobile,-tier,-large,-mobile-large}");*/
 
 /* v4 silently refuses to generate `bg-π-*` utilities even when listed
    explicitly via `@source inline()` — the non-ASCII `π` is rejected by
