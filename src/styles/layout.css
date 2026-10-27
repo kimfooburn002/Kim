@@ -191,12 +191,10 @@ body {
       @apply text-accent-900 bg-cream-100;
       background-image: none;
     }
-
     &.active-false {
       @apply text-cream-100 bg-accent-700;
       background-image: none;
     }
-
     &.active-undefined {
       opacity: 0.45;
     }
@@ -206,7 +204,6 @@ body {
     &.active-true {
       @apply text-accent-900 bg-cream-100;
     }
-
     &.active-false,
     &.active-undefined {
       @apply text-cream-100 bg-accent-700;
@@ -217,7 +214,16 @@ body {
     &.active-true {
       @apply text-green-900 bg-green-100;
     }
+    &.active-false,
+    &.active-undefined {
+      @apply text-green-100 bg-green-700;
+    }
+  }
 
+  .book-chip {
+    &.active-true {
+      @apply text-green-900 bg-green-100;
+    }
     &.active-false,
     &.active-undefined {
       @apply text-green-100 bg-green-700;
