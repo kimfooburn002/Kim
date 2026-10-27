@@ -590,8 +590,9 @@
       {/if}
     </button>    
   </div>
+</div>
 
-  <div class="justify-center flex flex-wrap items-center">
+<div class="justify-center flex flex-wrap items-center">
     <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
       {#each SOURCE_TAGS as tag}
         <button
@@ -640,7 +641,6 @@
       </button>
     </div>
   </div>
-</div>
 
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
   {#each allTags as tag (tag)}
