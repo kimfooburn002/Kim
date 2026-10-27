@@ -389,7 +389,7 @@
 .tag-audible,
 .tag-vrmmo,
 .tag-parody {
-  @apply bg-cream-200 text-green-800 font-medium;
+  @apply bg-cream-300 text-green-800 font-medium;
 }
   
 /* Turn white images to dark mode */
