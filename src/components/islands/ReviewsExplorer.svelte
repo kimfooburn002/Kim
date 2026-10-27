@@ -536,10 +536,10 @@
   </div>
 
   <div class="justify-center flex flex-wrap items-center">
-    <div class="inline-flex items-center m-2 overflow-hidden rounded-xl">
+    <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
       <button
         type="button"
-        class={`px-3 py-1 text-lg sm:text-base cursor-pointer ${
+        class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
           completionFilter === 'completed'
             ? 'bg-green-500 text-green-50'
             : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
@@ -551,7 +551,7 @@
       </button>    
       <button
         type="button"
-        class={`px-3 py-1 text-lg sm:text-base cursor-pointer ${
+        class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
           completionFilter === 'in-progress'
             ? 'bg-green-500 text-green-50'
             : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
