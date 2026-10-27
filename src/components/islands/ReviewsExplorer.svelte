@@ -581,23 +581,13 @@
   <div class="justify-center flex flex-wrap items-center">
     <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
       {#each SOURCE_TAGS as tag}
-        {@const label =
-          tag === 'royal-road'
-            ? 'Royal Road'
-            : tag === 'audio'
-              ? 'Audio'
-              : 'Amazon'}
-    
         <button
           type="button"
-          class={`appearance-none border-0 cursor-pointer px-4 py-2 text-base sm:text-sm
-            outline-none focus:outline-none focus-visible:outline-none
-            ${sourceActivations[tag]
+          class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
+            sourceActivations[tag]
               ? 'bg-green-500 text-green-50'
-              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'}
-            ${tag === 'amazon' ? 'rounded-l-md' : ''}
-            ${tag === 'royal-road' ? 'rounded-r-md' : ''}
-            ${tag !== 'amazon' ? 'border-l border-green-600/70' : ''}`}
+              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
+          } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
           onclick={() => {
             sourceActivations = {
               ...sourceActivations,
@@ -605,7 +595,7 @@
             };
           }}
         >
-          {label}
+          {SOURCE_LABELS[tag]}
         </button>
       {/each}
     </div>  
