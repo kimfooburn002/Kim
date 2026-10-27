@@ -11,6 +11,9 @@
     posts: Post[];
     totalReviews: number;
   };
+
+  type CompletionFilter = 'all' | 'completed' | 'in-progress';
+  const STATUS_TAGS = ['completed', 'in-progress'] as const;
   
   // single source of truth for the layout options used by the template
   const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
@@ -66,8 +69,17 @@
     });
   });
 
-  const allTags = $derived(
+  /*const allTags = $derived(
     Array.from(new Set(augmentedPosts.flatMap((p) => p.tags))).sort()
+  );*/
+  const allTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag) => !STATUS_TAGS.includes(tag as (typeof STATUS_TAGS)[number]))
+      )
+    ).sort()
   );
 
   // Initial layout default depends on screen width — guard for SSR.
@@ -90,6 +102,7 @@
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
+    completionFilter: CompletionFilter;
   } {
     const out = {
       layout: defaultLayout,
@@ -98,11 +111,18 @@
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
+      completionFilter: 'all' as CompletionFilter,
     };
     if (typeof window === 'undefined') return out;
     const params = new URLSearchParams(window.location.search);
     if (params.has('o')) out.byRank = params.get('o') === '1';
     if (params.has('l')) out.layout = params.get('l') as Layout;
+    if (params.has('status')) {
+      const status = params.get('status');
+      if (status === 'completed' || status === 'in-progress') {
+        out.completionFilter = status;
+      }
+    }
     if (params.has('include')) {
       for (const t of params.get('include')!.split('_').filter(Boolean)) {
         out.activations[t] = true;
@@ -138,6 +158,7 @@
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
+  let completionFilter = $state<CompletionFilter>(initial.completionFilter);
 
   // Sync state → URL whenever any of these change.
   $effect(() => {
@@ -145,6 +166,7 @@
     const params = new URLSearchParams();
     if (!byRank) params.set('o', '0');
     if (layout !== defaultLayout) params.set('l', layout);
+    if (completionFilter !== 'all') params.set('status', completionFilter);
     const include: string[] = [];
     const exclude: string[] = [];
     for (const [k, v] of Object.entries(tagActivations)) {
@@ -206,6 +228,7 @@
     layout = defaultLayout;
     byRank = true;
     showReadingList = false;
+    completionFilter = 'all';
   }
 
   // Screenshot export: capture the whole card list (not just the viewport)
@@ -246,6 +269,12 @@
       .filter((post) => {
         // Reading list filter
         if (showReadingList && !readingList.has(slugFromAbslink(post.abslink))) {
+          return false;
+        }
+        if (completionFilter === 'completed' && !post.tags.includes('completed')) {
+          return false;
+        }
+        if (completionFilter === 'in-progress' && !post.tags.includes('in-progress')) {
           return false;
         }
         for (const [tag, active] of Object.entries(tagActivations)) {
@@ -505,6 +534,34 @@
       {/if}
     </button>    
   </div>
+</div>
+
+<div class="inline-flex items-center m-2 overflow-hidden rounded-md">
+  <button
+    type="button"
+    class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
+      completionFilter === 'completed'
+        ? 'bg-green-500 text-green-50'
+        : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
+    } rounded-l-md`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+  >
+    Completed
+  </button>
+
+  <button
+    type="button"
+    class={`px-4 py-2 text-lg sm:text-base cursor-pointer ${
+      completionFilter === 'in-progress'
+        ? 'bg-green-500 text-green-50'
+        : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
+    } rounded-r-md`}
+      onclick={() =>
+        (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
+  >
+    In-progress
+  </button>
 </div>
 
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
