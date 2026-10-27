@@ -15,9 +15,9 @@
   type CompletionFilter = 'all' | 'completed' | 'in-progress';
   const STATUS_TAGS = ['completed', 'in-progress'] as const;
 
-  type SourceFilter = 'amazon' | 'audio' | 'royal-road';
   const SOURCE_TAGS = ['amazon', 'audio', 'royal-road'] as const;
-  const SOURCE_LABELS: Record<SourceFilter, string> = {
+  type SourceTag = (typeof SOURCE_TAGS)[number];
+  const SOURCE_LABELS: Record<SourceTag, string> = {
     amazon: 'Amazon',
     audio: 'Audio',
     'royal-road': 'Royal Road',
@@ -116,7 +116,7 @@
     readingList: SvelteSet<string>;
     showReadingList: boolean;
     completionFilter: CompletionFilter;
-    sourceFilter: SourceFilter;
+    sourceActivations: Record<string, boolean>;
   } {
     const out = {
       layout: defaultLayout,
@@ -126,7 +126,7 @@
       readingList: new SvelteSet<string>(),
       showReadingList: false,
       completionFilter: 'all' as CompletionFilter,
-      sourceFilter: 'all' as SourceFilter,
+      sourceActivations: {} as Record<string, boolean>,
     };
     if (typeof window === 'undefined') return out;
     const params = new URLSearchParams(window.location.search);
@@ -139,9 +139,8 @@
       }
     }
     if (params.has('source')) {
-      const source = params.get('source');
-      if (source === 'amazon' || source === 'audio' || source === 'royal-road') {
-        out.sourceFilter = source;
+      for (const t of params.get('source')!.split('_').filter(Boolean)) {
+        out.sourceActivations[t] = true;
       }
     }
     if (params.has('include')) {
@@ -180,7 +179,11 @@
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
   let completionFilter = $state<CompletionFilter>(initial.completionFilter);
-  let sourceFilter = $state<SourceFilter>(initial.sourceFilter);
+  let sourceActivations = $state<Record<SourceTag, boolean>>({
+    amazon: false,
+    audio: false,
+    'royal-road': false,
+  });
 
   // Sync state → URL whenever any of these change.
   $effect(() => {
@@ -189,7 +192,12 @@
     if (!byRank) params.set('o', '0');
     if (layout !== defaultLayout) params.set('l', layout);
     if (completionFilter !== 'all') params.set('status', completionFilter);
-    if (sourceFilter !== 'all') params.set('source', sourceFilter);
+
+    const activeSources = Object.entries(sourceActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+
+    if (activeSources.length) params.set('source', activeSources.join('_'));
     const include: string[] = [];
     const exclude: string[] = [];
     for (const [k, v] of Object.entries(tagActivations)) {
@@ -251,7 +259,11 @@
     byRank = true;
     showReadingList = false;
     completionFilter = 'all';
-    sourceFilter = 'all';
+    sourceActivations = {
+      amazon: false,
+      audio: false,
+      'royal-road': false,
+    };
   }
 
   // Screenshot export: capture the whole card list (not just the viewport)
@@ -300,8 +312,13 @@
         if (completionFilter === 'in-progress' && !post.tags.includes('in-progress')) {
           return false;
         }
-        if (sourceFilter !== 'all' && !post.tags.includes(sourceFilter)) {
-          return false;
+        const activeSources = Object.entries(sourceActivations)
+          .filter(([, active]) => active)
+          .map(([tag]) => tag as SourceTag);
+
+        if (activeSources.length) {
+          const matchesAnySource = activeSources.some((tag) => post.tags.includes(tag));
+          if (!matchesAnySource) return false;
         }
         for (const [tag, active] of Object.entries(tagActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
@@ -562,16 +579,21 @@
   </div>
 
   <div class="justify-center flex flex-wrap items-center">
-    <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
+        <div class="inline-flex items-center m-2 overflow-hidden rounded-2xl">
       {#each SOURCE_TAGS as tag}
         <button
           type="button"
           class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
-            sourceFilter === tag
+            sourceActivations[tag]
               ? 'bg-green-500 text-green-50'
               : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
           } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
-          onclick={() => (sourceFilter = sourceFilter === tag ? 'all' : tag)}
+          onclick={() => {
+            sourceActivations = {
+              ...sourceActivations,
+              [tag]: !sourceActivations[tag],
+            };
+          }}
         >
           {SOURCE_LABELS[tag]}
         </button>
