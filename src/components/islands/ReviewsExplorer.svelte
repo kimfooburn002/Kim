@@ -585,8 +585,8 @@
           type="button"
           class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
             sourceActivations[tag]
-              ? 'bg-green-500 text-green-50'
-              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
+              ? 'bg-cream-500 text-cream-100'
+              : 'bg-cream-700 text-cream-300 hover:bg-cream-500 hover:text-cream-100'
           } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
           onclick={() => {
             sourceActivations = {
