@@ -583,11 +583,14 @@
       {#each SOURCE_TAGS as tag}
         <button
           type="button"
-          class={`px-4 py-2 text-base sm:text-sm cursor-pointer ${
-            sourceActivations[tag]
+          class={`px-4 py-2 text-base sm:text-sm cursor-pointer
+            focus:outline-none focus-visible:outline-none
+            focus:ring-0 focus-visible:ring-0
+            ${sourceActivations[tag]
               ? 'bg-green-500 text-green-50'
-              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'
-          } ${tag === 'amazon' ? 'rounded-l-md' : ''} ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
+              : 'bg-green-700 text-green-200 hover:bg-green-500 hover:text-green-50'}
+            ${tag === 'amazon' ? 'rounded-l-md' : ''}
+            ${tag === 'royal-road' ? 'rounded-r-md' : ''}`}
           onclick={() => {
             sourceActivations = {
               ...sourceActivations,
@@ -595,6 +598,8 @@
             };
           }}
         >
+          {SOURCE_LABELS[tag]}
+        </button>
           {SOURCE_LABELS[tag]}
         </button>
       {/each}
