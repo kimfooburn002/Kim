@@ -495,7 +495,7 @@
   function novelTypeChipState(tag: NovelTypeTag): ChipState {
     if (tagActivations[tag] === true) return 'active-true';
     if (tagActivations[tag] === false) return 'active-false';
-    return Object.values(tagActivations).some(Boolean) ? 'active-undefined' : 'active-false';
+    return 'active-undefined';
   }
 </script>
 
