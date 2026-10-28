@@ -241,18 +241,6 @@ body {
   }
 }
 
-#tags {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-#tags > div {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
 @media (max-width: 640px) {
   .tag-list {
     button {
