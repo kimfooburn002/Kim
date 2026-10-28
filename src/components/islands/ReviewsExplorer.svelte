@@ -12,6 +12,19 @@
     totalReviews: number;
   };
 
+  type NovelTypeTag = 'fanfic' | 'novel' | 'cn-light-novel' | 'jp-light-novel' | 'kr-light-novel' | 'manga-jp' | 'manhua-cn' | 'manhwa-kr';
+  const NOVEL_TYPE_TAGS = [...] as const;
+  const NOVEL_TYPE_LABELS: Record<NovelTypeTag, string> = { 
+    fanfic: 'fanfic'
+    novel: 'novel'
+    'cn-light-novel': 'cn light novel'
+    'jp-light-novel': 'jp light novel'
+    'kr-light-novel': 'kr light novel'
+    'manga-jp': 'manga(jp)'
+    'manhua-cn': 'manhua(cn)'
+    'manhwa-kr': 'manhwa(kr)'
+    };
+
   type BookFilter = 'all' | 'book' | 'series';
   type CompletionFilter = 'all' | 'completed' | 'ongoing';
   const STATUS_TAGS = ['completed', 'ongoing'] as const;
@@ -98,6 +111,7 @@
   const SPECIAL_TAGS = [
     ...STATUS_TAGS,
     ...SOURCE_TAGS,
+    ...NOVEL_TYPE_TAGS,
     'book',
     'series',
   ] as const;
@@ -135,6 +149,7 @@
     completionFilter: CompletionFilter;
     sourceActivations: Record<string, boolean>;
     bookFilter: BookFilter;
+    
   } {
     const out = {
       layout: defaultLayout,
@@ -247,6 +262,12 @@
       }
     }
   });
+
+  function toggleNovelType(tag: NovelTypeTag) { 
+    novelTypeActivations = { 
+      ...novelTypeActivations, [tag]: !novelTypeActivations[tag] 
+    }; 
+  }
 
   function toggleBookmark(slug: string) {
     if (readingList.has(slug)) {
