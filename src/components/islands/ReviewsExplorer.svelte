@@ -630,7 +630,7 @@
   </div>
 </div>
 
-<div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-2">
+<div id="tags" class="tag-list max-w-7xl mx-auto mt-5 ">
   {#each allTags as tag (tag)}
     <button
       type="button"
@@ -641,7 +641,7 @@
     </button>
   {/each}
 </div>
-<div id="tags" class="tag-list max-w-7xl mx-auto mt-2 mb-5">
+<div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
   {#each SOURCE_TAGS as tag}
     <button
       type="button"
