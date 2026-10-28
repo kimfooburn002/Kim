@@ -185,7 +185,7 @@ body {
   } */
 
   .completion-chip {
-    @apply border border-green-400/80 bg-transparent;
+    @apply border-2 border-green-400/80 bg-transparent;
   
     &.active-true {
       @apply text-green-50 bg-green-500 border-green-400;
@@ -244,7 +244,7 @@ body {
 @media (max-width: 640px) {
   .tag-list {
     button {
-      @apply m-1 py-1.5 px-3.5 text-base;
+      @apply m-1 py-1 px-3 text-base;
     }
   }
 }
