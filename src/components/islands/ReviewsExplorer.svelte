@@ -631,66 +631,68 @@
 </div>
 
 <div id="tags" class="tag-list max-w-7xl mx-auto mt-5 mb-5">
-  {#each allTags as tag (tag)}
+  <div class="flex flex-wrap gap-2">
+    {#each allTags as tag (tag)}
+      <button
+        type="button"
+        class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer text-base sm:text-sm"
+        onclick={() => clickTag(tag)}
+      >
+        <span>{tag}</span>
+      </button>
+    {/each}
+  </div>
+
+  <div class="mt-3 flex flex-wrap gap-2">
+    {#each SOURCE_TAGS as tag}
+      <button
+        type="button"
+        class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+        onclick={() => {
+          sourceActivations = {
+            ...sourceActivations,
+            [tag]: !sourceActivations[tag],
+          };
+        }}
+      >
+        <span>{SOURCE_LABELS[tag]}</span>
+      </button>
+    {/each}
+
     <button
       type="button"
-      class="tag tag-{tag} {activeClass(tag)} hover:cursor-pointer text-base sm:text-sm"
-      onclick={() => clickTag(tag)}
+      class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() =>
+        (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
     >
-      <span>{tag}</span>
+      <span>Completed</span>
     </button>
-  {/each}
-</div>
 
-<div class="mt-3 flex flex-wrap gap-2">
-  {#each SOURCE_TAGS as tag}
     <button
       type="button"
-      class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
-      onclick={() => {
-        sourceActivations = {
-          ...sourceActivations,
-          [tag]: !sourceActivations[tag],
-        };
-      }}
+      class={`filter-chip completion-chip ${completionChipState('in-progress')} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() =>
+        (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
     >
-      <span>{SOURCE_LABELS[tag]}</span>
+      <span>In-progress</span>
     </button>
-  {/each}
 
-  <button
-    type="button"
-    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
-  >
-    <span>Completed</span>
-  </button>
-  
-  <button
-    type="button"
-    class={`filter-chip completion-chip ${completionChipState('in-progress')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
-  >
-    <span>In-progress</span>
-  </button>
-  
-  <button
-    type="button"
-    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
-  >
-    <span>Book</span>
-  </button>
-  
-  <button
-    type="button"
-    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
-  >
-    <span>Series</span>
-  </button>
+    <button
+      type="button"
+      class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
+    >
+      <span>Book</span>
+    </button>
+
+    <button
+      type="button"
+      class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
+    >
+      <span>Series</span>
+    </button>
+  </div>
 </div>
 
 {#snippet cards(posts: Post[])}
