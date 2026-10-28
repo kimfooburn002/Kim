@@ -171,11 +171,11 @@ body {
   .source-chip {
     @apply border-2 border-accent-400/80 bg-transparent;  
     &.active-true {
-      @apply text-accent-100 bg-accent-500 border-accent-400;
+      @apply text-accent-100 bg-accent-700 border-accent-600;
     }  
     &.active-false,
     &.active-undefined {
-      @apply text-accent-100 border-accent-400/80 bg-accent-700/80;
+      @apply text-accent-100 border-accent-400/80 bg-accent-800/80;
     }
   }
 
@@ -194,7 +194,7 @@ body {
     @apply border-2 border-cream-400/80 bg-transparent;
   
     &.active-true {
-      @apply text-cream-100 bg-cream-500 border-cream-400;
+      @apply text-cream-100 bg-cream-600 border-cream-500;
     }
   
     &.active-false,
