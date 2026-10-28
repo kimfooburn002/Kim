@@ -12,7 +12,6 @@
     totalReviews: number;
   };
 
-  type NovelTypeTag = (typeof NOVEL_TYPE_TAGS)[number];
   const NOVEL_TYPE_TAGS = [
     'fanfic',
     'novel',
@@ -23,16 +22,19 @@
     'manhua-cn',
     'manhwa-kr',
   ] as const;
-  const NOVEL_TYPE_LABELS: Record<NovelTypeTag, string> = { 
-    fanfic: 'fanfic'
-    novel: 'novel'
-    'cn-light-novel': 'cn light novel'
-    'jp-light-novel': 'jp light novel'
-    'kr-light-novel': 'kr light novel'
-    'manga-jp': 'manga(jp)'
-    'manhua-cn': 'manhua(cn)'
-    'manhwa-kr': 'manhwa(kr)'
-    };
+
+  type NovelTypeTag = (typeof NOVEL_TYPE_TAGS)[number];
+
+  const NOVEL_TYPE_LABELS: Record<NovelTypeTag, string> = {
+    fanfic: 'fanfic',
+    novel: 'novel',
+    'cn-light-novel': 'cn light novel',
+    'jp-light-novel': 'jp light novel',
+    'kr-light-novel': 'kr light novel',
+    'manga-jp': 'manga (jp)',
+    'manhua-cn': 'manhua (cn)',
+    'manhwa-kr': 'manhwa (kr)',
+  };
 
   type BookFilter = 'all' | 'book' | 'series';
   type CompletionFilter = 'all' | 'completed' | 'ongoing';
@@ -272,16 +274,9 @@
     }
   });
 
-  function toggleNovelType(tag: NovelTypeTag) { 
-    novelTypeActivations = { 
-      ...novelTypeActivations, [tag]: !novelTypeActivations[tag] 
-    }; 
-  }
-
   function toggleBookmark(slug: string) {
     if (readingList.has(slug)) {
       readingList.delete(slug);
-      // Un-bookmarking the last book hides the reading-list toggle, so drop
       // the filter too or the user is stranded on an empty, unescapable view.
       if (readingList.size === 0) showReadingList = false;
     } else {
@@ -500,7 +495,7 @@
   function novelTypeChipState(tag: NovelTypeTag): ChipState {
     if (tagActivations[tag] === true) return 'active-true';
     if (tagActivations[tag] === false) return 'active-false';
-    return Object.keys(tagActivations).some((k) => k === tag) ? 'active-undefined' : 'active-false';
+    return Object.values(tagActivations).some(Boolean) ? 'active-undefined' : 'active-false';
   }
 </script>
 
