@@ -13,8 +13,8 @@
   };
 
   type BookFilter = 'all' | 'book' | 'series';
-  type CompletionFilter = 'all' | 'completed' | 'in-progress';
-  const STATUS_TAGS = ['completed', 'in-progress'] as const;
+  type CompletionFilter = 'all' | 'completed' | 'ongoing';
+  const STATUS_TAGS = ['completed', 'ongoing'] as const;
 
   const SOURCE_TAGS = ['amazon', 'audiobook', 'royal-road'] as const;
   type SourceTag = (typeof SOURCE_TAGS)[number];
@@ -81,7 +81,7 @@
       const defaultBookTag = withDefaultBookTag(post);
   
       const completed =
-        !post.tags.includes('in-progress') && !post.tags.includes('completed')
+        !post.tags.includes('ongoing') && !post.tags.includes('completed')
           ? ['completed']
           : [];
   
@@ -153,7 +153,7 @@
     if (params.has('l')) out.layout = params.get('l') as Layout;
     if (params.has('status')) {
       const status = params.get('status');
-      if (status === 'completed' || status === 'in-progress') {
+      if (status === 'completed' || status === 'ongoing') {
         out.completionFilter = status;
       }
     }
@@ -336,7 +336,7 @@
         if (completionFilter === 'completed' && !post.tags.includes('completed')) {
           return false;
         }
-        if (completionFilter === 'in-progress' && !post.tags.includes('in-progress')) {
+        if (completionFilter === 'ongoing' && !post.tags.includes('ongoing')) {
           return false;
         }
         if (bookFilter === 'book' && !post.tags.includes('book')) {
@@ -668,11 +668,11 @@
 
   <button
     type="button"
-    class={`filter-chip completion-chip ${completionChipState('in-progress')} hover:cursor-pointer text-base sm:text-sm`}
+    class={`filter-chip completion-chip ${completionChipState('ongoing')} hover:cursor-pointer text-base sm:text-sm`}
     onclick={() =>
-      (completionFilter = completionFilter === 'in-progress' ? 'all' : 'in-progress')}
+      (completionFilter = completionFilter === 'ongoing' ? 'all' : 'ongoing')}
   >
-    <span>In-progress</span>
+    <span>Ongoing</span>
   </button>
 
   <button
