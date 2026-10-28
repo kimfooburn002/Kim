@@ -242,7 +242,6 @@ body {
   /*.book-chip {
     @apply border-2 border-cream-400/70 bg-transparent;
     &.active-true {
-      /* @apply text-cream-100 bg-cream-200/15 border-green-300; */
       @apply text-cream-900 bg-cream-200;
     }
     &.active-false,
@@ -250,7 +249,6 @@ body {
       @apply text-cream-100 border-cream-400/70 bg-transparent;
     }
   }
-
    .book-chip {
     &.active-true {
       @apply text-cream-900 bg-cream-200;
