@@ -170,7 +170,7 @@ body {
     }
     &.active-false,
     &.active-undefined {
-      @apply text-accent-100 border-accent-400/80 bg-accent-800/70;
+      @apply text-accent-100 border-accent-400/80 bg-accent-800/90;
     }
   }
 
