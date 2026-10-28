@@ -169,93 +169,37 @@ body {
   }
 
   .source-chip {
-    @apply border-2 border-accent-400/80 bg-transparent;
-  
+    @apply border-2 border-accent-400/80 bg-transparent;  
     &.active-true {
-      @apply text-accent-900 bg-accent-300 border-accent-100;
-    }
-  
+      @apply text-accent-100 bg-accent-500 border-accent-400;
+    }  
     &.active-false,
     &.active-undefined {
       @apply text-accent-100 border-accent-400/80 bg-accent-700/80;
     }
   }
-  /*.source-chip {
-    @apply border border-accent-400/80 bg-accent-800/90;
-  
-    &.active-true {
-      @apply text-accent-50 bg-accent-500/30 border-accent-300;
-    }
-    &.active-false,
-    &.active-undefined {
-      @apply text-accent-100 border-accent-400/80 bg-accent-800/90;
-    }
-  }
-
-   .source-chip {
-    &.active-true {
-      @apply text-accent-900 bg-accent-200;
-    }
-    &.active-false,
-    &.active-undefined {
-      @apply text-accent-100 bg-accent-700;
-    }
-  } */
 
   .completion-chip {
-    @apply border-2 border-green-400/80 bg-transparent;
-  
+    @apply border-2 border-green-400/80 bg-transparent;  
     &.active-true {
       @apply text-green-50 bg-green-500 border-green-400;
-    }
-  
+    }  
     &.active-false,
     &.active-undefined {
       @apply text-green-100 border-green-400/80 bg-green-700/80;
     }
   }
-
-  /* .completion-chip {
-    &.active-true {
-      @apply text-green-900 bg-green-200;
-    }
-    &.active-false,
-    &.active-undefined {
-      @apply text-green-100 bg-green-500;
-    }
-  } */
-
+  
   .book-chip {
-    @apply border-2 border-cream-400/80 bg-transparent;
-  
+    @apply border-2 border-cream-400/80 bg-transparent
     &.active-true {
-      @apply text-cream-900 bg-cream-300 border-cream-100;
-    }
-  
+      @apply text-cream-100 bg-cream-500 border-cream-400;
+    }  
     &.active-false,
     &.active-undefined {
       @apply text-cream-100 border-cream-400/80 bg-cream-700/80;
     }
   }
-  /*.book-chip {
-    @apply border-2 border-cream-400/70 bg-transparent;
-    &.active-true {
-      @apply text-cream-900 bg-cream-200;
-    }
-    &.active-false,
-    &.active-undefined {
-      @apply text-cream-100 border-cream-400/70 bg-transparent;
-    }
-  }
-   .book-chip {
-    &.active-true {
-      @apply text-cream-900 bg-cream-200;
-    }
-    &.active-false,
-    &.active-undefined {
-      @apply text-cream-100 bg-cream-700;
-    }
-  } */
 
   &.review {
     button {
