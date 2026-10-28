@@ -150,7 +150,7 @@ body {
   .filter-chip {
      @apply text-accent-900 bg-cream-300;
     &.active-true {
-      @apply text-accent-900 bg-cream-200;
+      @apply text-accent-900 bg-cream-100;
       background-image: none;
     }
     &.active-false {
