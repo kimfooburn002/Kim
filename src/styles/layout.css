@@ -170,7 +170,7 @@ body {
     }
     &.active-false,
     &.active-undefined {
-      @apply text-accent-100 border-accent-400/80 bg-accent-700/70;
+      @apply text-accent-100 border-accent-400/80 bg-accent-800/70;
     }
   }
 
@@ -215,7 +215,6 @@ body {
     }
     &.active-false,
     &.active-undefined {
-      /* @apply text-cream-100 bg-cream-700; */
       @apply text-cream-100 border-cream-400/70 bg-transparent;
     }
   }
