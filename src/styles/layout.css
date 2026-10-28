@@ -166,7 +166,7 @@ body {
     @apply border border-accent-400/80 bg-accent-800/90;
   
     &.active-true {
-      @apply text-accent-100 bg-accent-500/30 border-accent-300;
+      @apply text-accent-50 bg-accent-500/30; /*border-accent-300;*/
     }
     &.active-false,
     &.active-undefined {
