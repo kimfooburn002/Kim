@@ -363,7 +363,7 @@
   @apply bg-cream-600 text-cream-50 font-medium;
 }
 .tag-completed,
-.tag-in-progress{
+.tag-ongoing{
   @apply bg-cream-600 text-cream-50 font-medium;
 }  
 .tag-series,
