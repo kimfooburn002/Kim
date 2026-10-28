@@ -163,14 +163,14 @@ body {
   }
 
   .source-chip {
-    @apply border-2 border-accent-200 bg-accent-900/90;
+    @apply border-2 border-accent-200/70 bg-accent-900/90;
   
     &.active-true {
       @apply text-accent-900 bg-accent-200;
     }
     &.active-false,
     &.active-undefined {
-      @apply border-2 text-accent-100 border-accent-100 bg-accent-900/90;
+      @apply border-2 text-accent-100 border-accent-200/70 bg-accent-900/90;
     }
   }
 
