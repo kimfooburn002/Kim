@@ -640,7 +640,8 @@
       <span>{tag}</span>
     </button>
   {/each}
-
+</div>
+<div id="tags" class="tag-list max-w-7xl mx-auto mt-2 mb-5">
   {#each SOURCE_TAGS as tag}
     <button
       type="button"
