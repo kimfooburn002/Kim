@@ -12,7 +12,7 @@ links:
     audible: https://www.audible.com/pd/Player-Manager-A-Sports-Progression-Fantasy-Audiobook/B0CC33WJ5F
     royal_road: https://www.royalroad.com/fiction/58187/player-manager-a-sports-progression-fantasy
 aliases: [/book-reviews/player_manager_4]
-tags: [in-progress, litrpg]
+tags: [completed, litrpg]
 sentence: "444"
 search_terms: "Soccer Supremo Max Best Football Manager Championship Manager"
 ---
