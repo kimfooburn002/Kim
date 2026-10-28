@@ -493,16 +493,15 @@
   }
 
   function novelTypeChipState(tag: NovelTypeTag): ChipState {
-    if (tagActivations[tag] === true) return 'active-true';
-    if (tagActivations[tag] === false) return 'active-false';
-  
-    const anyNovelTypeSelected = Object.entries(tagActivations).some(
-      ([key, value]) =>
-        NOVEL_TYPE_TAGS.includes(key as NovelTypeTag) && value === true
-    );
-  
-    return anyNovelTypeSelected ? 'active-undefined' : 'active-false';
-  }
+  if (tagActivations[tag] === true) return 'active-true';
+  if (tagActivations[tag] === false) return 'active-false';
+
+  const anyNovelTypeSelected = NOVEL_TYPE_TAGS.some(
+    (t) => tagActivations[t] === true
+  );
+
+  return anyNovelTypeSelected ? 'active-undefined' : 'active-false';
+}
 </script>
 
 <div id="preamble">
