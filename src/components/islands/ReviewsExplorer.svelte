@@ -12,8 +12,17 @@
     totalReviews: number;
   };
 
-  type NovelTypeTag = 'fanfic' | 'novel' | 'cn-light-novel' | 'jp-light-novel' | 'kr-light-novel' | 'manga-jp' | 'manhua-cn' | 'manhwa-kr';
-  const NOVEL_TYPE_TAGS = [...] as const;
+  type NovelTypeTag = (typeof NOVEL_TYPE_TAGS)[number];
+  const NOVEL_TYPE_TAGS = [
+    'fanfic',
+    'novel',
+    'cn-light-novel',
+    'jp-light-novel',
+    'kr-light-novel',
+    'manga-jp',
+    'manhua-cn',
+    'manhwa-kr',
+  ] as const;
   const NOVEL_TYPE_LABELS: Record<NovelTypeTag, string> = { 
     fanfic: 'fanfic'
     novel: 'novel'
@@ -489,11 +498,9 @@
   }
 
   function novelTypeChipState(tag: NovelTypeTag): ChipState {
-    const active = tagActivations[tag];
-    if (active === true) return 'active-true';
-    if (active === false) return 'active-false';
-    const anySelected = NOVEL_TYPE_TAGS.some((t) => tagActivations[t] !== undefined);
-    return anySelected ? 'active-undefined' : 'active-false';
+    if (tagActivations[tag] === true) return 'active-true';
+    if (tagActivations[tag] === false) return 'active-false';
+    return Object.keys(tagActivations).some((k) => k === tag) ? 'active-undefined' : 'active-false';
   }
 </script>
 
