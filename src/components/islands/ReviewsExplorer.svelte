@@ -641,7 +641,9 @@
       <span>{tag}</span>
     </button>
   {/each}
+</div>
 
+<div class="mt-3 flex flex-wrap gap-2">
   {#each SOURCE_TAGS as tag}
     <button
       type="button"
