@@ -1,4 +1,3 @@
-
 <script lang="ts">
   import { tick } from 'svelte';
   import type { Post, ReviewTier } from '../../lib/types';
@@ -47,10 +46,9 @@
     audiobook: 'Audiobook',
     'royal-road': 'Royal Road',
   };
-  
-  // single source of truth for the layout options used by the template
+
   const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
-  
+
   let { posts, totalReviews }: Props = $props();
 
   const TIER_DESCRIPTIONS: Record<ReviewTier, string> = {
@@ -65,10 +63,6 @@
     G: 'On My Radar',
   };
 
-  // Labels reuse the card glow gradients (--grad-* in styling.css, applied
-  // by .tier-label in fancy.css). The raw gradients range from near-white
-  // (B's silver) to near-black (D's dark red), so each tier also tunes the
-  // dark scrim laid over its gradient to keep the white text readable.
   const TIER_LABEL_STYLES: Record<ReviewTier, { grad: string; scrim: number }> = {
     'π': { grad: 'var(--grad-m)', scrim: 0.5 },
     S: { grad: 'var(--grad-s)', scrim: 0.5 },
@@ -87,13 +81,12 @@
     royal_road: 'royal-road',
   };
 
-  // Augment posts with derived tags (extra link-derived tags + 'completed').
   function withDefaultBookTag(post: Post) {
     return !post.tags.includes('book') && !post.tags.includes('series')
       ? ['book']
       : [];
   }
-  
+
   const augmentedPosts = $derived.by(() => {
     return posts.map((post) => {
       const extras: string[] = [];
@@ -101,14 +94,14 @@
         const t = LINK_TAG_MAP[link.name];
         if (t) extras.push(t);
       }
-  
+
       const defaultBookTag = withDefaultBookTag(post);
-  
+
       const completed =
         !post.tags.includes('ongoing') && !post.tags.includes('completed')
           ? ['completed']
           : [];
-  
+
       return {
         ...post,
         tags: [...post.tags, ...extras, ...defaultBookTag, ...completed],
@@ -116,9 +109,6 @@
     });
   });
 
-  /*const allTags = $derived(
-    Array.from(new Set(augmentedPosts.flatMap((p) => p.tags))).sort()
-  );*/
   const SPECIAL_TAGS = [
     ...STATUS_TAGS,
     ...SOURCE_TAGS,
@@ -126,7 +116,7 @@
     'book',
     'series',
   ] as const;
-  
+
   const allTags = $derived(
     Array.from(
       new Set(
@@ -137,7 +127,6 @@
     ).sort()
   );
 
-  // Initial layout default depends on screen width — guard for SSR.
   const defaultLayout: Layout =
     typeof globalThis !== 'undefined' &&
     (globalThis as { screen?: { width: number } }).screen?.width !== undefined &&
@@ -149,7 +138,6 @@
     return abslink.replace(/\/$/, '').split('/').pop() ?? abslink;
   }
 
-  // Read URL state synchronously so we don't flash unfiltered cards on mount.
   function readInitialState(): {
     layout: Layout;
     byRank: boolean;
@@ -160,7 +148,6 @@
     completionFilter: CompletionFilter;
     sourceActivations: Record<string, boolean>;
     bookFilter: BookFilter;
-    
   } {
     const out = {
       layout: defaultLayout,
@@ -209,7 +196,6 @@
       out.readingList = new SvelteSet(slugs);
       if (slugs.length > 0) out.showReadingList = true;
     } else if (typeof localStorage !== 'undefined') {
-      // Fall back to localStorage if no URL param
       try {
         const stored = localStorage.getItem('reading-list');
         if (stored) {
@@ -237,7 +223,6 @@
   });
   let bookFilter = $state<BookFilter>(initial.bookFilter);
 
-  // Sync state → URL whenever any of these change.
   $effect(() => {
     if (typeof window === 'undefined') return;
     const params = new URLSearchParams();
@@ -245,12 +230,13 @@
     if (layout !== defaultLayout) params.set('l', layout);
     if (completionFilter !== 'all') params.set('status', completionFilter);
     if (bookFilter !== 'all') params.set('book', bookFilter);
-  
+
     const activeSources = Object.entries(sourceActivations)
       .filter(([, active]) => active)
       .map(([tag]) => tag);
-  
+
     if (activeSources.length) params.set('source', activeSources.join('_'));
+
     const include: string[] = [];
     const exclude: string[] = [];
     for (const [k, v] of Object.entries(tagActivations)) {
@@ -264,7 +250,7 @@
     const args = params.toString();
     const newUrl = `${location.origin}${location.pathname}${args ? '?' + args : ''}`;
     history.pushState({ path: newUrl }, '', newUrl);
-  
+
     if (typeof localStorage !== 'undefined') {
       try {
         localStorage.setItem('reading-list', JSON.stringify(rlSlugs));
@@ -277,7 +263,6 @@
   function toggleBookmark(slug: string) {
     if (readingList.has(slug)) {
       readingList.delete(slug);
-      // the filter too or the user is stranded on an empty, unescapable view.
       if (readingList.size === 0) showReadingList = false;
     } else {
       readingList.add(slug);
@@ -318,9 +303,6 @@
     bookFilter = 'all';
   }
 
-  // Screenshot export: capture the whole card list (not just the viewport)
-  // and download it as webp. Heavy lifting lives in lib/screenshot.ts, which
-  // dynamic-imports snapdom on first use (ADR-011).
   let capturing = $state(false);
   let captureFailed = $state(false);
 
@@ -328,14 +310,9 @@
     if (capturing || visiblePosts.length === 0) return;
     capturing = true;
     captureFailed = false;
-    // Flush the DOM (spinner + .screenshotting neutralization class) and let
-    // it paint before capture blocks the main thread.
     await tick();
     await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
     try {
-      // Tier needs the wrapper (all tier rows); wide/cover capture the inner
-      // grid to skip the side gutters and the grid's collapsed-out mt-20,
-      // which would otherwise misalign the clone.
       const root = document.querySelector<HTMLElement>(
         layout === 'tier' ? '#all-card-wrapper' : '[data-capture-root]'
       );
@@ -354,7 +331,6 @@
     const words = term ? term.split(/\s+/).filter(Boolean) : [];
     return augmentedPosts
       .filter((post) => {
-        // Reading list filter
         if (showReadingList && !readingList.has(slugFromAbslink(post.abslink))) {
           return false;
         }
@@ -416,7 +392,6 @@
     return 'active-undefined';
   }
 
-  // Clipboard shortcuts: c, C, x, X — different summary verbosities.
   function shortSummary(post: Post): string {
     let sb = `* **${post.name}**: ([review](${post.abslink}), `;
     for (const link of post.links) sb += `[${link.name}](${link.link}), `;
@@ -442,8 +417,6 @@
   $effect(() => {
     if (typeof window === 'undefined') return;
     const handler = (e: KeyboardEvent) => {
-      // Don't hijack modifier combos (Cmd+S = save page) or typing in the
-      // search box / other fields.
       if (e.ctrlKey || e.metaKey || e.altKey) return;
       const target = e.target as HTMLElement | null;
       if (
@@ -479,24 +452,17 @@
     if (active) return 'active-true';
     return anySelected ? 'active-undefined' : 'active-false';
   }
-  
+
   function sourceChipState(tag: SourceTag): ChipState {
     return chipState(sourceActivations[tag], Object.values(sourceActivations).some(Boolean));
   }
-  
+
   function completionChipState(value: CompletionFilter): ChipState {
     return chipState(completionFilter === value, completionFilter !== 'all');
   }
-  
+
   function bookChipState(value: BookFilter): ChipState {
     return chipState(bookFilter === value, bookFilter !== 'all');
-  }
-
-  function novelTypeChipState(tag: NovelTypeTag): ChipState {
-    return chipState(
-      novelTypeActivations[tag],
-      Object.values(novelTypeActivations).some(Boolean)
-    );
   }
 </script>
 
@@ -533,12 +499,16 @@
           class="hidden peer"
           onclick={() => (layout = opt as Layout)}
         />
-        <span class="px-4 py-2 text-lg sm:text-base {rounded} {isActive ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
-          >{opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}</span
+        <span
+          class="px-4 py-2 text-lg sm:text-base {rounded} {isActive
+            ? 'bg-green-500 text-green-50'
+            : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
         >
+          {opt === 'tier' ? 'Tier List' : opt[0].toUpperCase() + opt.slice(1)}
+        </span>
       </label>
     {/each}
-   
+
     <label
       for="sort-order"
       class="pl-4 inline-flex items-center p-2 rounded-md cursor-pointer"
@@ -550,13 +520,22 @@
         class="hidden peer"
         onclick={(e) => (byRank = (e.currentTarget as HTMLInputElement).checked)}
       />
-      <span class="px-4 py-2 rounded-l-md text-lg sm:text-base {byRank ? 'bg-green-500 text-green-50' : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
-        >Rank</span
+      <span
+        class="px-4 py-2 rounded-l-md text-lg sm:text-base {byRank
+          ? 'bg-green-500 text-green-50'
+          : 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'}"
       >
-      <span class="px-4 py-2 rounded-r-md text-lg sm:text-base {byRank ? 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50' : 'bg-green-500 text-green-50'}"
-        >Recent</span
+        Rank
+      </span>
+      <span
+        class="px-4 py-2 rounded-r-md text-lg sm:text-base {byRank
+          ? 'bg-green-700 text-green-400 hover:bg-green-500 hover:text-green-50'
+          : 'bg-green-500 text-green-50'}"
       >
+        Recent
+      </span>
     </label>
+
     <input
       oninput={(e) => (searchTerm = (e.currentTarget as HTMLInputElement).value)}
       type="text"
@@ -566,6 +545,7 @@
       class="bg-green-700 rounded-md text-green-400 m-2 focus:text-green-100 outline-none focus:ring-2 focus:ring-green-400"
       placeholder="Search..."
     />
+
     {#if readingList.size > 0}
       <div class="inline-flex items-center m-2 overflow-hidden rounded-md">
         <button
@@ -595,7 +575,7 @@
           </svg>
           Show TBR List ({readingList.size})
         </button>
-    
+
         <button
           type="button"
           class="inline-flex items-center px-4 py-2 bg-accent-700 text-cream-200 hover:bg-accent-600 cursor-pointer rounded-r-md text-lg sm:text-base"
@@ -606,9 +586,10 @@
         </button>
       </div>
     {/if}
+
     <button
       type="button"
-      class="inline-flex items-center gap-2 m-2 px-4 py-2 h-[38px] sm:h-[38px] bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-50 disabled:opacity-50"
+      class="inline-flex items-center gap-2 m-2 px-4 py-2 h-[38px] sm:h-[38px] bg-green-700 hover:bg-green-500 disabled:hover:bg-green-700 rounded-md cursor-pointer disabled:cursor-default text-green-[...]
       onclick={screenshot}
       disabled={capturing || visiblePosts.length === 0}
       title="Screenshot"
@@ -651,7 +632,8 @@
           <circle cx="12" cy="13" r="4" />
         </svg>
       {/if}
-    </button>    
+    </button>
+
     <button
       type="button"
       class="inline-flex items-center m-2 px-4 py-2 bg-accent-700/70 hover:bg-accent-600 rounded-md cursor-pointer text-cream-200 text-lg sm:text-base"
@@ -673,22 +655,8 @@
     </button>
   {/each}
 </div>
-<div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
-  {#each NOVEL_TYPE_TAGS as tag}
-    <button
-      type="button"
-      class={`filter-chip novel-type-chip ${novelTypeChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
-      onclick={() => {
-        novelTypeActivations = {
-          ...novelTypeActivations,
-          [tag]: !novelTypeActivations[tag],
-        };
-      }}
-    >
-      <span>{NOVEL_TYPE_LABELS[tag]}</span>
-    </button>
-  {/each}
 
+<div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
   {#each SOURCE_TAGS as tag}
     <button
       type="button"
@@ -732,7 +700,7 @@
 
   <button
     type="button"
-    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
+    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
     onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
   >
     <span>Series</span>
@@ -741,8 +709,6 @@
 
 {#snippet cards(posts: Post[])}
   {#each posts as post (post.link)}
-    <!-- No bookmark button in tier mode: the 150px tiles are too small
-         for the overlay and the board should read as covers only. -->
     <ReviewCard
       {post}
       {layout}
@@ -759,9 +725,6 @@
 >
   {#each groupedPosts as group, gi (group.tier ?? gi)}
     {#if layout === 'tier' && group.tier}
-      <!-- overflow-clip (not -hidden) so the sticky label still works:
-           overflow:hidden makes this row the sticky element's scroll
-           container, which never scrolls, so the label would never stick. -->
       <section
         class="tier-row flex rounded-md overflow-clip bg-green-800/50"
         aria-label="Tier {group.tier}"
@@ -771,13 +734,6 @@
           style:--tier-grad={TIER_LABEL_STYLES[group.tier].grad}
           style:--tier-scrim={TIER_LABEL_STYLES[group.tier].scrim}
         >
-          <!-- Sticky keeps the tier letter visible while scrolling tall
-               tiers (C spans several screens). Both insets matter: bottom-4
-               pins the (flex-centered, so initially below the fold) label
-               near the viewport bottom while entering a tall row, top-4
-               takes over when scrolling past. Small offsets only — a large
-               one (e.g. 40vh) shoves the label of short rows that sit above
-               the line to the cell bottom instead of centering. -->
           <div class="sticky top-4 bottom-4 flex flex-col items-center gap-1 p-2 text-center">
             <span class="text-3xl sm:text-5xl font-bold text-green-50">{group.tier}</span>
             <span class="sr-only sm:not-sr-only text-sm leading-tight text-green-50/80">
