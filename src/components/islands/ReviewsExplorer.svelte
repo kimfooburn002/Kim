@@ -622,7 +622,7 @@
     </button>    
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700/20 hover:bg-accent-600 rounded-md cursor-pointer text-cream-200 text-lg sm:text-base"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700/70 hover:bg-accent-600 rounded-md cursor-pointer text-cream-200 text-lg sm:text-base"
       onclick={reset}
     >
       Reset
