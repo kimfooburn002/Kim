@@ -487,6 +487,14 @@
   function bookChipState(value: BookFilter): ChipState {
     return chipState(bookFilter === value, bookFilter !== 'all');
   }
+
+  function novelTypeChipState(tag: NovelTypeTag): ChipState {
+    const active = tagActivations[tag];
+    if (active === true) return 'active-true';
+    if (active === false) return 'active-false';
+    const anySelected = NOVEL_TYPE_TAGS.some((t) => tagActivations[t] !== undefined);
+    return anySelected ? 'active-undefined' : 'active-false';
+  }
 </script>
 
 <div id="preamble">
@@ -663,6 +671,28 @@
   {/each}
 </div>
 <div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
+  {#each NOVEL_TYPE_TAGS as tag}
+    <button
+      type="button"
+      class={`filter-chip novel-type-chip ${novelTypeChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => {
+        if (tag in tagActivations) {
+          if (tagActivations[tag] === true) {
+            tagActivations = { ...tagActivations, [tag]: false };
+          } else {
+            const next = { ...tagActivations };
+            delete next[tag];
+            tagActivations = next;
+          }
+        } else {
+          tagActivations = { ...tagActivations, [tag]: true };
+        }
+      }}
+    >
+      <span>{NOVEL_TYPE_LABELS[tag]}</span>
+    </button>
+  {/each}
+
   {#each SOURCE_TAGS as tag}
     <button
       type="button"
