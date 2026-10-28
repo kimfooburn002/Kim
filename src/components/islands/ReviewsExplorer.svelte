@@ -493,15 +493,11 @@
   }
 
   function novelTypeChipState(tag: NovelTypeTag): ChipState {
-  if (tagActivations[tag] === true) return 'active-true';
-  if (tagActivations[tag] === false) return 'active-false';
-
-  const anyNovelTypeSelected = NOVEL_TYPE_TAGS.some(
-    (t) => tagActivations[t] === true
-  );
-
-  return anyNovelTypeSelected ? 'active-undefined' : 'active-false';
-}
+    return chipState(
+      novelTypeActivations[tag],
+      Object.values(novelTypeActivations).some(Boolean)
+    );
+  }
 </script>
 
 <div id="preamble">
@@ -683,17 +679,10 @@
       type="button"
       class={`filter-chip novel-type-chip ${novelTypeChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
       onclick={() => {
-        if (tag in tagActivations) {
-          if (tagActivations[tag] === true) {
-            tagActivations = { ...tagActivations, [tag]: false };
-          } else {
-            const next = { ...tagActivations };
-            delete next[tag];
-            tagActivations = next;
-          }
-        } else {
-          tagActivations = { ...tagActivations, [tag]: true };
-        }
+        novelTypeActivations = {
+          ...novelTypeActivations,
+          [tag]: !novelTypeActivations[tag],
+        };
       }}
     >
       <span>{NOVEL_TYPE_LABELS[tag]}</span>
