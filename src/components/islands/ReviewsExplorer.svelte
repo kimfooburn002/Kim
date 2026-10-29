@@ -58,6 +58,16 @@
     'manhua-cn': 'manhua (cn)',
     'manhwa-kr': 'manhwa (kr)',
   };
+
+  const availableFormatTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is FormatTag => FORMAT_TAGS.includes(tag as FormatTag))
+      )
+    ).sort()
+  );
   
   // single source of truth for the layout options used by the template
   const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
@@ -760,7 +770,7 @@
     <span>Ongoing</span>
   </button>
 
-  {#each FORMAT_TAGS as tag}
+  {#each availableFormatTags as tag}
     <button
       type="button"
       class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
