@@ -170,8 +170,7 @@ body {
   }
 
   .book-chip {
-    @apply border-2 border-green-400/80 bg-transparent;  
-   
+    @apply border-2 border-green-400/80 bg-transparent;     
     &.active-true {
       @apply text-green-50 bg-green-500 border-green-400;
     }  
@@ -192,30 +191,27 @@ body {
     }
   }
 
-  .novel-type-chip {
-    @apply border-2 border-green-400/80 bg-transparent;
-
+  .format-chip {
+    @apply border-2 border-accent-400/80 bg-transparent;  
     &.active-true {
-      @apply text-green-50 bg-green-500 border-green-400;
-    }
-    &.active-false {
-      @apply text-cream-50 bg-accent-600 border-accent-400;
-    }
+      @apply text-accent-50 bg-accent-700 border-accent-400;
+    }  
+    &.active-false,
     &.active-undefined {
-      @apply text-green-100 border-green-400/80 bg-green-700/80;
+      @apply text-accent-100 border-accent-400/80 bg-accent-800/80;
     }
   }
 
-   .source-chip {
-      @apply border-2 border-accent-400/80 bg-transparent;  
-      &.active-true {
-        @apply text-accent-50 bg-accent-700 border-accent-400;
-      }  
-      &.active-false,
-      &.active-undefined {
-        @apply text-accent-100 border-accent-400/80 bg-accent-800/80;
-      }
+  .source-chip {
+    @apply border-2 border-accent-400/80 bg-transparent;  
+    &.active-true {
+      @apply text-accent-50 bg-accent-700 border-accent-400;
+    }  
+    &.active-false,
+    &.active-undefined {
+      @apply text-accent-100 border-accent-400/80 bg-accent-800/80;
     }
+  }
   
   &.review {
     button {
