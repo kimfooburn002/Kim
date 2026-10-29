@@ -114,6 +114,12 @@
       ? ['book']
       : [];
   }
+
+  function withDefaultFormatTag(post: Post) {
+    return post.tags.some((tag) => FORMAT_TAGS.includes(tag as FormatTag))
+      ? []
+      : ['novel'];
+  }
   
   const augmentedPosts = $derived.by(() => {
     return posts.map((post) => {
@@ -124,6 +130,7 @@
       }
   
       const defaultBookTag = withDefaultBookTag(post);
+      const defaultFormatTag = withDefaultFormatTag(post);
   
       const completed =
         !post.tags.includes('ongoing') && !post.tags.includes('completed')
@@ -132,7 +139,13 @@
   
       return {
         ...post,
-        tags: [...post.tags, ...extras, ...defaultBookTag, ...completed],
+        tags: [
+          ...post.tags,
+          ...extras,
+          ...defaultBookTag,
+          ...defaultFormatTag,
+          ...completed,
+        ],
       };
     });
   });
