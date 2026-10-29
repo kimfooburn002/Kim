@@ -23,6 +23,41 @@
     audiobook: 'Audiobook',
     'royal-road': 'Royal Road',
   };
+
+  type FormatTag =
+    | 'fanfic'
+    | 'webnovel'
+    | 'novel'
+    | 'cn-light-novel'
+    | 'jp-light-novel'
+    | 'kr-light-novel'
+    | 'manga-jp'
+    | 'manhua-cn'
+    | 'manhwa-kr';
+
+  const FORMAT_TAGS = [
+    'fanfic',
+    'webnovel',
+    'novel',
+    'cn-light-novel',
+    'jp-light-novel',
+    'kr-light-novel',
+    'manga-jp',
+    'manhua-cn',
+    'manhwa-kr',
+  ] as const;
+
+  const FORMAT_LABELS: Record<FormatTag, string> = {
+    fanfic: 'fanfic',
+    webnovel: 'webnovel',
+    novel: 'novel',
+    'cn-light-novel': 'cn light novel',
+    'jp-light-novel': 'jp light novel',
+    'kr-light-novel': 'kr light novel',
+    'manga-jp': 'manga (jp)',
+    'manhua-cn': 'manhua (cn)',
+    'manhwa-kr': 'manhwa (kr)',
+  };
   
   // single source of truth for the layout options used by the template
   const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
@@ -98,6 +133,7 @@
   const SPECIAL_TAGS = [
     ...STATUS_TAGS,
     ...SOURCE_TAGS,
+    ...FORMAT_TAGS,
     'book',
     'series',
   ] as const;
@@ -134,6 +170,7 @@
     showReadingList: boolean;
     completionFilter: CompletionFilter;
     sourceActivations: Record<string, boolean>;
+    formatActivations: Record<string, boolean>;
     bookFilter: BookFilter;
   } {
     const out = {
@@ -145,6 +182,7 @@
       showReadingList: false,
       completionFilter: 'all' as CompletionFilter,
       sourceActivations: {} as Record<string, boolean>,
+      formatActivations: {} as Record<string, boolean>,
       bookFilter: 'all' as BookFilter,
     };
     if (typeof window === 'undefined') return out;
@@ -160,6 +198,11 @@
     if (params.has('source')) {
       for (const t of params.get('source')!.split('_').filter(Boolean)) {
         out.sourceActivations[t] = true;
+      }
+    }
+    if (params.has('format')) {
+      for (const t of params.get('format')!.split('_').filter(Boolean)) {
+        out.formatActivations[t] = true;
       }
     }
     if (params.has('book')) {
@@ -209,6 +252,17 @@
     audiobook: false,
     'royal-road': false,
   });
+  let formatActivations = $state<Record<FormatTag, boolean>>({
+    fanfic: false,
+    webnovel: false,
+    novel: false,
+    'cn-light-novel': false,
+    'jp-light-novel': false,
+    'kr-light-novel': false,
+    'manga-jp': false,
+    'manhua-cn': false,
+    'manhwa-kr': false,
+  });
   let bookFilter = $state<BookFilter>(initial.bookFilter);
 
   // Sync state → URL whenever any of these change.
@@ -225,6 +279,13 @@
       .map(([tag]) => tag);
   
     if (activeSources.length) params.set('source', activeSources.join('_'));
+
+    const activeFormats = Object.entries(formatActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+
+    if (activeFormats.length) params.set('format', activeFormats.join('_'));
+
     const include: string[] = [];
     const exclude: string[] = [];
     for (const [k, v] of Object.entries(tagActivations)) {
@@ -290,6 +351,17 @@
       audiobook: false,
       'royal-road': false,
     };
+    formatActivations = {
+      fanfic: false,
+      webnovel: false,
+      novel: false,
+      'cn-light-novel': false,
+      'jp-light-novel': false,
+      'kr-light-novel': false,
+      'manga-jp': false,
+      'manhua-cn': false,
+      'manhwa-kr': false,
+    };
     bookFilter = 'all';
   }
 
@@ -353,6 +425,16 @@
           const matchesAnySource = activeSources.some((tag) => post.tags.includes(tag));
           if (!matchesAnySource) return false;
         }
+
+        const activeFormats = Object.entries(formatActivations)
+          .filter(([, active]) => active)
+          .map(([tag]) => tag as FormatTag);
+
+        if (activeFormats.length) {
+          const matchesAnyFormat = activeFormats.some((tag) => post.tags.includes(tag));
+          if (!matchesAnyFormat) return false;
+        }
+
         for (const [tag, active] of Object.entries(tagActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
@@ -457,6 +539,10 @@
   
   function sourceChipState(tag: SourceTag): ChipState {
     return chipState(sourceActivations[tag], Object.values(sourceActivations).some(Boolean));
+  }
+
+  function formatChipState(tag: FormatTag): ChipState {
+    return chipState(formatActivations[tag], Object.values(formatActivations).some(Boolean));
   }
   
   function completionChipState(value: CompletionFilter): ChipState {
@@ -654,6 +740,21 @@
       }}
     >
       <span>{SOURCE_LABELS[tag]}</span>
+    </button>
+  {/each}
+
+  {#each FORMAT_TAGS as tag}
+    <button
+      type="button"
+      class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm small-caps-label`}
+      onclick={() => {
+        formatActivations = {
+          ...formatActivations,
+          [tag]: !formatActivations[tag],
+        };
+      }}
+    >
+      <span>{FORMAT_LABELS[tag]}</span>
     </button>
   {/each}
 
