@@ -746,7 +746,7 @@
   {#each FORMAT_TAGS as tag}
     <button
       type="button"
-      class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm small-caps-label`}
+      class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
       onclick={() => {
         formatActivations = {
           ...formatActivations,
