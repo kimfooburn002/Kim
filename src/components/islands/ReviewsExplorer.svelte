@@ -728,20 +728,37 @@
   {/each}
 </div>
 <div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
-  {#each SOURCE_TAGS as tag}
-    <button
-      type="button"
-      class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
-      onclick={() => {
-        sourceActivations = {
-          ...sourceActivations,
-          [tag]: !sourceActivations[tag],
-        };
-      }}
-    >
-      <span>{SOURCE_LABELS[tag]}</span>
-    </button>
-  {/each}
+  <button
+    type="button"
+    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
+  >
+    <span>Book</span>
+  </button>
+  <button
+    type="button"
+    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
+  >
+    <span>Series</span>
+  </button>
+
+  <button
+    type="button"
+    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+  >
+    <span>Completed</span>
+  </button>
+  <button
+    type="button"
+    class={`filter-chip completion-chip ${completionChipState('ongoing')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'ongoing' ? 'all' : 'ongoing')}
+  >
+    <span>Ongoing</span>
+  </button>
 
   {#each FORMAT_TAGS as tag}
     <button
@@ -758,39 +775,20 @@
     </button>
   {/each}
 
-  <button
-    type="button"
-    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
-  >
-    <span>Completed</span>
-  </button>
-
-  <button
-    type="button"
-    class={`filter-chip completion-chip ${completionChipState('ongoing')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'ongoing' ? 'all' : 'ongoing')}
-  >
-    <span>Ongoing</span>
-  </button>
-
-  <button
-    type="button"
-    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
-  >
-    <span>Book</span>
-  </button>
-
-  <button
-    type="button"
-    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
-  >
-    <span>Series</span>
-  </button>
+  {#each SOURCE_TAGS as tag}
+    <button
+      type="button"
+      class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => {
+        sourceActivations = {
+          ...sourceActivations,
+          [tag]: !sourceActivations[tag],
+        };
+      }}
+    >
+      <span>{SOURCE_LABELS[tag]}</span>
+    </button>
+  {/each}  
 </div>
 
 {#snippet cards(posts: Post[])}
