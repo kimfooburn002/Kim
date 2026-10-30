@@ -756,14 +756,14 @@
     class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
     onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
   >
-    <span>Book</span>
+    <span>book</span>
   </button>
   <button
     type="button"
     class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
     onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
   >
-    <span>Series</span>
+    <span>series</span>
   </button>
 
   <button
@@ -772,7 +772,7 @@
     onclick={() =>
       (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
   >
-    <span>Completed</span>
+    <span>completed</span>
   </button>
   <button
     type="button"
@@ -780,7 +780,7 @@
     onclick={() =>
       (completionFilter = completionFilter === 'ongoing' ? 'all' : 'ongoing')}
   >
-    <span>Ongoing</span>
+    <span>ongoing</span>
   </button>
 
   {#each availableFormatTags as tag}
