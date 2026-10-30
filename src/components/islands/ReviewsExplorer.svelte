@@ -16,13 +16,137 @@
   type CompletionFilter = 'all' | 'completed' | 'ongoing';
   const STATUS_TAGS = ['completed', 'ongoing'] as const;
 
-  const SOURCE_TAGS = ['amazon', 'audiobook', 'royal-road'] as const;
+  const SOURCE_TAGS = ['amazon', 'audiobook', 'royal-road', 'ao3'] as const;
   type SourceTag = (typeof SOURCE_TAGS)[number];
   const SOURCE_LABELS: Record<SourceTag, string> = {
     amazon: 'Amazon',
     audiobook: 'Audiobook',
     'royal-road': 'Royal Road',
+    ao3: 'AO3',
   };
+
+ const PROTAGONIST_TAGS = [
+    'ensemble-cast',
+    'female-lead',
+    'male-lead',
+    'non-human-lead',
+  ] as const;
+  type ProtagonistTag = (typeof PROTAGONIST_TAGS)[number];
+  const PROTAGONIST_LABELS: Record<ProtagonistTag, string> = {
+    'ensemble-cast': 'ensemble cast',
+    'female-lead': 'female lead',
+    'male-lead': 'male lead',
+    'non-human-lead': 'non-human lead',
+  };
+
+  const PROGRESSION_TAGS = [
+    'poor-to-rich',
+   'weak-to-strong',
+    'community-building',
+    'kingdom-building',
+    'dungeon-core',
+    'relationship-building',
+  ] as const;
+  type ProgressionTag = (typeof PROGRESSION_TAGS)[number];
+  const PROGRESSION_LABELS: Record<ProgressionTag, string> = {
+    'poor-to-rich': 'poor-to-rich',
+    'weak-to-strong': 'weak-to-strong',
+    'community-building': 'community building',
+    'kingdom-building': 'kingdom building',
+    'dungeon-core': 'dungeon core',
+    'relationship-building': 'relationship building',
+  };
+
+  const availableSourceTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is SourceTag => SOURCE_TAGS.includes(tag as SourceTag))
+      )
+    ).sort()
+  );
+
+  const availableProgressionTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is ProgressionTag =>
+            PROGRESSION_TAGS.includes(tag as ProgressionTag)
+          )
+      )
+    ).sort()
+  );
+
+  const availableYearTags = $derived.by(() =>
+    Array.from(
+      new Set(
+        augmentedPosts.flatMap((post) => {
+          const stamp = new Date(post.date);
+          const year = Number(stamp.getFullYear());
+          return Number.isFinite(year) ? [String(year)] : [];
+        })
+      )
+    ).sort((a, b) => Number(b) - Number(a))
+  );
+
+  type FormatTag =
+    | 'fanfic'
+    | 'webnovel'
+    | 'novel'
+    | 'cn-light-novel'
+    | 'jp-light-novel'
+    | 'kr-light-novel'
+    | 'manga-jp'
+    | 'manhua-cn'
+    | 'manhwa-kr';
+
+  const FORMAT_TAGS = [
+    'fanfic',
+    'webnovel',
+    'novel',
+    'cn-light-novel',
+    'jp-light-novel',
+    'kr-light-novel',
+    'manga-jp',
+    'manhua-cn',
+    'manhwa-kr',
+  ] as const;
+
+  const FORMAT_LABELS: Record<FormatTag, string> = {
+    fanfic: 'fanfic',
+    webnovel: 'webnovel',
+    novel: 'novel',
+    'cn-light-novel': 'cn light novel',
+    'jp-light-novel': 'jp light novel',
+    'kr-light-novel': 'kr light novel',
+    'manga-jp': 'manga (jp)',
+    'manhua-cn': 'manhua (cn)',
+    'manhwa-kr': 'manhwa (kr)',
+  };
+
+  const availableFormatTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is FormatTag => FORMAT_TAGS.includes(tag as FormatTag))
+      )
+    ).sort()
+  );
+
+  const availableProtagonistTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is ProtagonistTag =>
+            PROTAGONIST_TAGS.includes(tag as ProtagonistTag)
+          )
+      )
+   ).sort()
+  );
   
   // single source of truth for the layout options used by the template
   const LAYOUT_OPTIONS: Layout[] = ['cover', 'tier', 'wide'];
@@ -61,6 +185,7 @@
     amazon: 'amazon',
     audible: 'audiobook',
     royal_road: 'royal-road',
+    ao3: 'ao3',
   };
 
   // Augment posts with derived tags (extra link-derived tags + 'completed').
@@ -68,6 +193,27 @@
     return !post.tags.includes('book') && !post.tags.includes('series')
       ? ['book']
       : [];
+  }
+
+  function withDefaultFormatTag(post: Post) {
+    return post.tags.some((tag) => FORMAT_TAGS.includes(tag as FormatTag))
+      ? []
+      : ['novel'];
+  }
+
+  function withDefaultYearTag(post: Post) {
+    const date = new Date(post.date);
+    const year = Number.isNaN(date.getTime()) ? null : String(date.getFullYear());
+    if (!year) return [];
+    return post.tags.includes(year) ? [] : [year];
+  }
+
+  function withDefaultProtagonistTag(post: Post) {
+    return post.tags.some((tag) =>
+      PROTAGONIST_TAGS.includes(tag as ProtagonistTag)
+    )
+      ? []
+      : ['male-lead'];
   }
   
   const augmentedPosts = $derived.by(() => {
@@ -79,6 +225,9 @@
       }
   
       const defaultBookTag = withDefaultBookTag(post);
+      const defaultFormatTag = withDefaultFormatTag(post);
+      const defaultProtagonistTag = withDefaultProtagonistTag(post);
+      const defaultYearTag = withDefaultYearTag(post);
   
       const completed =
         !post.tags.includes('ongoing') && !post.tags.includes('completed')
@@ -87,7 +236,15 @@
   
       return {
         ...post,
-        tags: [...post.tags, ...extras, ...defaultBookTag, ...completed],
+        tags: [
+          ...post.tags,
+          ...extras,
+          ...defaultBookTag,
+          ...defaultFormatTag,
+          ...defaultYearTag,
+          ...defaultProtagonistTag,
+          ...completed,
+        ],
       };
     });
   });
@@ -98,6 +255,9 @@
   const SPECIAL_TAGS = [
     ...STATUS_TAGS,
     ...SOURCE_TAGS,
+    ...FORMAT_TAGS,
+    ...PROTAGONIST_TAGS,
+    ...PROGRESSION_TAGS,
     'book',
     'series',
   ] as const;
@@ -129,6 +289,10 @@
     layout: Layout;
     byRank: boolean;
     activations: Record<string, boolean>;
+    formatActivations: Record<FormatTag, boolean>;
+    protagonistActivations: Record<ProtagonistTag, boolean>;
+    progressionActivations: Record<ProgressionTag, boolean>;
+    yearActivations: Record<string, boolean>;
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
@@ -140,6 +304,10 @@
       layout: defaultLayout,
       byRank: true,
       activations: {} as Record<string, boolean>,
+      formatActivations: {} as Record<FormatTag, boolean>,
+      protagonistActivations: {} as Record<ProtagonistTag, boolean>,
+      progressionActivations: {} as Record<ProgressionTag, boolean>,
+      yearActivations: {} as Record<string, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
@@ -160,6 +328,32 @@
     if (params.has('source')) {
       for (const t of params.get('source')!.split('_').filter(Boolean)) {
         out.sourceActivations[t] = true;
+      }
+    }
+    if (params.has('format')) {
+      for (const t of params.get('format')!.split('_').filter(Boolean)) {        
+        if (FORMAT_TAGS.includes(t as FormatTag)) {
+          out.formatActivations[t as FormatTag] = true;
+        }
+      }
+    }
+    if (params.has('protagonist')) {
+      for (const t of params.get('protagonist')!.split('_').filter(Boolean)) {
+        if (PROTAGONIST_TAGS.includes(t as ProtagonistTag)) {
+          out.protagonistActivations[t as ProtagonistTag] = true;
+        }
+      }
+    }
+    if (params.has('progression')) {
+      for (const t of params.get('progression')!.split('_').filter(Boolean)) {
+        if (PROGRESSION_TAGS.includes(t as ProgressionTag)) {
+          out.progressionActivations[t as ProgressionTag] = true;
+        }
+      }
+    }
+    if (params.has('year')) {
+      for (const t of params.get('year')!.split('_').filter(Boolean)) {
+        out.yearActivations[t] = true;
       }
     }
     if (params.has('book')) {
@@ -200,6 +394,14 @@
   let layout = $state<Layout>(initial.layout);
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
+  let formatActivations = $state<Record<FormatTag, boolean>>({ ...initial.formatActivations });
+  let protagonistActivations = $state<Record<ProtagonistTag, boolean>>({
+    ...initial.protagonistActivations,
+  });
+  let progressionActivations = $state<Record<ProgressionTag, boolean>>({
+    ...initial.progressionActivations,
+  });
+  let yearActivations = $state<Record<string, boolean>>({ ...initial.yearActivations });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
@@ -208,7 +410,8 @@
     amazon: false,
     audiobook: false,
     'royal-road': false,
-  });
+    ao3: false,
+  });  
   let bookFilter = $state<BookFilter>(initial.bookFilter);
 
   // Sync state → URL whenever any of these change.
@@ -225,6 +428,13 @@
       .map(([tag]) => tag);
   
     if (activeSources.length) params.set('source', activeSources.join('_'));
+
+    const activeFormats = Object.entries(formatActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+
+    if (activeFormats.length) params.set('format', activeFormats.join('_'));
+
     const include: string[] = [];
     const exclude: string[] = [];
     for (const [k, v] of Object.entries(tagActivations)) {
@@ -233,6 +443,24 @@
     }
     if (include.length) params.set('include', include.join('_'));
     if (exclude.length) params.set('exclude', exclude.join('_'));
+
+   const activeProtagonists = Object.entries(protagonistActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+    if (activeProtagonists.length) {
+      params.set('protagonist', activeProtagonists.join('_'));
+    }
+
+    const activeProgressions = Object.entries(progressionActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+    if (activeProgressions.length) params.set('progression', activeProgressions.join('_'));
+
+    const activeYears = Object.entries(yearActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+    if (activeYears.length) params.set('year', activeYears.join('_'));
+
     const rlSlugs = Array.from(readingList);
     if (rlSlugs.length) params.set('reading-list', rlSlugs.join('~'));
     const args = params.toString();
@@ -278,18 +506,79 @@
     }
   }
 
+  function clickProtagonistTag(tag: ProtagonistTag) {
+    if (tag in protagonistActivations) {
+      if (protagonistActivations[tag] === true) {
+        protagonistActivations = { ...protagonistActivations, [tag]: false };
+      } else {
+        const next = { ...protagonistActivations };
+        delete next[tag];
+        protagonistActivations = next;
+      }
+    } else {
+      protagonistActivations = { ...protagonistActivations, [tag]: true };
+    }
+  }
+
+  function clickProgressionTag(tag: ProgressionTag) {
+    if (tag in progressionActivations) {
+      if (progressionActivations[tag] === true) {
+        progressionActivations = { ...progressionActivations, [tag]: false };
+      } else {
+        const next = { ...progressionActivations };
+        delete next[tag];
+        progressionActivations = next;
+      }
+    } else {
+      progressionActivations = { ...progressionActivations, [tag]: true };
+    }
+  }
+
+  function clickYearTag(tag: string) {
+    if (tag in yearActivations) {
+      if (yearActivations[tag] === true) {
+        yearActivations = { ...yearActivations, [tag]: false };
+      } else {
+        const next = { ...yearActivations };
+        delete next[tag];
+        yearActivations = next;
+      }
+    } else {
+      yearActivations = { ...yearActivations, [tag]: true };
+    }
+  }
+
+  function clickFormatTag(tag: FormatTag) {
+    if (tag in formatActivations) {
+      if (formatActivations[tag] === true) {
+        formatActivations = { ...formatActivations, [tag]: false };
+      } else {
+        const next = { ...formatActivations };
+        delete next[tag];
+        formatActivations = next;
+      }
+    } else {
+      formatActivations = { ...formatActivations, [tag]: true };
+    }
+  }
+
   function reset() {
     tagActivations = {};
+    protagonistActivations = {};
+    progressionActivations = {};
+    yearActivations = {};
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
     showReadingList = false;
     completionFilter = 'all';
+    formatActivations = {};
     sourceActivations = {
       amazon: false,
       audiobook: false,
       'royal-road': false,
-    };
+      ao3: false,
+    };    
     bookFilter = 'all';
   }
 
@@ -353,9 +642,27 @@
           const matchesAnySource = activeSources.some((tag) => post.tags.includes(tag));
           if (!matchesAnySource) return false;
         }
+
+        for (const [tag, active] of Object.entries(formatActivations)) {
+          if (active === true && !post.tags.includes(tag)) return false;
+          if (active === false && post.tags.includes(tag)) return false;
+        }
         for (const [tag, active] of Object.entries(tagActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
+        }
+        for (const [tag, active] of Object.entries(protagonistActivations)) {
+          if (active === true && !post.tags.includes(tag)) return false;
+          if (active === false && post.tags.includes(tag)) return false;
+        }
+        for (const [tag, active] of Object.entries(progressionActivations)) {
+          if (active === true && !post.tags.includes(tag)) return false;
+          if (active === false && post.tags.includes(tag)) return false;
+        }
+        for (const [tag, active] of Object.entries(yearActivations)) {
+          const year = String(new Date(post.date).getFullYear());
+          if (active === true && year !== tag) return false;
+          if (active === false && year === tag) return false;
         }
         if (words.length) {
           for (const w of words) {
@@ -388,6 +695,27 @@
     if (Object.keys(tagActivations).length === 0) return 'active-nan';
     if (tagActivations[tag] === true) return 'active-true';
     if (tagActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
+  function protagonistChipState(tag: ProtagonistTag): ChipState {
+    if (Object.keys(protagonistActivations).length === 0) return 'active-nan';
+    if (protagonistActivations[tag] === true) return 'active-true';
+    if (protagonistActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
+  function progressionChipState(tag: ProgressionTag): ChipState {
+    if (Object.keys(progressionActivations).length === 0) return 'active-nan';
+    if (progressionActivations[tag] === true) return 'active-true';
+    if (progressionActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
+  function yearChipState(tag: string): ChipState {
+    if (Object.keys(yearActivations).length === 0) return 'active-nan';
+    if (yearActivations[tag] === true) return 'active-true';
+    if (yearActivations[tag] === false) return 'active-false';
     return 'active-undefined';
   }
 
@@ -448,7 +776,7 @@
     return () => window.removeEventListener('keypress', handler);
   });
 
-  type ChipState = 'active-true' | 'active-false' | 'active-undefined';
+  type ChipState = 'active-true' | 'active-false' | 'active-undefined' | 'active-nan';
 
   function chipState(active: boolean, anySelected: boolean): ChipState {
     if (active) return 'active-true';
@@ -457,6 +785,13 @@
   
   function sourceChipState(tag: SourceTag): ChipState {
     return chipState(sourceActivations[tag], Object.values(sourceActivations).some(Boolean));
+  }
+
+  function formatChipState(tag: FormatTag): ChipState {
+    if (Object.keys(formatActivations).length === 0) return 'active-nan';
+    if (formatActivations[tag] === true) return 'active-true';
+    if (formatActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
   }
   
   function completionChipState(value: CompletionFilter): ChipState {
@@ -622,7 +957,7 @@
     </button>    
     <button
       type="button"
-      class="inline-flex items-center m-2 px-4 py-2 bg-accent-700/70 hover:bg-accent-600 rounded-md cursor-pointer text-cream-200 text-lg sm:text-base"
+      class="inline-flex items-center m-2 px-4 py-2 bg-accent-500/70 hover:bg-accent-500 rounded-md cursor-pointer text-cream-200 text-lg sm:text-base"
       onclick={reset}
     >
       Reset
@@ -640,9 +975,72 @@
       <span>{tag}</span>
     </button>
   {/each}
+
+  {#each availableProtagonistTags as tag}
+    <button
+      type="button"
+      class={`filter-chip protagonist-chip ${protagonistChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickProtagonistTag(tag)}
+    >
+      <span>{PROTAGONIST_LABELS[tag]}</span>
+    </button>
+  {/each}
+
+  {#each availableProgressionTags as tag}
+    <button
+      type="button"
+      class={`filter-chip progression-chip ${progressionChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickProgressionTag(tag)}
+    >
+       <span>{PROGRESSION_LABELS[tag]}</span>
+    </button>
+  {/each}
 </div>
+
 <div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
-  {#each SOURCE_TAGS as tag}
+  <button
+    type="button"
+    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
+  >
+    <span>book</span>
+  </button>
+  <button
+    type="button"
+    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
+  >
+    <span>series</span>
+  </button>
+
+  {#each availableYearTags as tag}
+    <button
+      type="button"
+      class={`filter-chip year-chip ${yearChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickYearTag(tag)}
+    >
+      <span>{tag}</span>
+    </button>
+  {/each}
+
+  <button
+    type="button"
+    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
+  >
+    <span>completed</span>
+  </button>
+  <button
+    type="button"
+    class={`filter-chip completion-chip ${completionChipState('ongoing')} hover:cursor-pointer text-base sm:text-sm`}
+    onclick={() =>
+      (completionFilter = completionFilter === 'ongoing' ? 'all' : 'ongoing')}
+  >
+    <span>ongoing</span>
+  </button>
+
+  {#each availableSourceTags as tag}
     <button
       type="button"
       class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
@@ -655,41 +1053,17 @@
     >
       <span>{SOURCE_LABELS[tag]}</span>
     </button>
+  {/each}  
+
+  {#each availableFormatTags as tag}
+    <button
+      type="button"
+      class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickFormatTag(tag)}
+    >
+      <span>{FORMAT_LABELS[tag]}</span>
+    </button>
   {/each}
-
-  <button
-    type="button"
-    class={`filter-chip completion-chip ${completionChipState('completed')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'completed' ? 'all' : 'completed')}
-  >
-    <span>Completed</span>
-  </button>
-
-  <button
-    type="button"
-    class={`filter-chip completion-chip ${completionChipState('ongoing')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() =>
-      (completionFilter = completionFilter === 'ongoing' ? 'all' : 'ongoing')}
-  >
-    <span>Ongoing</span>
-  </button>
-
-  <button
-    type="button"
-    class={`filter-chip book-chip ${bookChipState('book')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => (bookFilter = bookFilter === 'book' ? 'all' : 'book')}
-  >
-    <span>Book</span>
-  </button>
-
-  <button
-    type="button"
-    class={`filter-chip book-chip ${bookChipState('series')} hover:cursor-pointer text-base sm:text-sm`}
-    onclick={() => (bookFilter = bookFilter === 'series' ? 'all' : 'series')}
-  >
-    <span>Series</span>
-  </button>
 </div>
 
 {#snippet cards(posts: Post[])}

@@ -1,6 +1,6 @@
 # In development!
 
-# [Puregarnet's Journal](https://kimfooburn001.github.io/Kim/)
+# [Puregarnet's Journal](https://kimfooburn003.github.io/Kim/)
 
 colours
 --text: #f6f0e5;
@@ -10,7 +10,7 @@ colours
 --accent: #cd4756;
 
 
-Source for [Puregarnet's Journal]([https://kimfooburn001.github.io/Kim/])) — Puregarnet's
+Source for [Puregarnet's Journal]([https://kimfooburn003.github.io/Kim/])) — Puregarnet's
 personal site. Books, reviews, blog posts.
 
 The site is a static build produced by **Astro v5** with **Svelte 5**

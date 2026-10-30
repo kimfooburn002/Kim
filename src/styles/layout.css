@@ -146,13 +146,6 @@ body {
     }
   }
   
-  .source-chip,
-  .completion-chip,
-  .book-chip,
-  .novel-type-chip {
-    @apply py-1.5 px-3;
-  }
-  
   .tag,
   .filter-chip {
      @apply text-accent-900 bg-cream-300;
@@ -161,11 +154,92 @@ body {
       background-image: none;
     }
     &.active-false {
-      @apply text-cream-50 bg-accent-600;
+      @apply text-cream-50 bg-accent-500;
       background-image: none;
     }
     &.active-undefined {
       opacity: 0.45;
+    }
+  }
+  .protagonist-chip {
+    @apply bg-cream-600 text-cream-50 font-medium;
+    &.active-true {
+      @apply text-accent-900 bg-cream-50;
+    }
+    &.active-false{
+      @apply text-cream-50 bg-accent-500;
+    }
+    &.active-undefined {
+      opacity: 0.45;
+    }
+  }
+
+  .progression-chip {
+    @apply bg-green-200 text-cream-900 font-medium;
+    &.active-true {
+      @apply text-accent-900 bg-cream-50;
+    }
+    &.active-false {
+      @apply text-cream-50 bg-accent-500;
+    }
+    &.active-undefined {
+      opacity: 0.45;
+    }
+  }
+
+  .source-chip,
+  .completion-chip,
+  .book-chip,
+  .format-chip,
+  .year-chip {
+    @apply py-[5px] px-3 ;
+  }
+  
+  .book-chip {
+    @apply border-2 border-accent-400/80 bg-transparent;  
+    &.active-true {
+      @apply text-accent-50 bg-accent-700 border-accent-400;
+    }  
+    &.active-false,
+    &.active-undefined {
+      @apply text-accent-100 border-accent-400/70 bg-accent-800/70;
+    }
+  }
+
+  .year-chip {
+    @apply border-2 text-cream-50 border-cream-400/80 bg-cream-800/80; 
+    &.active-true {
+      @apply text-cream-50 bg-cream-700 border-cream-500;  
+    }
+    &.active-false {
+      @apply text-cream-50 bg-accent-500;
+    }
+    &.active-undefined {
+      @apply text-cream-100 border-cream-400/80 bg-cream-800/80;  
+    }
+  }
+
+  .completion-chip {
+    @apply border-2 text-green-100 border-green-400/80 bg-green-700/80;         
+    &.active-true {
+      @apply text-green-50 bg-green-500 border-green-400;      
+    }  
+    &.active-false, 
+    &.active-undefined {
+      @apply text-green-100 border-green-400/80 bg-green-700/80;      
+    }
+  }
+
+  .format-chip {
+    @apply border-2 text-cream-50 border-cream-400/80 bg-cream-800/80;    
+    &.active-true {
+      @apply text-cream-50 bg-cream-700 border-cream-500;  
+    }  
+    &.active-false {
+      @apply text-cream-50 bg-accent-500;
+    }
+    &.active-undefined {
+      @apply text-cream-100 border-cream-400/80 bg-cream-800/80;  
     }
   }
 
@@ -179,46 +253,7 @@ body {
       @apply text-accent-100 border-accent-400/80 bg-accent-800/80;
     }
   }
-
-  .completion-chip {
-    @apply border-2 border-green-400/80 bg-transparent;  
-    &.active-true {
-      @apply text-green-50 bg-green-500 border-green-400;
-    }  
-    &.active-false,
-    &.active-undefined {
-      @apply text-green-100 border-green-400/80 bg-green-700/80;
-    }
-  }
-
-  .novel-type-chip {
-    @apply border-2 border-green-400/80 bg-transparent;
-
-    &.active-true {
-      @apply text-green-50 bg-green-500 border-green-400;
-    }
-
-    &.active-false {
-      @apply text-cream-50 bg-accent-600 border-accent-400;
-    }
-
-    &.active-undefined {
-      @apply text-green-100 border-green-400/80 bg-green-700/80;
-    }
-  }
   
-  .book-chip {
-    @apply border-2 border-cream-400/80 bg-transparent;  
-    &.active-true {
-      @apply text-cream-50 bg-cream-700 border-cream-500;
-    }  
-    &.active-false,
-    &.active-undefined {
-      @apply text-cream-100 border-cream-400/80 bg-cream-800/80;
-    }
-  }
-
-
   &.review {
     button {
       @apply block relative rounded-lg px-0 py-0 mx-0 my-0;

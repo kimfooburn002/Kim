@@ -357,34 +357,79 @@
     hsl(308, 75.5%, 79.2%)
   );
 }
+/* book source */
 .tag-amazon,
 .tag-royal-road,
-.tag-audiobook{
+.tag-audiobook,
+.tag-ao3{
   @apply bg-cream-600 text-cream-50 font-medium;
 }
+/* book status */
 .tag-completed,
 .tag-ongoing{
   @apply bg-cream-600 text-cream-50 font-medium;
 }  
+/* book filter */
 .tag-series,
 .tag-book{
   @apply bg-cream-600 text-cream-50 font-medium;
 }    
+/* book format */
+.tag-fanfic,
+.tag-webnovel,
+.tag-novel,
+.tag-cn-light-novel,
+.tag-jp-light-novel,
+.tag-kr-light-novel,
+.tag-manga-jp,
+.tag-manhua-cn,
+.tag-manhwa-kr {
+  @apply bg-cream-600 text-cream-50 font-medium;
+}   
+/* progression type */
+.tag-dungeon-core,
+.tag-kingdom-building,
+.tag-community-building,
+.tag-relationship-building,
+.tag-weak-to-strong,
+.tag-poor-to-rich{
+  @apply bg-cream-600 text-cream-50 font-medium;
+}  
+/* protagonist type */
+.tag-ensemble-cast,
+.tag-female-lead,
+.tag-male-lead,
+.tag-non-human-lead {
+  @apply bg-cream-100 text-accent-900 font-medium;
+}  
+/* year */
+.tag-2015,
+.tag-2016,
+.tag-2017,
+.tag-2019,
+.tag-2020,
+.tag-2021,
+.tag-2022,
+.tag-2023,
+.tag-2024,
+.tag-2025,
+.tag-2026,
+.tag-2027,
+.tag-2028,
+.tag-2029,
+.tag-2030,
+.tag-2031{
+  @apply bg-cream-100 text-accent-900 font-medium;
+}    
+  
 .tag-snippet,
-.tag-series,
 .tag-time-loops,
-.tag-manhua,
-.tag-manhwa,
-.tag-manga, 
 .tag-magic-school,
 .tag-slice-of-life,
 .tag-litrpg,
 .tag-cultivation,
 .tag-hard-magic,
 .tag-companion,
-.tag-female-lead,
-.tag-kingdom-building,
-.tag-fanfic,
 .tag-crafting,
 .tag-sci-fi,
 .tag-cyberpunk,
@@ -393,7 +438,6 @@
 .tag-superhero,
 .tag-wholesome,
 .tag-isekai,
-.tag-dungeon-core,
 .tag-vrmmo,
 .tag-parody {
   @apply bg-cream-100 text-accent-900 font-medium;
