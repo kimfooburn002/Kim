@@ -79,6 +79,18 @@
     ).sort()
   );
 
+  const availableYearTags = $derived.by(() =>
+    Array.from(
+      new Set(
+        augmentedPosts.flatMap((post) => {
+          const stamp = new Date(post.date);
+          const year = Number(stamp.getFullYear());
+          return Number.isFinite(year) ? [String(year)] : [];
+        })
+      )
+    ).sort((a, b) => Number(b) - Number(a))
+  );
+
   type FormatTag =
     | 'fanfic'
     | 'webnovel'
@@ -271,6 +283,7 @@
     formatActivations: Record<FormatTag, boolean>;
     protagonistActivations: Record<ProtagonistTag, boolean>;
     progressionActivations: Record<ProgressionTag, boolean>;
+    yearActivations: Record<string, boolean>;
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
@@ -285,6 +298,7 @@
       formatActivations: {} as Record<FormatTag, boolean>,
       protagonistActivations: {} as Record<ProtagonistTag, boolean>,
       progressionActivations: {} as Record<ProgressionTag, boolean>,
+      yearActivations: {} as Record<string, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
@@ -326,6 +340,11 @@
         if (PROGRESSION_TAGS.includes(t as ProgressionTag)) {
           out.progressionActivations[t as ProgressionTag] = true;
         }
+      }
+    }
+    if (params.has('year')) {
+      for (const t of params.get('year')!.split('_').filter(Boolean)) {
+        out.yearActivations[t] = true;
       }
     }
     if (params.has('book')) {
@@ -373,6 +392,7 @@
   let progressionActivations = $state<Record<ProgressionTag, boolean>>({
     ...initial.progressionActivations,
   });
+  let yearActivations = $state<Record<string, boolean>>({ ...initial.yearActivations });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
@@ -426,6 +446,11 @@
       .filter(([, active]) => active)
       .map(([tag]) => tag);
     if (activeProgressions.length) params.set('progression', activeProgressions.join('_'));
+
+    const activeYears = Object.entries(yearActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+    if (activeYears.length) params.set('year', activeYears.join('_'));
 
     const rlSlugs = Array.from(readingList);
     if (rlSlugs.length) params.set('reading-list', rlSlugs.join('~'));
@@ -500,6 +525,20 @@
     }
   }
 
+  function clickYearTag(tag: string) {
+    if (tag in yearActivations) {
+      if (yearActivations[tag] === true) {
+        yearActivations = { ...yearActivations, [tag]: false };
+      } else {
+        const next = { ...yearActivations };
+        delete next[tag];
+        yearActivations = next;
+      }
+    } else {
+      yearActivations = { ...yearActivations, [tag]: true };
+    }
+  }
+
   function clickFormatTag(tag: FormatTag) {
     if (tag in formatActivations) {
       if (formatActivations[tag] === true) {
@@ -518,6 +557,7 @@
     tagActivations = {};
     protagonistActivations = {};
     progressionActivations = {};
+    yearActivations = {};
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
@@ -610,6 +650,11 @@
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
+        for (const [tag, active] of Object.entries(yearActivations)) {
+          const year = String(new Date(post.date).getFullYear());
+          if (active === true && year !== tag) return false;
+          if (active === false && year === tag) return false;
+        }
         if (words.length) {
           for (const w of words) {
             if (!post.search_term.includes(w)) return false;
@@ -655,6 +700,13 @@
     if (Object.keys(progressionActivations).length === 0) return 'active-nan';
     if (progressionActivations[tag] === true) return 'active-true';
     if (progressionActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
+  function yearChipState(tag: string): ChipState {
+    if (Object.keys(yearActivations).length === 0) return 'active-nan';
+    if (yearActivations[tag] === true) return 'active-true';
+    if (yearActivations[tag] === false) return 'active-false';
     return 'active-undefined';
   }
 
@@ -951,6 +1003,16 @@
   >
     <span>series</span>
   </button>
+
+  {#each availableYearTags as tag}
+    <button
+      type="button"
+      class={`filter-chip year-chip ${yearChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickYearTag(tag)}
+    >
+      <span>{tag}</span>
+    </button>
+  {/each}
 
   <button
     type="button"
