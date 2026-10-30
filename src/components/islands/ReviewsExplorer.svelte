@@ -584,6 +584,13 @@
     return 'active-undefined';
   }
 
+  function protagonistChipState(tag: ProtagonistTag): ChipState {
+    if (Object.keys(protagonistTagActivations).length === 0) return 'active-nan';
+    if (protagonistTagActivations[tag] === true) return 'active-true';
+    if (protagonistTagActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
   // Clipboard shortcuts: c, C, x, X — different summary verbosities.
   function shortSummary(post: Post): string {
     let sb = `* **${post.name}**: ([review](${post.abslink}), `;
@@ -842,7 +849,7 @@
   {/each}
 </div>
 
-<div id="protagonist-tags" class="tag-list max-w-7xl mx-auto">
+<div class="tag-list max-w-7xl mx-auto">
   {#each availableProtagonistTags as tag}
     <button
       type="button"
