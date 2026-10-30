@@ -188,24 +188,34 @@
     layout: Layout;
     byRank: boolean;
     activations: Record<string, boolean>;
+    formatActivations: Record<FormatTag, boolean>;
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
     completionFilter: CompletionFilter;
     sourceActivations: Record<string, boolean>;
-    formatActivations: Record<string, boolean>;
     bookFilter: BookFilter;
   } {
     const out = {
       layout: defaultLayout,
       byRank: true,
       activations: {} as Record<string, boolean>,
+      formatActivations: {
+        fanfic: false,
+        webnovel: false,
+        novel: false,
+        'cn-light-novel': false,
+        'jp-light-novel': false,
+        'kr-light-novel': false,
+        'manga-jp': false,
+        'manhua-cn': false,
+        'manhwa-kr': false,
+      } as Record<FormatTag, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
       completionFilter: 'all' as CompletionFilter,
       sourceActivations: {} as Record<string, boolean>,
-      formatActivations: {} as Record<string, boolean>,
       bookFilter: 'all' as BookFilter,
     };
     if (typeof window === 'undefined') return out;
@@ -225,7 +235,9 @@
     }
     if (params.has('format')) {
       for (const t of params.get('format')!.split('_').filter(Boolean)) {        
-        out.activations[t] = true;
+        if (FORMAT_TAGS.includes(t as FormatTag)) {
+          out.formatActivations[t as FormatTag] = true;
+        }
       }
     }
     if (params.has('book')) {
@@ -266,6 +278,9 @@
   let layout = $state<Layout>(initial.layout);
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
+  let formatActivations = $state<Record<FormatTag, boolean>>({
+    ...initial.formatActivations,
+  });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
@@ -292,10 +307,11 @@
   
     if (activeSources.length) params.set('source', activeSources.join('_'));
 
-    const activeFormatTags = Object.entries(tagActivations)
-      .filter(([tag, active]) => FORMAT_TAGS.includes(tag as FormatTag) && active === true)
+    const activeFormats = Object.entries(formatActivations)
+      .filter(([, active]) => active)
       .map(([tag]) => tag);
-    if (activeFormatTags.length) params.set('format', activeFormatTags.join('_'));
+
+    if (activeFormats.length) params.set('format', activeFormats.join('_'));
 
     const include: string[] = [];
     const exclude: string[] = [];
@@ -351,16 +367,16 @@
   }
 
   function clickFormatTag(tag: FormatTag) {
-    if (tag in tagActivations) {
-      if (tagActivations[tag] === true) {
-        tagActivations = { ...tagActivations, [tag]: false };
+    if (tag in formatActivations) {
+      if (formatActivations[tag] === true) {
+        formatActivations = { ...formatActivations, [tag]: false };
       } else {
-        const next = { ...tagActivations };
+        const next = { ...formatActivations };
         delete next[tag];
-        tagActivations = next;
+        formatActivations = next;
       }
     } else {
-      tagActivations = { ...tagActivations, [tag]: true };
+      formatActivations = { ...formatActivations, [tag]: true };
     }
   }
 
@@ -371,6 +387,17 @@
     byRank = true;
     showReadingList = false;
     completionFilter = 'all';
+    formatActivations = {
+      fanfic: false,
+      webnovel: false,
+      novel: false,
+      'cn-light-novel': false,
+      'jp-light-novel': false,
+      'kr-light-novel': false,
+      'manga-jp': false,
+      'manhua-cn': false,
+      'manhwa-kr': false,
+    };
     sourceActivations = {
       amazon: false,
       audiobook: false,
@@ -438,6 +465,11 @@
         if (activeSources.length) {
           const matchesAnySource = activeSources.some((tag) => post.tags.includes(tag));
           if (!matchesAnySource) return false;
+        }
+
+        for (const [tag, active] of Object.entries(formatActivations)) {
+          if (active === true && !post.tags.includes(tag)) return false;
+          if (active === false && post.tags.includes(tag)) return false;
         }
 
         for (const [tag, active] of Object.entries(tagActivations)) {
@@ -547,9 +579,9 @@
   }
 
   function formatChipState(tag: FormatTag): ChipState {
-    if (Object.keys(tagActivations).length === 0) return 'active-nan';
-    if (tagActivations[tag] === true) return 'active-true';
-    if (tagActivations[tag] === false) return 'active-false';
+    if (Object.keys(formatActivations).length === 0) return 'active-nan';
+    if (formatActivations[tag] === true) return 'active-true';
+    if (formatActivations[tag] === false) return 'active-false';
     return 'active-undefined';
   }
   
