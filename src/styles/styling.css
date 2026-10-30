@@ -386,6 +386,13 @@
 .tag-manhwa-kr {
   @apply bg-cream-600 text-cream-50 font-medium;
 }   
+
+.tag-ensemble-cast,
+.tag-female-lead,
+.tag-male-lead,
+.tag-non-human-lead {
+  @apply bg-cream-100 text-accent-900 font-medium;
+}  
   
 .tag-snippet,
 .tag-time-loops,
