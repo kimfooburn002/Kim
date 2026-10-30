@@ -200,17 +200,7 @@
       layout: defaultLayout,
       byRank: true,
       activations: {} as Record<string, boolean>,
-      formatActivations: {
-        fanfic: false,
-        webnovel: false,
-        novel: false,
-        'cn-light-novel': false,
-        'jp-light-novel': false,
-        'kr-light-novel': false,
-        'manga-jp': false,
-        'manhua-cn': false,
-        'manhwa-kr': false,
-      } as Record<FormatTag, boolean>,
+      formatActivations: {} as Record<FormatTag, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
@@ -278,9 +268,7 @@
   let layout = $state<Layout>(initial.layout);
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
-  let formatActivations = $state<Record<FormatTag, boolean>>({
-    ...initial.formatActivations,
-  });
+  let formatActivations = $state<Record<FormatTag, boolean>>({ ...initial.formatActivations });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
@@ -387,17 +375,7 @@
     byRank = true;
     showReadingList = false;
     completionFilter = 'all';
-    formatActivations = {
-      fanfic: false,
-      webnovel: false,
-      novel: false,
-      'cn-light-novel': false,
-      'jp-light-novel': false,
-      'kr-light-novel': false,
-      'manga-jp': false,
-      'manhua-cn': false,
-      'manhwa-kr': false,
-    };
+    formatActivations = {};
     sourceActivations = {
       amazon: false,
       audiobook: false,
