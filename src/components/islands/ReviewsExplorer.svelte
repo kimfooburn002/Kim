@@ -1,5 +1,5 @@
 
-<script lang="ts">
+<script lang="ts">sadf
   import { tick } from 'svelte';
   import type { Post, ReviewTier } from '../../lib/types';
   import ReviewCard from '../ReviewCard.svelte';
@@ -224,8 +224,8 @@
       }
     }
     if (params.has('format')) {
-      for (const t of params.get('format')!.split('_').filter(Boolean)) {
-        out.formatActivations[t] = true;
+      for (const t of params.get('format')!.split('_').filter(Boolean)) {        
+        out.activations[t] = true;
       }
     }
     if (params.has('book')) {
@@ -274,18 +274,7 @@
     amazon: false,
     audiobook: false,
     'royal-road': false,
-  });
-  let formatActivations = $state<Record<FormatTag, boolean>>({
-    fanfic: false,
-    webnovel: false,
-    novel: false,
-    'cn-light-novel': false,
-    'jp-light-novel': false,
-    'kr-light-novel': false,
-    'manga-jp': false,
-    'manhua-cn': false,
-    'manhwa-kr': false,
-  });
+  });  
   let bookFilter = $state<BookFilter>(initial.bookFilter);
 
   // Sync state → URL whenever any of these change.
@@ -303,11 +292,10 @@
   
     if (activeSources.length) params.set('source', activeSources.join('_'));
 
-    const activeFormats = Object.entries(formatActivations)
-      .filter(([, active]) => active)
+    const activeFormatTags = Object.entries(tagActivations)
+      .filter(([tag, active]) => FORMAT_TAGS.includes(tag as FormatTag) && active === true)
       .map(([tag]) => tag);
-
-    if (activeFormats.length) params.set('format', activeFormats.join('_'));
+    if (activeFormatTags.length) params.set('format', activeFormatTags.join('_'));
 
     const include: string[] = [];
     const exclude: string[] = [];
@@ -362,6 +350,20 @@
     }
   }
 
+  function clickFormatTag(tag: FormatTag) {
+    if (tag in tagActivations) {
+      if (tagActivations[tag] === true) {
+        tagActivations = { ...tagActivations, [tag]: false };
+      } else {
+        const next = { ...tagActivations };
+        delete next[tag];
+        tagActivations = next;
+      }
+    } else {
+      tagActivations = { ...tagActivations, [tag]: true };
+    }
+  }
+
   function reset() {
     tagActivations = {};
     searchTerm = '';
@@ -373,18 +375,7 @@
       amazon: false,
       audiobook: false,
       'royal-road': false,
-    };
-    formatActivations = {
-      fanfic: false,
-      webnovel: false,
-      novel: false,
-      'cn-light-novel': false,
-      'jp-light-novel': false,
-      'kr-light-novel': false,
-      'manga-jp': false,
-      'manhua-cn': false,
-      'manhwa-kr': false,
-    };
+    };    
     bookFilter = 'all';
   }
 
@@ -447,15 +438,6 @@
         if (activeSources.length) {
           const matchesAnySource = activeSources.some((tag) => post.tags.includes(tag));
           if (!matchesAnySource) return false;
-        }
-
-        const activeFormats = Object.entries(formatActivations)
-          .filter(([, active]) => active)
-          .map(([tag]) => tag as FormatTag);
-
-        if (activeFormats.length) {
-          const matchesAnyFormat = activeFormats.some((tag) => post.tags.includes(tag));
-          if (!matchesAnyFormat) return false;
         }
 
         for (const [tag, active] of Object.entries(tagActivations)) {
@@ -565,7 +547,12 @@
   }
 
   function formatChipState(tag: FormatTag): ChipState {
-    return chipState(formatActivations[tag], Object.values(formatActivations).some(Boolean));
+    const active = tagActivations[tag];
+    if (active === true) return 'active-true';
+    if (active === false) return 'active-false';
+    return Object.values(tagActivations).some((v) => v === true || v === false)
+      ? 'active-undefined'
+      : 'active-false';
   }
   
   function completionChipState(value: CompletionFilter): ChipState {
@@ -787,12 +774,7 @@
     <button
       type="button"
       class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
-      onclick={() => {
-        formatActivations = {
-          ...formatActivations,
-          [tag]: !formatActivations[tag],
-        };
-      }}
+      onclick={() => clickFormatTag(tag)}
     >
       <span>{FORMAT_LABELS[tag]}</span>
     </button>
