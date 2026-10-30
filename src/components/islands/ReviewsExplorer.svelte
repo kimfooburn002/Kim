@@ -25,6 +25,16 @@
     ao3: 'AO3',
   };
 
+  const availableSourceTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is SourceTag => SOURCE_TAGS.includes(tag as SourceTag))
+      )
+    ).sort()
+  );
+
   type FormatTag =
     | 'fanfic'
     | 'webnovel'
@@ -792,7 +802,7 @@
     </button>
   {/each}
 
-  {#each SOURCE_TAGS as tag}
+  {#each availableSourceTags as tag}
     <button
       type="button"
       class={`filter-chip source-chip ${sourceChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
