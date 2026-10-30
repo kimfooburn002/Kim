@@ -158,6 +158,14 @@
       ? []
       : ['novel'];
   }
+
+  function withDefaultProtagonistTag(post: Post) {
+    return post.tags.some((tag) =>
+      PROTAGONIST_TAGS.includes(tag as ProtagonistTag)
+    )
+      ? []
+      : ['male-lead'];
+  }
   
   const augmentedPosts = $derived.by(() => {
     return posts.map((post) => {
@@ -169,6 +177,7 @@
   
       const defaultBookTag = withDefaultBookTag(post);
       const defaultFormatTag = withDefaultFormatTag(post);
+      const defaultProtagonistTag = withDefaultProtagonistTag(post);
   
       const completed =
         !post.tags.includes('ongoing') && !post.tags.includes('completed')
@@ -182,6 +191,7 @@
           ...extras,
           ...defaultBookTag,
           ...defaultFormatTag,
+          ...defaultProtagonistTag,
           ...completed,
         ],
       };
