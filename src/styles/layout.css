@@ -162,7 +162,7 @@ body {
     }
   }
   .protagonist-chip {
-    @apply bg-cream-600 text-cream-50 font-medium;
+    @apply bg-green-300 text-cream-900 font-medium;
     &.active-true {
       @apply text-accent-900 bg-cream-50;
     }
@@ -171,6 +171,19 @@ body {
     }
     &.active-undefined {
       opacity: 0.45;
+    }
+  }
+
+  .progression-chip {
+    @apply border-2 border-violet-400/80 bg-transparent;
+    &.active-true {
+      @apply text-violet-50 bg-violet-700 border-violet-400;
+    }
+    &.active-false {
+      @apply text-cream-50 bg-accent-500;
+    }
+    &.active-undefined {
+      @apply text-violet-100 border-violet-400/80 bg-violet-800/80;
     }
   }
 
