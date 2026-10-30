@@ -840,10 +840,13 @@
       <span>{tag}</span>
     </button>
   {/each}
+</div>
+
+<div id="protagonist-tags" class="tag-list max-w-7xl mx-auto">
   {#each availableProtagonistTags as tag}
     <button
       type="button"
-      class={`protagonist-tag protagonist-${tag} ${protagonistTagClass(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      class={`filter-chip protagonist-chip ${protagonistChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
       onclick={() => clickProtagonistTag(tag)}
     >
       <span>{PROTAGONIST_LABELS[tag]}</span>
