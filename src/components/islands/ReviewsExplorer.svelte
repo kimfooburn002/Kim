@@ -201,6 +201,13 @@
       : ['novel'];
   }
 
+  function withDefaultYearTag(post: Post) {
+    const date = new Date(post.date);
+    const year = Number.isNaN(date.getTime()) ? null : String(date.getFullYear());
+    if (!year) return [];
+    return post.tags.includes(year) ? [] : [year];
+  }
+
   function withDefaultProtagonistTag(post: Post) {
     return post.tags.some((tag) =>
       PROTAGONIST_TAGS.includes(tag as ProtagonistTag)
@@ -220,6 +227,7 @@
       const defaultBookTag = withDefaultBookTag(post);
       const defaultFormatTag = withDefaultFormatTag(post);
       const defaultProtagonistTag = withDefaultProtagonistTag(post);
+      const defaultYearTag = withDefaultYearTag(post);
   
       const completed =
         !post.tags.includes('ongoing') && !post.tags.includes('completed')
@@ -233,6 +241,7 @@
           ...extras,
           ...defaultBookTag,
           ...defaultFormatTag,
+          ...defaultYearTag,
           ...defaultProtagonistTag,
           ...completed,
         ],
