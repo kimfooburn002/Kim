@@ -386,13 +386,41 @@
 .tag-manhwa-kr {
   @apply bg-cream-600 text-cream-50 font-medium;
 }   
-
+/* progression type */
+.tag-dungeon-core,
+.tag-kingdom-building,
+.tag-community-building,
+.tag-relationship-building,
+.tag-weak-to-strong,
+.tag-poor-to-rich{
+  @apply bg-cream-600 text-cream-50 font-medium;
+}  
+/* protagonist type */
 .tag-ensemble-cast,
 .tag-female-lead,
 .tag-male-lead,
 .tag-non-human-lead {
   @apply bg-cream-100 text-accent-900 font-medium;
 }  
+/* year */
+.tag-2015,
+.tag-2016,
+.tag-2017,
+.tag-2019,
+.tag-2020,
+.tag-2021,
+.tag-2022,
+.tag-2023,
+.tag-2024,
+.tag-2025,
+.tag-2026,
+.tag-2027,
+.tag-2028,
+.tag-2029,
+.tag-2030,
+.tag-2031{
+  @apply bg-cream-100 text-accent-900 font-medium;
+}    
   
 .tag-snippet,
 .tag-time-loops,
@@ -402,8 +430,6 @@
 .tag-cultivation,
 .tag-hard-magic,
 .tag-companion,
-.tag-female-lead,
-.tag-kingdom-building,
 .tag-crafting,
 .tag-sci-fi,
 .tag-cyberpunk,
@@ -412,7 +438,6 @@
 .tag-superhero,
 .tag-wholesome,
 .tag-isekai,
-.tag-dungeon-core,
 .tag-vrmmo,
 .tag-parody {
   @apply bg-cream-100 text-accent-900 font-medium;
