@@ -923,7 +923,7 @@
     >
       <span>{PROTAGONIST_LABELS[tag]}</span>
     </button>
-  {/each
+  {/each}
 
   {#each availableProgressionTags as tag}
     <button
