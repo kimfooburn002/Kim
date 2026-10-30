@@ -831,9 +831,7 @@
       <span>{tag}</span>
     </button>
   {/each}
-</div>
 
-<div class="tag-list max-w-7xl mx-auto">
   {#each availableProtagonistTags as tag}
     <button
       type="button"
