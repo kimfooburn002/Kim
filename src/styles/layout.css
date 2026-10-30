@@ -192,7 +192,7 @@ body {
   }
 
   .format-chip {
-    @apply border-2 border-green-400/80 bg-transparent;     
+    @apply border-2 text-green-100 border-green-400/80 bg-green-700/80;     
     &.active-true {
       @apply text-green-50 bg-green-500 border-green-400;
     }  
