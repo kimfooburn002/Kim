@@ -149,8 +149,8 @@ body {
   .source-chip,
   .completion-chip,
   .book-chip,
-  .novel-type-chip {
-    @apply py-[5px] px-3 ;
+  .format-chip {
+    @apply py-1 px-3 ;
   }
   
   .tag,
