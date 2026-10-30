@@ -1,4 +1,4 @@
-s
+
 <script lang="ts">
   import { tick } from 'svelte';
   import type { Post, ReviewTier } from '../../lib/types';
