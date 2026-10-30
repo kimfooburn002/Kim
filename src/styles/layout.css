@@ -175,7 +175,7 @@ body {
   }
 
   .progression-chip {
-    @apply bg-green-300 text-cream-900 font-medium;
+    @apply bg-green-200 text-cream-900 font-medium;
     &.active-true {
       @apply text-accent-900 bg-cream-50;
     }
