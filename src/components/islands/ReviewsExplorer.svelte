@@ -535,7 +535,7 @@
     return () => window.removeEventListener('keypress', handler);
   });
 
-  type ChipState = 'active-true' | 'active-false' | 'active-undefined';
+  type ChipState = 'active-true' | 'active-false' | 'active-undefined' | 'active-nan';
 
   function chipState(active: boolean, anySelected: boolean): ChipState {
     if (active) return 'active-true';
@@ -547,12 +547,10 @@
   }
 
   function formatChipState(tag: FormatTag): ChipState {
-    const active = tagActivations[tag];
-    if (active === true) return 'active-true';
-    if (active === false) return 'active-false';
-    return Object.values(tagActivations).some((v) => v === true || v === false)
-      ? 'active-undefined'
-      : 'active-false';
+    if (Object.keys(tagActivations).length === 0) return 'active-nan';
+    if (tagActivations[tag] === true) return 'active-true';
+    if (tagActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
   }
   
   function completionChipState(value: CompletionFilter): ChipState {
