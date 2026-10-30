@@ -146,13 +146,6 @@ body {
     }
   }
   
-  .source-chip,
-  .completion-chip,
-  .book-chip,
-  .format-chip {
-    @apply py-[5px] px-3 ;
-  }
-  
   .tag,
   .filter-chip {
      @apply text-accent-900 bg-cream-300;
@@ -168,7 +161,6 @@ body {
       opacity: 0.45;
     }
   }
-
   .protagonist-chip {
     @apply bg-cream-600 text-cream-50 font-medium;
     &.active-true {
@@ -182,6 +174,13 @@ body {
     }
   }
 
+  .source-chip,
+  .completion-chip,
+  .book-chip,
+  .format-chip {
+    @apply py-[5px] px-3 ;
+  }
+  
   .book-chip {
     @apply border-2 border-accent-400/80 bg-transparent;  
     &.active-true {
