@@ -197,7 +197,7 @@ body {
       @apply text-green-50 bg-green-500 border-green-400;
     }  
     &.active-false {
-      @apply text-cream-50 bg-accent-500 border-accent-400;
+      @apply text-cream-50 bg-accent-500;
     }
     &.active-undefined {
       @apply text-green-100 border-green-400/80 bg-green-700/80;
