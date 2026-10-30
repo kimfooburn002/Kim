@@ -16,12 +16,13 @@
   type CompletionFilter = 'all' | 'completed' | 'ongoing';
   const STATUS_TAGS = ['completed', 'ongoing'] as const;
 
-  const SOURCE_TAGS = ['amazon', 'audiobook', 'royal-road'] as const;
+  const SOURCE_TAGS = ['amazon', 'audiobook', 'royal-road', 'ao3'] as const;
   type SourceTag = (typeof SOURCE_TAGS)[number];
   const SOURCE_LABELS: Record<SourceTag, string> = {
     amazon: 'Amazon',
     audiobook: 'Audiobook',
     'royal-road': 'Royal Road',
+    ao3: 'AO3',
   };
 
   type FormatTag =
@@ -106,6 +107,7 @@
     amazon: 'amazon',
     audible: 'audiobook',
     royal_road: 'royal-road',
+    ao3: 'ao3',
   };
 
   // Augment posts with derived tags (extra link-derived tags + 'completed').
@@ -277,6 +279,7 @@
     amazon: false,
     audiobook: false,
     'royal-road': false,
+    ao3: false,
   });  
   let bookFilter = $state<BookFilter>(initial.bookFilter);
 
@@ -380,6 +383,7 @@
       amazon: false,
       audiobook: false,
       'royal-road': false,
+      ao3: false,
     };    
     bookFilter = 'all';
   }
