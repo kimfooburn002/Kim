@@ -169,6 +169,19 @@ body {
     }
   }
 
+  .protagonist-chip {
+    @apply bg-cream-600 text-cream-50 font-medium;
+    &.active-true {
+      @apply text-accent-900 bg-cream-50;
+    }
+    &.active-false{
+      @apply text-cream-50 bg-accent-500;
+    }
+    &.active-undefined {
+      opacity: 0.45;
+    }
+  }
+
   .book-chip {
     @apply border-2 border-accent-400/80 bg-transparent;  
     &.active-true {
