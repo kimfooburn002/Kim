@@ -25,6 +25,20 @@
     ao3: 'AO3',
   };
 
+ const PROTAGONIST_TAGS = [
+    'ensemble-cast',
+    'female-lead',
+    'male-lead',
+    'non-human-lead',
+  ] as const;
+  type ProtagonistTag = (typeof PROTAGONIST_TAGS)[number];
+  const PROTAGONIST_LABELS: Record<ProtagonistTag, string> = {
+    'ensemble-cast': 'ensemble cast',
+    'female-lead': 'female lead',
+    'male-lead': 'male lead',
+    'non-human-lead': 'non-human lead',
+  };
+
   const availableSourceTags = $derived(
     Array.from(
       new Set(
@@ -78,6 +92,18 @@
           .filter((tag): tag is FormatTag => FORMAT_TAGS.includes(tag as FormatTag))
       )
     ).sort()
+  );
+
+  const availableProtagonistTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is ProtagonistTag =>
+            PROTAGONIST_TAGS.includes(tag as ProtagonistTag)
+          )
+      )
+   ).sort()
   );
   
   // single source of truth for the layout options used by the template
@@ -201,6 +227,7 @@
     byRank: boolean;
     activations: Record<string, boolean>;
     formatActivations: Record<FormatTag, boolean>;
+    protagonistTagActivations: Record<ProtagonistTag, boolean>;
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
@@ -213,6 +240,7 @@
       byRank: true,
       activations: {} as Record<string, boolean>,
       formatActivations: {} as Record<FormatTag, boolean>,
+      protagonistTagActivations: {} as Record<ProtagonistTag, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
@@ -239,6 +267,20 @@
       for (const t of params.get('format')!.split('_').filter(Boolean)) {        
         if (FORMAT_TAGS.includes(t as FormatTag)) {
           out.formatActivations[t as FormatTag] = true;
+        }
+      }
+    }
+    if (params.has('protagonist-include')) {
+      for (const t of params.get('protagonist-include')!.split('_').filter(Boolean)) {
+        if (PROTAGONIST_TAGS.includes(t as ProtagonistTag)) {
+          out.protagonistTagActivations[t as ProtagonistTag] = true;
+        }
+      }
+    }
+    if (params.has('protagonist-exclude')) {
+      for (const t of params.get('protagonist-exclude')!.split('_').filter(Boolean)) {
+        if (PROTAGONIST_TAGS.includes(t as ProtagonistTag)) {
+          out.protagonistTagActivations[t as ProtagonistTag] = false;
         }
       }
     }
@@ -281,6 +323,9 @@
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
   let formatActivations = $state<Record<FormatTag, boolean>>({ ...initial.formatActivations });
+  let protagonistTagActivations = $state<Record<ProtagonistTag, boolean>>({
+    ...initial.protagonistTagActivations,
+  });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
   let showReadingList = $state(initial.showReadingList);
@@ -322,6 +367,16 @@
     }
     if (include.length) params.set('include', include.join('_'));
     if (exclude.length) params.set('exclude', exclude.join('_'));
+
+    const protagonistInclude: string[] = [];
+    const protagonistExclude: string[] = [];
+    for (const [k, v] of Object.entries(protagonistTagActivations)) {
+      if (v === true) protagonistInclude.push(k);
+      else if (v === false) protagonistExclude.push(k);
+    }
+    if (protagonistInclude.length) params.set('protagonist-include', protagonistInclude.join('_'));
+    if (protagonistExclude.length) params.set('protagonist-exclude', protagonistExclude.join('_'));
+
     const rlSlugs = Array.from(readingList);
     if (rlSlugs.length) params.set('reading-list', rlSlugs.join('~'));
     const args = params.toString();
@@ -367,6 +422,20 @@
     }
   }
 
+  function clickProtagonistTag(tag: ProtagonistTag) {
+    if (tag in protagonistTagActivations) {
+      if (protagonistTagActivations[tag] === true) {
+        protagonistTagActivations = { ...protagonistTagActivations, [tag]: false };
+      } else {
+        const next = { ...protagonistTagActivations };
+        delete next[tag];
+        protagonistTagActivations = next;
+      }
+    } else {
+      protagonistTagActivations = { ...protagonistTagActivations, [tag]: true };
+    }
+  }
+
   function clickFormatTag(tag: FormatTag) {
     if (tag in formatActivations) {
       if (formatActivations[tag] === true) {
@@ -383,6 +452,7 @@
 
   function reset() {
     tagActivations = {};
+    protagonistTagActivations = {};
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
@@ -468,6 +538,10 @@
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
+        for (const [tag, active] of Object.entries(protagonistTagActivations)) {
+          if (active === true && !post.tags.includes(tag)) return false;
+          if (active === false && post.tags.includes(tag)) return false;
+        }
         if (words.length) {
           for (const w of words) {
             if (!post.search_term.includes(w)) return false;
@@ -499,6 +573,13 @@
     if (Object.keys(tagActivations).length === 0) return 'active-nan';
     if (tagActivations[tag] === true) return 'active-true';
     if (tagActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
+  function protagonistTagClass(tag: ProtagonistTag): string {
+    if (Object.keys(protagonistTagActivations).length === 0) return 'active-nan';
+    if (protagonistTagActivations[tag] === true) return 'active-true';
+    if (protagonistTagActivations[tag] === false) return 'active-false';
     return 'active-undefined';
   }
 
@@ -758,7 +839,17 @@
       <span>{tag}</span>
     </button>
   {/each}
+  {#each availableProtagonistTags as tag}
+    <button
+      type="button"
+      class={`tag tag-${tag} ${protagonistTagClass(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickProtagonistTag(tag)}
+    >
+      <span>{PROTAGONIST_LABELS[tag]}</span>
+    </button>
+  {/each}
 </div>
+
 <div id="tags" class="tag-list max-w-7xl mx-auto mb-5">
   <button
     type="button"
