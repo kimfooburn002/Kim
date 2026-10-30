@@ -357,25 +357,38 @@
     hsl(308, 75.5%, 79.2%)
   );
 }
+/* book source */
 .tag-amazon,
 .tag-royal-road,
-.tag-audiobook{
+.tag-audiobook,
+.tag-ao3{
   @apply bg-cream-600 text-cream-50 font-medium;
 }
+/* book status */
 .tag-completed,
 .tag-ongoing{
   @apply bg-cream-600 text-cream-50 font-medium;
 }  
+/* book filter */
 .tag-series,
 .tag-book{
   @apply bg-cream-600 text-cream-50 font-medium;
 }    
+/* book format */
+.tag-fanfic,
+.tag-webnovel,
+.tag-novel,
+.tag-cn-light-novel,
+.tag-jp-light-novel,
+.tag-kr-light-novel,
+.tag-manga-jp,
+.tag-manhua-cn,
+.tag-manhwa-kr {
+  @apply bg-cream-600 text-cream-50 font-medium;
+}   
+  
 .tag-snippet,
-.tag-series,
 .tag-time-loops,
-.tag-manhua,
-.tag-manhwa,
-.tag-manga, 
 .tag-magic-school,
 .tag-slice-of-life,
 .tag-litrpg,
@@ -384,7 +397,6 @@
 .tag-companion,
 .tag-female-lead,
 .tag-kingdom-building,
-.tag-fanfic,
 .tag-crafting,
 .tag-sci-fi,
 .tag-cyberpunk,
