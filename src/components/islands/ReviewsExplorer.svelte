@@ -228,7 +228,7 @@
     byRank: boolean;
     activations: Record<string, boolean>;
     formatActivations: Record<FormatTag, boolean>;
-    protagonistTagActivations: Record<ProtagonistTag, boolean>;
+    protagonistActivations: Record<ProtagonistTag, boolean>;
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
@@ -241,7 +241,7 @@
       byRank: true,
       activations: {} as Record<string, boolean>,
       formatActivations: {} as Record<FormatTag, boolean>,
-      protagonistTagActivations: {} as Record<ProtagonistTag, boolean>,
+      protagonistActivations: {} as Record<ProtagonistTag, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
@@ -271,17 +271,10 @@
         }
       }
     }
-    if (params.has('protagonist-include')) {
-      for (const t of params.get('protagonist-include')!.split('_').filter(Boolean)) {
+    if (params.has('protagonist')) {
+      for (const t of params.get('protagonist')!.split('_').filter(Boolean)) {
         if (PROTAGONIST_TAGS.includes(t as ProtagonistTag)) {
-          out.protagonistTagActivations[t as ProtagonistTag] = true;
-        }
-      }
-    }
-    if (params.has('protagonist-exclude')) {
-      for (const t of params.get('protagonist-exclude')!.split('_').filter(Boolean)) {
-        if (PROTAGONIST_TAGS.includes(t as ProtagonistTag)) {
-          out.protagonistTagActivations[t as ProtagonistTag] = false;
+          out.protagonistActivations[t as ProtagonistTag] = true;
         }
       }
     }
@@ -324,8 +317,8 @@
   let byRank = $state(initial.byRank);
   let tagActivations = $state<Record<string, boolean>>({ ...initial.activations });
   let formatActivations = $state<Record<FormatTag, boolean>>({ ...initial.formatActivations });
-  let protagonistTagActivations = $state<Record<ProtagonistTag, boolean>>({
-    ...initial.protagonistTagActivations,
+  let protagonistActivations = $state<Record<ProtagonistTag, boolean>>({
+    ...initial.protagonistActivations,
   });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
@@ -369,14 +362,12 @@
     if (include.length) params.set('include', include.join('_'));
     if (exclude.length) params.set('exclude', exclude.join('_'));
 
-    const protagonistInclude: string[] = [];
-    const protagonistExclude: string[] = [];
-    for (const [k, v] of Object.entries(protagonistTagActivations)) {
-      if (v === true) protagonistInclude.push(k);
-      else if (v === false) protagonistExclude.push(k);
+   const activeProtagonists = Object.entries(protagonistActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+    if (activeProtagonists.length) {
+      params.set('protagonist', activeProtagonists.join('_'));
     }
-    if (protagonistInclude.length) params.set('protagonist-include', protagonistInclude.join('_'));
-    if (protagonistExclude.length) params.set('protagonist-exclude', protagonistExclude.join('_'));
 
     const rlSlugs = Array.from(readingList);
     if (rlSlugs.length) params.set('reading-list', rlSlugs.join('~'));
@@ -424,16 +415,16 @@
   }
 
   function clickProtagonistTag(tag: ProtagonistTag) {
-    if (tag in protagonistTagActivations) {
-      if (protagonistTagActivations[tag] === true) {
-        protagonistTagActivations = { ...protagonistTagActivations, [tag]: false };
+    if (tag in protagonistActivations) {
+      if (protagonistActivations[tag] === true) {
+        protagonistActivations = { ...protagonistActivations, [tag]: false };
       } else {
-        const next = { ...protagonistTagActivations };
+        const next = { ...protagonistActivations };
         delete next[tag];
-        protagonistTagActivations = next;
+        protagonistActivations = next;
       }
     } else {
-      protagonistTagActivations = { ...protagonistTagActivations, [tag]: true };
+      protagonistActivations = { ...protagonistActivations, [tag]: true };
     }
   }
 
@@ -453,7 +444,7 @@
 
   function reset() {
     tagActivations = {};
-    protagonistTagActivations = {};
+    protagonistActivations = {};
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
@@ -539,7 +530,7 @@
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
-        for (const [tag, active] of Object.entries(protagonistTagActivations)) {
+        for (const [tag, active] of Object.entries(protagonistActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
@@ -577,17 +568,10 @@
     return 'active-undefined';
   }
 
-  function protagonistTagClass(tag: ProtagonistTag): string {
-    if (Object.keys(protagonistTagActivations).length === 0) return 'active-nan';
-    if (protagonistTagActivations[tag] === true) return 'active-true';
-    if (protagonistTagActivations[tag] === false) return 'active-false';
-    return 'active-undefined';
-  }
-
   function protagonistChipState(tag: ProtagonistTag): ChipState {
-    if (Object.keys(protagonistTagActivations).length === 0) return 'active-nan';
-    if (protagonistTagActivations[tag] === true) return 'active-true';
-    if (protagonistTagActivations[tag] === false) return 'active-false';
+    if (Object.keys(protagonistActivations).length === 0) return 'active-nan';
+    if (protagonistActivations[tag] === true) return 'active-true';
+    if (protagonistActivations[tag] === false) return 'active-false';
     return 'active-undefined';
   }
 
