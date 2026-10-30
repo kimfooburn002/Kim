@@ -195,6 +195,7 @@
     ...STATUS_TAGS,
     ...SOURCE_TAGS,
     ...FORMAT_TAGS,
+    ...PROTAGONIST_TAGS,
     'book',
     'series',
   ] as const;
@@ -842,7 +843,7 @@
   {#each availableProtagonistTags as tag}
     <button
       type="button"
-      class={`tag tag-${tag} ${protagonistTagClass(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      class={`protagonist-tag protagonist-${tag} ${protagonistTagClass(tag)} hover:cursor-pointer text-base sm:text-sm`}
       onclick={() => clickProtagonistTag(tag)}
     >
       <span>{PROTAGONIST_LABELS[tag]}</span>
