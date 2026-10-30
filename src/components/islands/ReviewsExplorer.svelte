@@ -1,5 +1,5 @@
 
-<script lang="ts">sadf
+<script lang="ts">
   import { tick } from 'svelte';
   import type { Post, ReviewTier } from '../../lib/types';
   import ReviewCard from '../ReviewCard.svelte';
