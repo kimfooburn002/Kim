@@ -150,7 +150,7 @@ body {
   .completion-chip,
   .book-chip,
   .format-chip {
-    @apply py-1 px-3 ;
+    @apply py-[5px] px-3 ;
   }
   
   .tag,
