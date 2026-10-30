@@ -49,8 +49,8 @@
   ] as const;
   type ProgressionTag = (typeof PROGRESSION_TAGS)[number];
   const PROGRESSION_LABELS: Record<ProgressionTag, string> = {
-    'poor-to-rich': 'poor to rich',
-    'weak-to-strong': 'weak to strong',
+    'poor-to-rich': 'poor-to-rich',
+    'weak-to-strong': 'weak-to-strong',
     'community-building': 'community building',
     'kingdom-building': 'kingdom building',
     'dungeon-core': 'dungeon core',
