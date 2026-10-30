@@ -39,12 +39,42 @@
     'non-human-lead': 'non-human lead',
   };
 
+  const PROGRESSION_TAGS = [
+    'poor-to-rich',
+   'weak-to-strong',
+    'community-building',
+    'kingdom-building',
+    'dungeon-core',
+    'relationship-building',
+  ] as const;
+  type ProgressionTag = (typeof PROGRESSION_TAGS)[number];
+  const PROGRESSION_LABELS: Record<ProgressionTag, string> = {
+    'poor-to-rich': 'poor to rich',
+    'weak-to-strong': 'weak to strong',
+    'community-building': 'community building',
+    'kingdom-building': 'kingdom building',
+    'dungeon-core': 'dungeon core',
+    'relationship-building': 'relationship building',
+  };
+
   const availableSourceTags = $derived(
     Array.from(
       new Set(
         augmentedPosts
           .flatMap((p) => p.tags)
           .filter((tag): tag is SourceTag => SOURCE_TAGS.includes(tag as SourceTag))
+      )
+    ).sort()
+  );
+
+  const availableProgressionTags = $derived(
+    Array.from(
+      new Set(
+        augmentedPosts
+          .flatMap((p) => p.tags)
+          .filter((tag): tag is ProgressionTag =>
+            PROGRESSION_TAGS.includes(tag as ProgressionTag)
+          )
       )
     ).sort()
   );
@@ -206,6 +236,7 @@
     ...SOURCE_TAGS,
     ...FORMAT_TAGS,
     ...PROTAGONIST_TAGS,
+    ...PROGRESSION_TAGS,
     'book',
     'series',
   ] as const;
@@ -239,6 +270,7 @@
     activations: Record<string, boolean>;
     formatActivations: Record<FormatTag, boolean>;
     protagonistActivations: Record<ProtagonistTag, boolean>;
+    progressionActivations: Record<ProgressionTag, boolean>;
     searchTerm: string;
     readingList: SvelteSet<string>;
     showReadingList: boolean;
@@ -252,6 +284,7 @@
       activations: {} as Record<string, boolean>,
       formatActivations: {} as Record<FormatTag, boolean>,
       protagonistActivations: {} as Record<ProtagonistTag, boolean>,
+      progressionActivations: {} as Record<ProgressionTag, boolean>,
       searchTerm: '',
       readingList: new SvelteSet<string>(),
       showReadingList: false,
@@ -285,6 +318,13 @@
       for (const t of params.get('protagonist')!.split('_').filter(Boolean)) {
         if (PROTAGONIST_TAGS.includes(t as ProtagonistTag)) {
           out.protagonistActivations[t as ProtagonistTag] = true;
+        }
+      }
+    }
+    if (params.has('progression')) {
+      for (const t of params.get('progression')!.split('_').filter(Boolean)) {
+        if (PROGRESSION_TAGS.includes(t as ProgressionTag)) {
+          out.progressionActivations[t as ProgressionTag] = true;
         }
       }
     }
@@ -329,6 +369,9 @@
   let formatActivations = $state<Record<FormatTag, boolean>>({ ...initial.formatActivations });
   let protagonistActivations = $state<Record<ProtagonistTag, boolean>>({
     ...initial.protagonistActivations,
+  });
+  let progressionActivations = $state<Record<ProgressionTag, boolean>>({
+    ...initial.progressionActivations,
   });
   let searchTerm = $state(initial.searchTerm);
   let readingList = $state<SvelteSet<string>>(initial.readingList);
@@ -378,6 +421,11 @@
     if (activeProtagonists.length) {
       params.set('protagonist', activeProtagonists.join('_'));
     }
+
+    const activeProgressions = Object.entries(progressionActivations)
+      .filter(([, active]) => active)
+      .map(([tag]) => tag);
+    if (activeProgressions.length) params.set('progression', activeProgressions.join('_'));
 
     const rlSlugs = Array.from(readingList);
     if (rlSlugs.length) params.set('reading-list', rlSlugs.join('~'));
@@ -438,6 +486,20 @@
     }
   }
 
+  function clickProgressionTag(tag: ProgressionTag) {
+    if (tag in progressionActivations) {
+      if (progressionActivations[tag] === true) {
+        progressionActivations = { ...progressionActivations, [tag]: false };
+      } else {
+        const next = { ...progressionActivations };
+        delete next[tag];
+        progressionActivations = next;
+      }
+    } else {
+      progressionActivations = { ...progressionActivations, [tag]: true };
+    }
+  }
+
   function clickFormatTag(tag: FormatTag) {
     if (tag in formatActivations) {
       if (formatActivations[tag] === true) {
@@ -455,6 +517,7 @@
   function reset() {
     tagActivations = {};
     protagonistActivations = {};
+    progressionActivations = {};
     searchTerm = '';
     layout = defaultLayout;
     byRank = true;
@@ -535,12 +598,15 @@
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
-
         for (const [tag, active] of Object.entries(tagActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
         for (const [tag, active] of Object.entries(protagonistActivations)) {
+          if (active === true && !post.tags.includes(tag)) return false;
+          if (active === false && post.tags.includes(tag)) return false;
+        }
+        for (const [tag, active] of Object.entries(progressionActivations)) {
           if (active === true && !post.tags.includes(tag)) return false;
           if (active === false && post.tags.includes(tag)) return false;
         }
@@ -582,6 +648,13 @@
     if (Object.keys(protagonistActivations).length === 0) return 'active-nan';
     if (protagonistActivations[tag] === true) return 'active-true';
     if (protagonistActivations[tag] === false) return 'active-false';
+    return 'active-undefined';
+  }
+
+  function progressionChipState(tag: ProgressionTag): ChipState {
+    if (Object.keys(progressionActivations).length === 0) return 'active-nan';
+    if (progressionActivations[tag] === true) return 'active-true';
+    if (progressionActivations[tag] === false) return 'active-false';
     return 'active-undefined';
   }
 
@@ -849,6 +922,16 @@
       onclick={() => clickProtagonistTag(tag)}
     >
       <span>{PROTAGONIST_LABELS[tag]}</span>
+    </button>
+  {/each
+
+  {#each availableProgressionTags as tag}
+    <button
+      type="button"
+      class={`filter-chip progression-chip ${progressionChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickProgressionTag(tag)}
+    >
+       <span>{PROGRESSION_LABELS[tag]}</span>
     </button>
   {/each}
 </div>
