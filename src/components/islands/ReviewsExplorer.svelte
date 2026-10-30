@@ -1031,16 +1031,6 @@
     <span>ongoing</span>
   </button>
 
-  {#each availableFormatTags as tag}
-    <button
-      type="button"
-      class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
-      onclick={() => clickFormatTag(tag)}
-    >
-      <span>{FORMAT_LABELS[tag]}</span>
-    </button>
-  {/each}
-
   {#each availableSourceTags as tag}
     <button
       type="button"
@@ -1055,6 +1045,16 @@
       <span>{SOURCE_LABELS[tag]}</span>
     </button>
   {/each}  
+
+  {#each availableFormatTags as tag}
+    <button
+      type="button"
+      class={`filter-chip format-chip ${formatChipState(tag)} hover:cursor-pointer text-base sm:text-sm`}
+      onclick={() => clickFormatTag(tag)}
+    >
+      <span>{FORMAT_LABELS[tag]}</span>
+    </button>
+  {/each}
 </div>
 
 {#snippet cards(posts: Post[])}
